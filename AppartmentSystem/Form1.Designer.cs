@@ -57,6 +57,7 @@
             this.btn_SignUp.TabIndex = 1;
             this.btn_SignUp.Text = "Sign Up";
             this.btn_SignUp.UseVisualStyleBackColor = false;
+            this.btn_SignUp.Click += new System.EventHandler(this.btn_SignUp_Click);
             // 
             // lbl_username
             // 
@@ -125,6 +126,7 @@
             this.Controls.Add(this.btn_Login);
             this.Name = "FrmLogin";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
