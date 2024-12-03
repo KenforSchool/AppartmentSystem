@@ -41,6 +41,7 @@
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.txt_LastName = new System.Windows.Forms.TextBox();
             this.txt_ConfirmPass = new System.Windows.Forms.TextBox();
+            this.btn_back_signup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_CreateAcc
@@ -118,7 +119,7 @@
             // 
             // btn_CreateAcc
             // 
-            this.btn_CreateAcc.Location = new System.Drawing.Point(442, 549);
+            this.btn_CreateAcc.Location = new System.Drawing.Point(597, 553);
             this.btn_CreateAcc.Name = "btn_CreateAcc";
             this.btn_CreateAcc.Size = new System.Drawing.Size(156, 65);
             this.btn_CreateAcc.TabIndex = 6;
@@ -161,6 +162,16 @@
             this.txt_ConfirmPass.TabIndex = 11;
             this.txt_ConfirmPass.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
+            // btn_back_signup
+            // 
+            this.btn_back_signup.Location = new System.Drawing.Point(357, 553);
+            this.btn_back_signup.Name = "btn_back_signup";
+            this.btn_back_signup.Size = new System.Drawing.Size(156, 65);
+            this.btn_back_signup.TabIndex = 12;
+            this.btn_back_signup.Text = "Back";
+            this.btn_back_signup.UseVisualStyleBackColor = true;
+            this.btn_back_signup.Click += new System.EventHandler(this.btn_back_signup_Click);
+            // 
             // Frm_SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +179,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_back_signup);
             this.Controls.Add(this.txt_ConfirmPass);
             this.Controls.Add(this.txt_LastName);
             this.Controls.Add(this.txt_Password);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.TextBox txt_LastName;
         private System.Windows.Forms.TextBox txt_ConfirmPass;
+        private System.Windows.Forms.Button btn_back_signup;
     }
 }
