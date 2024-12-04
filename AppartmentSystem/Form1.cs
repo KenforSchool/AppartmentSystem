@@ -29,5 +29,20 @@ namespace AppartmentSystem
         {
 
         }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            // code 
+
+
+            Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
+            frm_Dashboard.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
