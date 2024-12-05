@@ -12,9 +12,12 @@ namespace AppartmentSystem
 {
     public partial class FrmLogin : Form
     {
+
         public FrmLogin()
         {
             InitializeComponent();
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DatabaseContext conn = new DatabaseContext(connectionString);
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
@@ -32,8 +35,7 @@ namespace AppartmentSystem
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            // code 
-
+            // code           
 
             Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
             frm_Dashboard.Show();
