@@ -54,6 +54,7 @@ namespace AppartmentSystem
                     SqlCommand command = new SqlCommand(querry, connection);
 
                     command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", user_password);
                     
                 }
                 catch
