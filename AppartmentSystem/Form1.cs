@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace AppartmentSystem
 {
@@ -17,8 +18,6 @@ namespace AppartmentSystem
         public FrmLogin()
         {
             InitializeComponent();
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            DatabaseContext conn = new DatabaseContext(connectionString);
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
@@ -36,26 +35,38 @@ namespace AppartmentSystem
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            // code           
+            // code
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DatabaseContext conn = new DatabaseContext(connectionString);
             string username, user_password;
 
             username = txt_Username.Text;
             user_password = txt_Password.Text;
 
-            try
+            using (SqlConnection connection = conn.GetConnection())
             {
+                //functions
+                try
+                {
+                    connection.Open();
 
+                    string querry = "SELECT COUNT(1) FROM users WHERE username = @username AND password = @password";
+                    SqlCommand command = new SqlCommand(querry, connection);
+
+                    command.Parameters.AddWithValue("@username", username);
+                    
+                }
+                catch
+                {
+
+                    MessageBox.Show("Invalid Username/Password");
+                }
+                finally
+                {
+
+                }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-
-            }
-
+            
             Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
             frm_Dashboard.Show();
             this.Hide();
