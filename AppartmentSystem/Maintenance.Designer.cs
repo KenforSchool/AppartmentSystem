@@ -86,7 +86,7 @@
             // lbl_roomNo
             // 
             this.lbl_roomNo.AutoSize = true;
-            this.lbl_roomNo.Location = new System.Drawing.Point(78, 24);
+            this.lbl_roomNo.Location = new System.Drawing.Point(79, 31);
             this.lbl_roomNo.Name = "lbl_roomNo";
             this.lbl_roomNo.Size = new System.Drawing.Size(55, 13);
             this.lbl_roomNo.TabIndex = 1;
@@ -95,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 88);
+            this.label1.Location = new System.Drawing.Point(99, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -104,7 +104,7 @@
             // lbl_cost
             // 
             this.lbl_cost.AutoSize = true;
-            this.lbl_cost.Location = new System.Drawing.Point(525, 24);
+            this.lbl_cost.Location = new System.Drawing.Point(526, 31);
             this.lbl_cost.Name = "lbl_cost";
             this.lbl_cost.Size = new System.Drawing.Size(31, 13);
             this.lbl_cost.TabIndex = 3;
@@ -113,7 +113,7 @@
             // lbl_priority
             // 
             this.lbl_priority.AutoSize = true;
-            this.lbl_priority.Location = new System.Drawing.Point(515, 91);
+            this.lbl_priority.Location = new System.Drawing.Point(516, 95);
             this.lbl_priority.Name = "lbl_priority";
             this.lbl_priority.Size = new System.Drawing.Size(41, 13);
             this.lbl_priority.TabIndex = 4;
@@ -199,6 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_deleteMaintenance);
             this.Controls.Add(this.btn_updateMaintenance);

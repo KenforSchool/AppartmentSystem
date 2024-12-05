@@ -37,9 +37,9 @@
             this.txt_Password = new System.Windows.Forms.TextBox();
             this.lbl_Login = new System.Windows.Forms.Label();
             this.panel_login = new System.Windows.Forms.Panel();
+            this.cb_showPassword = new System.Windows.Forms.CheckBox();
             this.lbl_logo_admin_Signup = new System.Windows.Forms.Label();
             this.lbl_motto = new System.Windows.Forms.Label();
-            this.cb_showPassword = new System.Windows.Forms.CheckBox();
             this.panel_login.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,6 +149,16 @@
             this.panel_login.Size = new System.Drawing.Size(387, 515);
             this.panel_login.TabIndex = 7;
             // 
+            // cb_showPassword
+            // 
+            this.cb_showPassword.AutoSize = true;
+            this.cb_showPassword.Location = new System.Drawing.Point(45, 278);
+            this.cb_showPassword.Name = "cb_showPassword";
+            this.cb_showPassword.Size = new System.Drawing.Size(102, 17);
+            this.cb_showPassword.TabIndex = 7;
+            this.cb_showPassword.Text = "Show Password";
+            this.cb_showPassword.UseVisualStyleBackColor = true;
+            // 
             // lbl_logo_admin_Signup
             // 
             this.lbl_logo_admin_Signup.Image = ((System.Drawing.Image)(resources.GetObject("lbl_logo_admin_Signup.Image")));
@@ -166,16 +176,6 @@
             this.lbl_motto.Size = new System.Drawing.Size(386, 169);
             this.lbl_motto.TabIndex = 8;
             this.lbl_motto.Text = "You Live, We Provide";
-            // 
-            // cb_showPassword
-            // 
-            this.cb_showPassword.AutoSize = true;
-            this.cb_showPassword.Location = new System.Drawing.Point(45, 278);
-            this.cb_showPassword.Name = "cb_showPassword";
-            this.cb_showPassword.Size = new System.Drawing.Size(102, 17);
-            this.cb_showPassword.TabIndex = 7;
-            this.cb_showPassword.Text = "Show Password";
-            this.cb_showPassword.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
