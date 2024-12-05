@@ -36,6 +36,24 @@ namespace AppartmentSystem
         private void btn_Login_Click(object sender, EventArgs e)
         {
             // code           
+            string username, user_password;
+
+            username = txt_Username.Text;
+            user_password = txt_Password.Text;
+
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+
+            }
 
             Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
             frm_Dashboard.Show();
