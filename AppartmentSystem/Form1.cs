@@ -36,6 +36,7 @@ namespace AppartmentSystem
         private void btn_Login_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
             DatabaseContext conn = new DatabaseContext(connectionString);
             string username, user_password;
 

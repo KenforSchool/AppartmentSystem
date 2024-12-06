@@ -132,6 +132,7 @@
             this.btn_CreateAcc.Text = "Create Account";
             this.btn_CreateAcc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CreateAcc.UseVisualStyleBackColor = false;
+            this.btn_CreateAcc.Click += new System.EventHandler(this.btn_CreateAcc_Click);
             // 
             // txt_FirstName
             // 
