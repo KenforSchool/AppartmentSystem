@@ -106,6 +106,7 @@
             // lbl_roomNo
             // 
             this.lbl_roomNo.AutoSize = true;
+            this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_roomNo.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_roomNo.Location = new System.Drawing.Point(99, 25);
@@ -124,6 +125,7 @@
             // lbl_tenant
             // 
             this.lbl_tenant.AutoSize = true;
+            this.lbl_tenant.BackColor = System.Drawing.Color.Transparent;
             this.lbl_tenant.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tenant.Location = new System.Drawing.Point(93, 86);
             this.lbl_tenant.Name = "lbl_tenant";
@@ -141,7 +143,9 @@
             // lbl_movedIn
             // 
             this.lbl_movedIn.AutoSize = true;
+            this.lbl_movedIn.BackColor = System.Drawing.Color.Transparent;
             this.lbl_movedIn.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_movedIn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_movedIn.Location = new System.Drawing.Point(530, 25);
             this.lbl_movedIn.Name = "lbl_movedIn";
             this.lbl_movedIn.Size = new System.Drawing.Size(62, 14);
@@ -151,7 +155,9 @@
             // lbl_movedOut
             // 
             this.lbl_movedOut.AutoSize = true;
+            this.lbl_movedOut.BackColor = System.Drawing.Color.Transparent;
             this.lbl_movedOut.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_movedOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_movedOut.Location = new System.Drawing.Point(520, 82);
             this.lbl_movedOut.Name = "lbl_movedOut";
             this.lbl_movedOut.Size = new System.Drawing.Size(72, 14);
@@ -202,6 +208,7 @@
             // 
             // btn_deleteRoom
             // 
+            this.btn_deleteRoom.BackColor = System.Drawing.Color.Transparent;
             this.btn_deleteRoom.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deleteRoom.Image = ((System.Drawing.Image)(resources.GetObject("btn_deleteRoom.Image")));
             this.btn_deleteRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -211,13 +218,15 @@
             this.btn_deleteRoom.TabIndex = 12;
             this.btn_deleteRoom.Text = "Delete";
             this.btn_deleteRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_deleteRoom.UseVisualStyleBackColor = true;
+            this.btn_deleteRoom.UseVisualStyleBackColor = false;
             // 
             // frm_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_deleteRoom);
             this.Controls.Add(this.btn_editRoom);

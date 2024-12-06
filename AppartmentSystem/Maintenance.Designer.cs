@@ -86,6 +86,8 @@
             // lbl_roomNo
             // 
             this.lbl_roomNo.AutoSize = true;
+            this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_roomNo.Location = new System.Drawing.Point(79, 31);
             this.lbl_roomNo.Name = "lbl_roomNo";
             this.lbl_roomNo.Size = new System.Drawing.Size(55, 13);
@@ -95,6 +97,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(99, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
@@ -104,6 +108,8 @@
             // lbl_cost
             // 
             this.lbl_cost.AutoSize = true;
+            this.lbl_cost.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_cost.ForeColor = System.Drawing.Color.White;
             this.lbl_cost.Location = new System.Drawing.Point(526, 31);
             this.lbl_cost.Name = "lbl_cost";
             this.lbl_cost.Size = new System.Drawing.Size(31, 13);
@@ -113,6 +119,8 @@
             // lbl_priority
             // 
             this.lbl_priority.AutoSize = true;
+            this.lbl_priority.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_priority.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_priority.Location = new System.Drawing.Point(516, 95);
             this.lbl_priority.Name = "lbl_priority";
             this.lbl_priority.Size = new System.Drawing.Size(41, 13);
@@ -151,7 +159,7 @@
             // 
             this.btn_addMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenance.Image")));
             this.btn_addMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_addMaintenance.Location = new System.Drawing.Point(781, 90);
+            this.btn_addMaintenance.Location = new System.Drawing.Point(791, 73);
             this.btn_addMaintenance.Name = "btn_addMaintenance";
             this.btn_addMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_addMaintenance.TabIndex = 9;
@@ -163,7 +171,7 @@
             // 
             this.btn_editMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_editMaintenance.Image")));
             this.btn_editMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_editMaintenance.Location = new System.Drawing.Point(870, 92);
+            this.btn_editMaintenance.Location = new System.Drawing.Point(880, 75);
             this.btn_editMaintenance.Name = "btn_editMaintenance";
             this.btn_editMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_editMaintenance.TabIndex = 10;
@@ -175,7 +183,7 @@
             // 
             this.btn_updateMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_updateMaintenance.Image")));
             this.btn_updateMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_updateMaintenance.Location = new System.Drawing.Point(781, 41);
+            this.btn_updateMaintenance.Location = new System.Drawing.Point(791, 24);
             this.btn_updateMaintenance.Name = "btn_updateMaintenance";
             this.btn_updateMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_updateMaintenance.TabIndex = 11;
@@ -187,7 +195,7 @@
             // 
             this.btn_deleteMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_deleteMaintenance.Image")));
             this.btn_deleteMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_deleteMaintenance.Location = new System.Drawing.Point(870, 41);
+            this.btn_deleteMaintenance.Location = new System.Drawing.Point(880, 24);
             this.btn_deleteMaintenance.Name = "btn_deleteMaintenance";
             this.btn_deleteMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_deleteMaintenance.TabIndex = 12;
@@ -200,6 +208,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_deleteMaintenance);
             this.Controls.Add(this.btn_updateMaintenance);
