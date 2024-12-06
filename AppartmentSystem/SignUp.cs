@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -15,9 +16,13 @@ namespace AppartmentSystem
 {
     public partial class Frm_SignUp : Form
     {
+        private SqlConnection connection;
+
         public Frm_SignUp()
         {
             InitializeComponent();
+            connection = new SqlConnection("DefaultConnection");
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -42,8 +47,6 @@ namespace AppartmentSystem
 
         private void btn_CreateAcc_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            
             string usernmame = txt_Username.Text;
             string password = txt_Password.Text;
             string confirmpass = txt_ConfirmPass.Text;
@@ -52,15 +55,15 @@ namespace AppartmentSystem
 
             if(password == confirmpass)
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (connection)
                 {
                     try
                     {
-                        conn.Open();
+                        connection.Open();
 
                         string querry = "INSERT INTO adminstration_table (username, password, first_name, last_name) VALUES (@username, @password, @first_name, @last_name)";
 
-                        using (SqlCommand cmd = new SqlCommand(querry, conn))
+                        using (SqlCommand cmd = new SqlCommand(querry, connection))
                         {
                             cmd.Parameters.AddWithValue("@username", usernmame);
                             cmd.Parameters.AddWithValue("@password", password);
