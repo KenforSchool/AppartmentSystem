@@ -22,10 +22,10 @@ namespace AppartmentSystem
 
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-          
+
             Frm_SignUp signUpForm = new Frm_SignUp();
             signUpForm.Show();
-            this.Hide(); 
+            this.Hide();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -35,8 +35,6 @@ namespace AppartmentSystem
         //waddup
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            /*
-            // code
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             DatabaseContext conn = new DatabaseContext(connectionString);
             string username, user_password;
@@ -56,27 +54,36 @@ namespace AppartmentSystem
 
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", user_password);
-                    
-                }
-                catch
-                {
 
-                    MessageBox.Show("Invalid Username/Password");
+                    int result = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Login Successfull");
+
+                        Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
+                        frm_Dashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username/Password");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
                 finally
                 {
 
                 }
-            }*/
-            
-            Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
-            frm_Dashboard.Show();
-            this.Hide();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
+            }
 
         }
+
     }
+
+  
 }
+

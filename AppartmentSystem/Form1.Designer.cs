@@ -166,7 +166,7 @@
             this.lbl_logo_admin_Signup.Name = "lbl_logo_admin_Signup";
             this.lbl_logo_admin_Signup.Size = new System.Drawing.Size(105, 93);
             this.lbl_logo_admin_Signup.TabIndex = 6;
-            this.lbl_logo_admin_Signup.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // lbl_motto
             // 
