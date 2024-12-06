@@ -80,7 +80,7 @@
             this.lbl_username.AutoSize = true;
             this.lbl_username.BackColor = System.Drawing.Color.Transparent;
             this.lbl_username.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_username.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_username.ForeColor = System.Drawing.Color.White;
             this.lbl_username.Location = new System.Drawing.Point(38, 152);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(94, 23);
@@ -92,7 +92,7 @@
             this.lbl_password.AutoSize = true;
             this.lbl_password.BackColor = System.Drawing.Color.Transparent;
             this.lbl_password.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_password.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_password.ForeColor = System.Drawing.Color.White;
             this.lbl_password.Location = new System.Drawing.Point(41, 226);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(91, 23);
@@ -122,7 +122,7 @@
             // 
             this.lbl_Login.BackColor = System.Drawing.Color.Gainsboro;
             this.lbl_Login.Font = new System.Drawing.Font("Calisto MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Login.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_Login.ForeColor = System.Drawing.Color.White;
             this.lbl_Login.Image = ((System.Drawing.Image)(resources.GetObject("lbl_Login.Image")));
             this.lbl_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Login.Location = new System.Drawing.Point(0, -2);
@@ -152,6 +152,7 @@
             // cb_showPassword
             // 
             this.cb_showPassword.AutoSize = true;
+            this.cb_showPassword.ForeColor = System.Drawing.Color.White;
             this.cb_showPassword.Location = new System.Drawing.Point(45, 278);
             this.cb_showPassword.Name = "cb_showPassword";
             this.cb_showPassword.Size = new System.Drawing.Size(102, 17);
@@ -166,11 +167,12 @@
             this.lbl_logo_admin_Signup.Name = "lbl_logo_admin_Signup";
             this.lbl_logo_admin_Signup.Size = new System.Drawing.Size(105, 93);
             this.lbl_logo_admin_Signup.TabIndex = 6;
-            
             // 
             // lbl_motto
             // 
+            this.lbl_motto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_motto.ForeColor = System.Drawing.Color.White;
             this.lbl_motto.Location = new System.Drawing.Point(64, 306);
             this.lbl_motto.Name = "lbl_motto";
             this.lbl_motto.Size = new System.Drawing.Size(386, 169);
@@ -182,6 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.lbl_motto);

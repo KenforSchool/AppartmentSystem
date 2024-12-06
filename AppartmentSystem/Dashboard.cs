@@ -92,5 +92,10 @@ namespace AppartmentSystem
                 }
             }
         }
+
+        private void panel_dockleft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

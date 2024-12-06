@@ -234,6 +234,7 @@
             this.panel_dockleft.Name = "panel_dockleft";
             this.panel_dockleft.Size = new System.Drawing.Size(195, 664);
             this.panel_dockleft.TabIndex = 10;
+            this.panel_dockleft.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_dockleft_Paint);
             // 
             // Frm_Dashboard
             // 

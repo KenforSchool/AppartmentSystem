@@ -18,6 +18,8 @@ namespace AppartmentSystem
         public FrmLogin()
         {
             InitializeComponent();
+            panel_login.BackColor = Color.FromArgb(125, Color.Black);
+            lbl_Login.BackColor = Color.FromArgb(125, Color.Black);
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
