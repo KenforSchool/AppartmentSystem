@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace AppartmentSystem
 
         public DatabaseContext(string dbConnectionString)
         {
-            _dbConnectionString = dbConnectionString;
+            _dbConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
         public SqlConnection GetConnection()
