@@ -15,9 +15,20 @@ namespace AppartmentSystem
         public Frm_Dashboard()
         {
             InitializeComponent();
+            panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
 
         }

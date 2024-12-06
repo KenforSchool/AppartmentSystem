@@ -35,6 +35,7 @@ namespace AppartmentSystem
         //waddup
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            /*
             // code
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             DatabaseContext conn = new DatabaseContext(connectionString);
@@ -66,7 +67,7 @@ namespace AppartmentSystem
                 {
 
                 }
-            }
+            }*/
             
             Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
             frm_Dashboard.Show();

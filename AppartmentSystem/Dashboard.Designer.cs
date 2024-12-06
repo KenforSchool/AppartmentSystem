@@ -34,14 +34,20 @@
             this.btn_manageLeases = new System.Windows.Forms.Button();
             this.btn_financialData = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel_status = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_maintenanceRequestOutput = new System.Windows.Forms.Label();
             this.lbl_InactiveRoomOutput = new System.Windows.Forms.Label();
             this.lbl_ActiveRoomOutput = new System.Windows.Forms.Label();
             this.lbl_MaintenanceRequest = new System.Windows.Forms.Label();
             this.lbl_InactiveRoom = new System.Windows.Forms.Label();
             this.lbl_TotalActiveRoom = new System.Windows.Forms.Label();
-            this.panel_status.SuspendLayout();
+            this.panel_actRoom = new System.Windows.Forms.Panel();
+            this.panel_inactRoom = new System.Windows.Forms.Panel();
+            this.panel_maintenanceRequest = new System.Windows.Forms.Panel();
+            this.panel_headDashboard = new System.Windows.Forms.Panel();
+            this.panel_actRoom.SuspendLayout();
+            this.panel_inactRoom.SuspendLayout();
+            this.panel_maintenanceRequest.SuspendLayout();
+            this.panel_headDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -49,8 +55,8 @@
             this.lbl_header.AutoSize = true;
             this.lbl_header.BackColor = System.Drawing.Color.Transparent;
             this.lbl_header.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_header.ForeColor = System.Drawing.Color.Silver;
-            this.lbl_header.Location = new System.Drawing.Point(12, 9);
+            this.lbl_header.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_header.Location = new System.Drawing.Point(13, 9);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(187, 45);
             this.lbl_header.TabIndex = 0;
@@ -112,33 +118,19 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // panel_status
+            // lbl_maintenanceRequestOutput
             // 
-            this.panel_status.BackColor = System.Drawing.Color.Silver;
-            this.panel_status.Controls.Add(this.label1);
-            this.panel_status.Controls.Add(this.lbl_InactiveRoomOutput);
-            this.panel_status.Controls.Add(this.lbl_ActiveRoomOutput);
-            this.panel_status.Controls.Add(this.lbl_MaintenanceRequest);
-            this.panel_status.Controls.Add(this.lbl_InactiveRoom);
-            this.panel_status.Controls.Add(this.lbl_TotalActiveRoom);
-            this.panel_status.Location = new System.Drawing.Point(406, 100);
-            this.panel_status.Name = "panel_status";
-            this.panel_status.Size = new System.Drawing.Size(514, 330);
-            this.panel_status.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(417, 242);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "maint_request";
+            this.lbl_maintenanceRequestOutput.AutoSize = true;
+            this.lbl_maintenanceRequestOutput.Location = new System.Drawing.Point(20, 30);
+            this.lbl_maintenanceRequestOutput.Name = "lbl_maintenanceRequestOutput";
+            this.lbl_maintenanceRequestOutput.Size = new System.Drawing.Size(73, 13);
+            this.lbl_maintenanceRequestOutput.TabIndex = 5;
+            this.lbl_maintenanceRequestOutput.Text = "maint_request";
             // 
             // lbl_InactiveRoomOutput
             // 
             this.lbl_InactiveRoomOutput.AutoSize = true;
-            this.lbl_InactiveRoomOutput.Location = new System.Drawing.Point(428, 142);
+            this.lbl_InactiveRoomOutput.Location = new System.Drawing.Point(20, 23);
             this.lbl_InactiveRoomOutput.Name = "lbl_InactiveRoomOutput";
             this.lbl_InactiveRoomOutput.Size = new System.Drawing.Size(62, 13);
             this.lbl_InactiveRoomOutput.TabIndex = 4;
@@ -147,7 +139,7 @@
             // lbl_ActiveRoomOutput
             // 
             this.lbl_ActiveRoomOutput.AutoSize = true;
-            this.lbl_ActiveRoomOutput.Location = new System.Drawing.Point(440, 37);
+            this.lbl_ActiveRoomOutput.Location = new System.Drawing.Point(20, 30);
             this.lbl_ActiveRoomOutput.Name = "lbl_ActiveRoomOutput";
             this.lbl_ActiveRoomOutput.Size = new System.Drawing.Size(50, 13);
             this.lbl_ActiveRoomOutput.TabIndex = 3;
@@ -157,7 +149,7 @@
             // 
             this.lbl_MaintenanceRequest.AutoSize = true;
             this.lbl_MaintenanceRequest.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaintenanceRequest.Location = new System.Drawing.Point(24, 232);
+            this.lbl_MaintenanceRequest.Location = new System.Drawing.Point(-6, 67);
             this.lbl_MaintenanceRequest.Name = "lbl_MaintenanceRequest";
             this.lbl_MaintenanceRequest.Size = new System.Drawing.Size(259, 33);
             this.lbl_MaintenanceRequest.TabIndex = 2;
@@ -167,43 +159,87 @@
             // 
             this.lbl_InactiveRoom.AutoSize = true;
             this.lbl_InactiveRoom.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_InactiveRoom.Location = new System.Drawing.Point(24, 132);
+            this.lbl_InactiveRoom.Location = new System.Drawing.Point(-6, 71);
             this.lbl_InactiveRoom.Name = "lbl_InactiveRoom";
-            this.lbl_InactiveRoom.Size = new System.Drawing.Size(237, 33);
+            this.lbl_InactiveRoom.Size = new System.Drawing.Size(176, 33);
             this.lbl_InactiveRoom.TabIndex = 1;
-            this.lbl_InactiveRoom.Text = "Total Inactive Room";
+            this.lbl_InactiveRoom.Text = "Inactive Room";
             // 
             // lbl_TotalActiveRoom
             // 
             this.lbl_TotalActiveRoom.AutoSize = true;
             this.lbl_TotalActiveRoom.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(24, 37);
+            this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(3, 67);
             this.lbl_TotalActiveRoom.Name = "lbl_TotalActiveRoom";
-            this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(219, 33);
+            this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(158, 33);
             this.lbl_TotalActiveRoom.TabIndex = 0;
-            this.lbl_TotalActiveRoom.Text = "Total Active Room";
+            this.lbl_TotalActiveRoom.Text = "Active Room";
             this.lbl_TotalActiveRoom.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // panel_actRoom
+            // 
+            this.panel_actRoom.Controls.Add(this.lbl_TotalActiveRoom);
+            this.panel_actRoom.Controls.Add(this.lbl_ActiveRoomOutput);
+            this.panel_actRoom.Location = new System.Drawing.Point(315, 100);
+            this.panel_actRoom.Name = "panel_actRoom";
+            this.panel_actRoom.Size = new System.Drawing.Size(261, 100);
+            this.panel_actRoom.TabIndex = 6;
+            this.panel_actRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel_inactRoom
+            // 
+            this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoom);
+            this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoomOutput);
+            this.panel_inactRoom.Location = new System.Drawing.Point(582, 100);
+            this.panel_inactRoom.Name = "panel_inactRoom";
+            this.panel_inactRoom.Size = new System.Drawing.Size(261, 100);
+            this.panel_inactRoom.TabIndex = 7;
+            // 
+            // panel_maintenanceRequest
+            // 
+            this.panel_maintenanceRequest.Controls.Add(this.lbl_MaintenanceRequest);
+            this.panel_maintenanceRequest.Controls.Add(this.lbl_maintenanceRequestOutput);
+            this.panel_maintenanceRequest.Location = new System.Drawing.Point(315, 225);
+            this.panel_maintenanceRequest.Name = "panel_maintenanceRequest";
+            this.panel_maintenanceRequest.Size = new System.Drawing.Size(261, 100);
+            this.panel_maintenanceRequest.TabIndex = 8;
+            // 
+            // panel_headDashboard
+            // 
+            this.panel_headDashboard.Controls.Add(this.lbl_header);
+            this.panel_headDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_headDashboard.Location = new System.Drawing.Point(0, 0);
+            this.panel_headDashboard.Name = "panel_headDashboard";
+            this.panel_headDashboard.Size = new System.Drawing.Size(1008, 65);
+            this.panel_headDashboard.TabIndex = 9;
             // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.panel_status);
+            this.Controls.Add(this.panel_headDashboard);
+            this.Controls.Add(this.panel_maintenanceRequest);
+            this.Controls.Add(this.panel_inactRoom);
+            this.Controls.Add(this.panel_actRoom);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_financialData);
             this.Controls.Add(this.btn_manageLeases);
             this.Controls.Add(this.btn_manageRoom);
-            this.Controls.Add(this.lbl_header);
             this.DoubleBuffered = true;
             this.Name = "Frm_Dashboard";
             this.Text = "Dashboard";
-            this.panel_status.ResumeLayout(false);
-            this.panel_status.PerformLayout();
+            this.Load += new System.EventHandler(this.Frm_Dashboard_Load);
+            this.panel_actRoom.ResumeLayout(false);
+            this.panel_actRoom.PerformLayout();
+            this.panel_inactRoom.ResumeLayout(false);
+            this.panel_inactRoom.PerformLayout();
+            this.panel_maintenanceRequest.ResumeLayout(false);
+            this.panel_maintenanceRequest.PerformLayout();
+            this.panel_headDashboard.ResumeLayout(false);
+            this.panel_headDashboard.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -214,12 +250,15 @@
         private System.Windows.Forms.Button btn_manageLeases;
         private System.Windows.Forms.Button btn_financialData;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel_status;
         private System.Windows.Forms.Label lbl_TotalActiveRoom;
         private System.Windows.Forms.Label lbl_InactiveRoom;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_maintenanceRequestOutput;
         private System.Windows.Forms.Label lbl_InactiveRoomOutput;
         private System.Windows.Forms.Label lbl_ActiveRoomOutput;
         private System.Windows.Forms.Label lbl_MaintenanceRequest;
+        private System.Windows.Forms.Panel panel_actRoom;
+        private System.Windows.Forms.Panel panel_inactRoom;
+        private System.Windows.Forms.Panel panel_maintenanceRequest;
+        private System.Windows.Forms.Panel panel_headDashboard;
     }
 }
