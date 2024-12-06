@@ -20,6 +20,7 @@ namespace AppartmentSystem
 
         public Frm_SignUp()
         {
+            //check mo to kerby
             InitializeComponent();
             connection = new SqlConnection("DefaultConnection");
             
