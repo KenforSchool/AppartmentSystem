@@ -78,6 +78,7 @@
             this.btn_manageRoom.Text = "   Manage Room";
             this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_manageRoom.UseVisualStyleBackColor = false;
+            this.btn_manageRoom.Click += new System.EventHandler(this.btn_manageRoom_Click);
             // 
             // btn_manageLeases
             // 

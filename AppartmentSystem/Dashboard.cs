@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,7 +33,64 @@ namespace AppartmentSystem
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
+            GetActiveRoomCount();
+            GetInActiveRoomCount();
+        }
 
+        private void btn_manageRoom_Click(object sender, EventArgs e)
+        {
+                
+        }
+
+        private void GetActiveRoomCount()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM Rooms WHERE IsActive = 1";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    int activeRoomCount = (int)command.ExecuteScalar();
+
+                    lbl_ActiveRoomOutput.Text = activeRoomCount.ToString();
+                    lbl_ActiveRoomOutput.Text = $"Active Rooms: {activeRoomCount}";
+                }
+                catch (Exception ex)
+                {
+                    // Handle any errors
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        private void GetInActiveRoomCount()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM Rooms WHERE IsActive = 0";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    int InactiveRoomCount = (int)command.ExecuteScalar();
+
+                    lbl_InactiveRoomOutput.Text = InactiveRoomCount.ToString();
+                    lbl_InactiveRoomOutput.Text = $"inactive Rooms: {InactiveRoomCount}";
+                }
+                catch (Exception ex)
+                {
+                    // Handle any errors
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
     }
 }
