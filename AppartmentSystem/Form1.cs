@@ -56,30 +56,21 @@ namespace AppartmentSystem
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", user_password);
                     
-                    int result = Convert.ToInt32(command.ExecuteScalar());
-
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Login Successfull");
-
-                        Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
-                        frm_Dashboard.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Username/Password");
-                    }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+
+                    MessageBox.Show("Invalid Username/Password");
                 }
                 finally
                 {
 
                 }
             }
+            
+            Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
+            frm_Dashboard.Show();
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
