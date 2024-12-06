@@ -24,7 +24,6 @@ namespace AppartmentSystem
 
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-
             Frm_SignUp signUpForm = new Frm_SignUp();
             signUpForm.Show();
             this.Hide();

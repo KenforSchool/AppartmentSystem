@@ -16,14 +16,10 @@ namespace AppartmentSystem
 {
     public partial class Frm_SignUp : Form
     {
-        private SqlConnection connection;
 
         public Frm_SignUp()
         {
-            //check mo to kerby
-            InitializeComponent();
-            connection = new SqlConnection("DefaultConnection");
-            
+            InitializeComponent();           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,6 +44,10 @@ namespace AppartmentSystem
 
         private void btn_CreateAcc_Click(object sender, EventArgs e)
         {
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DatabaseContext conn = new DatabaseContext(connectionString);
+
             string usernmame = txt_Username.Text;
             string password = txt_Password.Text;
             string confirmpass = txt_ConfirmPass.Text;
@@ -56,7 +56,7 @@ namespace AppartmentSystem
 
             if(password == confirmpass)
             {
-                using (connection)
+                using (SqlConnection connection = conn.GetConnection())
                 {
                     try
                     {
