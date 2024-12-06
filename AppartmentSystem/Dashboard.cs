@@ -16,6 +16,7 @@ namespace AppartmentSystem
         {
             InitializeComponent();
             panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
+            panel_dockleft.BackColor = Color.FromArgb(125, Color.Black);
         }
 
         private void label1_Click(object sender, EventArgs e)

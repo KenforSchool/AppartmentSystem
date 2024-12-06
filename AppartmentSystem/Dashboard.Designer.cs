@@ -44,10 +44,12 @@
             this.panel_inactRoom = new System.Windows.Forms.Panel();
             this.panel_maintenanceRequest = new System.Windows.Forms.Panel();
             this.panel_headDashboard = new System.Windows.Forms.Panel();
+            this.panel_dockleft = new System.Windows.Forms.Panel();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
             this.panel_headDashboard.SuspendLayout();
+            this.panel_dockleft.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -55,7 +57,7 @@
             this.lbl_header.AutoSize = true;
             this.lbl_header.BackColor = System.Drawing.Color.Transparent;
             this.lbl_header.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_header.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_header.ForeColor = System.Drawing.Color.Silver;
             this.lbl_header.Location = new System.Drawing.Point(13, 9);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(187, 45);
@@ -64,25 +66,26 @@
             // 
             // btn_manageRoom
             // 
-            this.btn_manageRoom.BackColor = System.Drawing.Color.Silver;
+            this.btn_manageRoom.BackColor = System.Drawing.Color.Black;
             this.btn_manageRoom.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_manageRoom.Image = ((System.Drawing.Image)(resources.GetObject("btn_manageRoom.Image")));
-            this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_manageRoom.Location = new System.Drawing.Point(40, 100);
+            this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_manageRoom.Location = new System.Drawing.Point(16, 7);
             this.btn_manageRoom.Name = "btn_manageRoom";
             this.btn_manageRoom.Size = new System.Drawing.Size(160, 55);
             this.btn_manageRoom.TabIndex = 1;
-            this.btn_manageRoom.Text = "Manage Room";
-            this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_manageRoom.Text = "   Manage Room";
+            this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_manageRoom.UseVisualStyleBackColor = false;
             // 
             // btn_manageLeases
             // 
-            this.btn_manageLeases.BackColor = System.Drawing.Color.Silver;
+            this.btn_manageLeases.BackColor = System.Drawing.Color.Black;
             this.btn_manageLeases.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_manageLeases.Image = ((System.Drawing.Image)(resources.GetObject("btn_manageLeases.Image")));
+            this.btn_manageLeases.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_manageLeases.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_manageLeases.Location = new System.Drawing.Point(39, 200);
+            this.btn_manageLeases.Location = new System.Drawing.Point(16, 85);
             this.btn_manageLeases.Name = "btn_manageLeases";
             this.btn_manageLeases.Size = new System.Drawing.Size(160, 55);
             this.btn_manageLeases.TabIndex = 2;
@@ -92,11 +95,11 @@
             // 
             // btn_financialData
             // 
-            this.btn_financialData.BackColor = System.Drawing.Color.Silver;
+            this.btn_financialData.BackColor = System.Drawing.Color.Black;
             this.btn_financialData.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_financialData.Image = ((System.Drawing.Image)(resources.GetObject("btn_financialData.Image")));
+            this.btn_financialData.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_financialData.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_financialData.Location = new System.Drawing.Point(40, 300);
+            this.btn_financialData.Location = new System.Drawing.Point(16, 169);
             this.btn_financialData.Name = "btn_financialData";
             this.btn_financialData.Size = new System.Drawing.Size(160, 55);
             this.btn_financialData.TabIndex = 3;
@@ -106,11 +109,11 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(40, 400);
+            this.button1.Location = new System.Drawing.Point(16, 255);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 55);
             this.button1.TabIndex = 4;
@@ -159,7 +162,7 @@
             // 
             this.lbl_InactiveRoom.AutoSize = true;
             this.lbl_InactiveRoom.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_InactiveRoom.Location = new System.Drawing.Point(-6, 71);
+            this.lbl_InactiveRoom.Location = new System.Drawing.Point(-6, 67);
             this.lbl_InactiveRoom.Name = "lbl_InactiveRoom";
             this.lbl_InactiveRoom.Size = new System.Drawing.Size(176, 33);
             this.lbl_InactiveRoom.TabIndex = 1;
@@ -178,9 +181,11 @@
             // 
             // panel_actRoom
             // 
+            this.panel_actRoom.BackColor = System.Drawing.Color.Transparent;
             this.panel_actRoom.Controls.Add(this.lbl_TotalActiveRoom);
             this.panel_actRoom.Controls.Add(this.lbl_ActiveRoomOutput);
-            this.panel_actRoom.Location = new System.Drawing.Point(315, 100);
+            this.panel_actRoom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_actRoom.Location = new System.Drawing.Point(440, 100);
             this.panel_actRoom.Name = "panel_actRoom";
             this.panel_actRoom.Size = new System.Drawing.Size(261, 100);
             this.panel_actRoom.TabIndex = 6;
@@ -188,18 +193,22 @@
             // 
             // panel_inactRoom
             // 
+            this.panel_inactRoom.BackColor = System.Drawing.Color.Transparent;
             this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoom);
             this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoomOutput);
-            this.panel_inactRoom.Location = new System.Drawing.Point(582, 100);
+            this.panel_inactRoom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_inactRoom.Location = new System.Drawing.Point(440, 355);
             this.panel_inactRoom.Name = "panel_inactRoom";
             this.panel_inactRoom.Size = new System.Drawing.Size(261, 100);
             this.panel_inactRoom.TabIndex = 7;
             // 
             // panel_maintenanceRequest
             // 
+            this.panel_maintenanceRequest.BackColor = System.Drawing.Color.Transparent;
             this.panel_maintenanceRequest.Controls.Add(this.lbl_MaintenanceRequest);
             this.panel_maintenanceRequest.Controls.Add(this.lbl_maintenanceRequestOutput);
-            this.panel_maintenanceRequest.Location = new System.Drawing.Point(315, 225);
+            this.panel_maintenanceRequest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_maintenanceRequest.Location = new System.Drawing.Point(440, 234);
             this.panel_maintenanceRequest.Name = "panel_maintenanceRequest";
             this.panel_maintenanceRequest.Size = new System.Drawing.Size(261, 100);
             this.panel_maintenanceRequest.TabIndex = 8;
@@ -213,20 +222,30 @@
             this.panel_headDashboard.Size = new System.Drawing.Size(1008, 65);
             this.panel_headDashboard.TabIndex = 9;
             // 
+            // panel_dockleft
+            // 
+            this.panel_dockleft.Controls.Add(this.btn_manageRoom);
+            this.panel_dockleft.Controls.Add(this.btn_manageLeases);
+            this.panel_dockleft.Controls.Add(this.btn_financialData);
+            this.panel_dockleft.Controls.Add(this.button1);
+            this.panel_dockleft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_dockleft.Location = new System.Drawing.Point(0, 65);
+            this.panel_dockleft.Name = "panel_dockleft";
+            this.panel_dockleft.Size = new System.Drawing.Size(195, 664);
+            this.panel_dockleft.TabIndex = 10;
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.panel_dockleft);
             this.Controls.Add(this.panel_headDashboard);
             this.Controls.Add(this.panel_maintenanceRequest);
             this.Controls.Add(this.panel_inactRoom);
             this.Controls.Add(this.panel_actRoom);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_financialData);
-            this.Controls.Add(this.btn_manageLeases);
-            this.Controls.Add(this.btn_manageRoom);
             this.DoubleBuffered = true;
             this.Name = "Frm_Dashboard";
             this.Text = "Dashboard";
@@ -239,6 +258,7 @@
             this.panel_maintenanceRequest.PerformLayout();
             this.panel_headDashboard.ResumeLayout(false);
             this.panel_headDashboard.PerformLayout();
+            this.panel_dockleft.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,5 +280,6 @@
         private System.Windows.Forms.Panel panel_inactRoom;
         private System.Windows.Forms.Panel panel_maintenanceRequest;
         private System.Windows.Forms.Panel panel_headDashboard;
+        private System.Windows.Forms.Panel panel_dockleft;
     }
 }
