@@ -39,7 +39,9 @@ namespace AppartmentSystem
 
         private void btn_manageRoom_Click(object sender, EventArgs e)
         {
-                
+                frm_room frm_Room = new frm_room();
+                frm_Room.Show();
+                this.Hide();
         }
 
         private void GetActiveRoomCount()

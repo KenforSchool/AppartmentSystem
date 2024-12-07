@@ -42,7 +42,7 @@ namespace AppartmentSystem
             DatabaseContext conn = new DatabaseContext(connectionString);
 
             string roomNum = txt_RoomNo.Text;
-            string roomPrice = txt_RoomPrice.Text;
+            //string roomPrice = txt_RoomPrice.Text;
 
             string tenantName = txt_tenant.Text;
 
@@ -60,7 +60,7 @@ namespace AppartmentSystem
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@room_price", roomPrice);
+                        //command.Parameters.AddWithValue("@room_price", roomPrice);
                         command.ExecuteNonQuery();
                     }
 
@@ -69,7 +69,7 @@ namespace AppartmentSystem
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        command.Parameters.AddWithValue("@moved_in", moved_IN);
+                        //command.Parameters.AddWithValue("@moved_in", moved_IN);
                         command.ExecuteNonQuery();
                     }
 
@@ -80,7 +80,8 @@ namespace AppartmentSystem
                 catch (Exception)
                 {
 
-                    throw;
+                    transaction.Rollback();
+                    MessageBox.Show("Error has occured!, data has not saved");
                 }
             }
         }
