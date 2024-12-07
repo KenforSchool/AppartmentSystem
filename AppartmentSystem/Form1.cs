@@ -38,8 +38,6 @@ namespace AppartmentSystem
         //waddup
         private void btn_Login_Click(object sender, EventArgs e)
         {
-
-            // string connectionString = "Data Source=DESKTOP-4INLUOQ\\SQLEXPRESS;Initial Catalog=dBApartmentManagement;Integrated Security=True;";
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             DatabaseContext dbContext = new DatabaseContext(connectionString);
 
