@@ -52,7 +52,7 @@ namespace AppartmentSystem
                 {
                     connection.Open();
 
-                    string querry = "SELECT COUNT(*) FROM Adminstration_table WHERE username = @username AND _password = @password";
+                    string querry = "SELECT COUNT(*) FROM management WHERE username = @username AND _password = @password";
                     SqlCommand command = new SqlCommand(querry, connection);
 
                     command.Parameters.AddWithValue("@username", username);
