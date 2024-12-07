@@ -206,6 +206,7 @@
             this.btn_editRoom.Text = "    Edit";
             this.btn_editRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_editRoom.UseVisualStyleBackColor = true;
+            this.btn_editRoom.Click += new System.EventHandler(this.btn_editRoom_Click);
             // 
             // btn_deleteRoom
             // 

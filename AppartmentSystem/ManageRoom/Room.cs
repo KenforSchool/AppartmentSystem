@@ -128,7 +128,6 @@ namespace AppartmentSystem
                 if(isDeleted)
                 {
                     MessageBox.Show("Record deleted successfully!");
-                    LoadData();
                 }
                 else
                 {
@@ -138,5 +137,17 @@ namespace AppartmentSystem
             
         }
 
+        private void btn_editRoom_Click(object sender, EventArgs e)
+        {
+            if (dg_ManageRoom.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a row you want to edit.");
+                return;
+            }
+
+            string roomId = dg_ManageRoom.SelectedRows[0].Cells["room_id"].Value.ToString();
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        }
     }
 }
