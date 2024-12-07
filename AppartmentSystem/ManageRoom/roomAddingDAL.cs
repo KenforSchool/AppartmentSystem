@@ -63,5 +63,29 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
+        public bool DeleteRoom(string roomId)
+        {
+            string query = "DELETE FROM room WHERE room_id = @room_id";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@room_id", roomId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL Error: " + ex.Message);
+                return false;
+            }
+        }
     }
 }

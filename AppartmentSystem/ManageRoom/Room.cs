@@ -110,28 +110,37 @@ namespace AppartmentSystem
 
             if(result == DialogResult.Yes)
             {
-                try
+                roomAddingDAL room = new roomAddingDAL(roomId);
+
+                bool isDeleted = room.DeleteRoom(roomId);
+
+
+                if(isDeleted)
                 {
-                    string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                    string deleteQuery = "DELETE FROM room WHERE room_id = @room_id";
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-
-                        using (SqlCommand command = new SqlCommand(deleteQuery, connection))
-                        {
-                            command.Parameters.AddWithValue("@room_id", room_id);
-                        }
-                    }
+                    MessageBox.Show("Record deleted successfully!");
+                    LoadData();
                 }
-                catch (Exception)
+                else
                 {
-
-                    throw;
+                    MessageBox.Show("Error: Record could not be deleted");
                 }
             }
             
+        }
+
+        private void LoadData()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string selectQuery = "SELECT * FROM room";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dg_ManageRoom.DataSource = table;
+            }
         }
     }
 }
