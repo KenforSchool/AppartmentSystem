@@ -20,7 +20,6 @@ namespace AppartmentSystem
             _dbConnectionString = dbConnectionString;
         }
 
-        // Method to get a new SQL connection
         public SqlConnection GetConnection()
         {
             return new SqlConnection(_dbConnectionString);
