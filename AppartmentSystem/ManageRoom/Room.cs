@@ -43,9 +43,11 @@ namespace AppartmentSystem
             roomAddingDAL add = new roomAddingDAL(connectionString);
 
             string roomNum = txt_RoomNo.Text;
+            //walang design
             string roomPrice = txt_RoomPrice.Text;
 
             string tenantName = txt_tenant.Text;
+            //mali yung design
             DateTime moved_In = DateTime.Now;
 
             bool success = add.AddRoomAndTenant(roomNum, tenantName, moved_In, roomPrice);
