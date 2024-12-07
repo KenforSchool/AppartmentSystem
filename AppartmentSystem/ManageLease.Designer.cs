@@ -221,6 +221,7 @@
             this.btn_addLease.Text = "     Add";
             this.btn_addLease.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addLease.UseVisualStyleBackColor = false;
+            this.btn_addLease.Click += new System.EventHandler(this.btn_addLease_Click);
             // 
             // btn_deleteLease
             // 

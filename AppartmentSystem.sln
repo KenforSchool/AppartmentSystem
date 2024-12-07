@@ -5,6 +5,34 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppartmentSystem", "AppartmentSystem\AppartmentSystem.csproj", "{969B4F7B-075B-4CD2-B188-752B777F0F7D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Maintenance", "Maintenance", "{0323C90F-5C22-49CE-AC27-409D4BD6EF52}"
+	ProjectSection(SolutionItems) = preProject
+		AppartmentSystem\Maintenance.cs = AppartmentSystem\Maintenance.cs
+		AppartmentSystem\Maintenance.Designer.cs = AppartmentSystem\Maintenance.Designer.cs
+		AppartmentSystem\Maintenance.resx = AppartmentSystem\Maintenance.resx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ManageLease", "ManageLease", "{1D9D6F01-75FA-420B-9E87-08AA1E55F2CF}"
+	ProjectSection(SolutionItems) = preProject
+		AppartmentSystem\ManageLease.cs = AppartmentSystem\ManageLease.cs
+		AppartmentSystem\ManageLease.Designer.cs = AppartmentSystem\ManageLease.Designer.cs
+		AppartmentSystem\ManageLease.resx = AppartmentSystem\ManageLease.resx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FinancialData", "FinancialData", "{E0EB3026-7970-429E-9838-6DE0E850A257}"
+	ProjectSection(SolutionItems) = preProject
+		AppartmentSystem\FinancialData.cs = AppartmentSystem\FinancialData.cs
+		AppartmentSystem\FinancialData.Designer.cs = AppartmentSystem\FinancialData.Designer.cs
+		AppartmentSystem\FinancialData.resx = AppartmentSystem\FinancialData.resx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ManageRoom", "ManageRoom", "{1D685B1A-9001-4095-A8D3-FB92418E098D}"
+	ProjectSection(SolutionItems) = preProject
+		AppartmentSystem\Room.cs = AppartmentSystem\Room.cs
+		AppartmentSystem\Room.Designer.cs = AppartmentSystem\Room.Designer.cs
+		AppartmentSystem\Room.resx = AppartmentSystem\Room.resx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

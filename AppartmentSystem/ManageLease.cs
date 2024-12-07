@@ -16,5 +16,10 @@ namespace AppartmentSystem
         {
             InitializeComponent();
         }
+
+        private void btn_addLease_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
