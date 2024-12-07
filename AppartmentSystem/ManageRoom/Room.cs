@@ -65,7 +65,17 @@ namespace AppartmentSystem
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string selectQuery = "SELECT * FROM room";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                dg_ManageRoom.DataSource = table;
+            }
         }
 
         private void btn_addRoom_Click(object sender, EventArgs e)
@@ -128,19 +138,5 @@ namespace AppartmentSystem
             
         }
 
-        private void LoadData()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            string selectQuery = "SELECT * FROM room";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                dg_ManageRoom.DataSource = table;
-            }
-        }
     }
 }
