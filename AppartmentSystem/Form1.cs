@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using AppartmentSystem;
+using System.Diagnostics;
 
 namespace AppartmentSystem
 {
@@ -36,22 +38,22 @@ namespace AppartmentSystem
         //waddup
         private void btn_Login_Click(object sender, EventArgs e)
         {
+
+            // string connectionString = "Data Source=DESKTOP-4INLUOQ\\SQLEXPRESS;Initial Catalog=dBApartmentManagement;Integrated Security=True;";
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            DatabaseContext dbContext = new DatabaseContext(connectionString);
 
-            DatabaseContext conn = new DatabaseContext(connectionString);
             string username, user_password;
-
             username = txt_Username.Text;
             user_password = txt_Password.Text;
 
-            using (SqlConnection connection = conn.GetConnection())
+            using (SqlConnection connection = dbContext.GetConnection())
             {
-                //functions
                 try
                 {
                     connection.Open();
 
-                    string querry = "SELECT COUNT(1) FROM administration_table WHERE username = @username AND password = @password";
+                    string querry = "SELECT COUNT(1) FROM administration_table WHERE username = @username AND _password = @password";
                     SqlCommand command = new SqlCommand(querry, connection);
 
                     command.Parameters.AddWithValue("@username", username);
@@ -72,13 +74,9 @@ namespace AppartmentSystem
                         MessageBox.Show("Invalid Username/Password");
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                finally
-                {
-
+                    MessageBox.Show(ex.Message);
                 }
             }
 
@@ -88,4 +86,3 @@ namespace AppartmentSystem
 
   
 }
-

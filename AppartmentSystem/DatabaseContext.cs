@@ -14,9 +14,13 @@ namespace AppartmentSystem
 
         public DatabaseContext(string dbConnectionString)
         {
-            _dbConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            if (string.IsNullOrEmpty(dbConnectionString))
+                throw new ArgumentException("Connection string cannot be null or empty.", nameof(dbConnectionString));
+
+            _dbConnectionString = dbConnectionString;
         }
 
+        // Method to get a new SQL connection
         public SqlConnection GetConnection()
         {
             return new SqlConnection(_dbConnectionString);
