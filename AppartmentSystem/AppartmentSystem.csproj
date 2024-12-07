@@ -78,6 +78,7 @@
     <Compile Include="ManageLease\ManageLease.Designer.cs">
       <DependentUpon>ManageLease.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageRoom\roomAddingDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManageRoom\Room.cs">

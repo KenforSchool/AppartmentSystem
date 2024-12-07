@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppartmentSystem.ManageRoom;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -39,50 +40,23 @@ namespace AppartmentSystem
         {
 
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            DatabaseContext conn = new DatabaseContext(connectionString);
+            roomAddingDAL add = new roomAddingDAL(connectionString);
 
             string roomNum = txt_RoomNo.Text;
-            //string roomPrice = txt_RoomPrice.Text;
+            string roomPrice = txt_RoomPrice.Text;
 
             string tenantName = txt_tenant.Text;
+            DateTime moved_In = DateTime.Now;
 
+            bool success = add.AddRoomAndTenant(roomNum, tenantName, moved_In, roomPrice);
 
-            using (SqlConnection connection = conn.GetConnection())
+            if(success)
             {
-
-                connection.Open();
-                SqlTransaction transaction = connection.BeginTransaction();
-
-                try
-                {
-
-                    string roomQuery = "INSERT INTO room (room_id, room_price) VALUES (@room_id, @room_price)";
-                    using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomNum);
-                        //command.Parameters.AddWithValue("@room_price", roomPrice);
-                        command.ExecuteNonQuery();
-                    }
-
-                    string tenantQuery = "INSERT INTO tenant (room_id, tenant_name, moved_in) VALUES (@room_id, @tenant_name, @moved_in)";
-                    using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        //command.Parameters.AddWithValue("@moved_in", moved_IN);
-                        command.ExecuteNonQuery();
-                    }
-
-                    transaction.Commit();
-                    MessageBox.Show("Room has been added!");
-
-                }
-                catch (Exception)
-                {
-
-                    transaction.Rollback();
-                    MessageBox.Show("Error has occured!, data has not saved");
-                }
+                MessageBox.Show("Room and tenant have been added successfully");
+            }
+            else
+            {
+                MessageBox.Show("Error has occured. Data has not been saved");
             }
         }
     }
