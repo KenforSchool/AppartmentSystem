@@ -220,6 +220,7 @@
             this.btn_deleteRoom.Text = "Delete";
             this.btn_deleteRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_deleteRoom.UseVisualStyleBackColor = false;
+            this.btn_deleteRoom.Click += new System.EventHandler(this.btn_deleteRoom_Click);
             // 
             // frm_room
             // 

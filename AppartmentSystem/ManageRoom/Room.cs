@@ -41,7 +41,7 @@ namespace AppartmentSystem
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";
 
-            using(SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
@@ -59,7 +59,7 @@ namespace AppartmentSystem
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-                     
+
 
         }
 
@@ -93,6 +93,45 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("Error has occured. Data has not been saved");
             }
+        }
+
+        private void btn_deleteRoom_Click(object sender, EventArgs e)
+        {
+            if(dg_ManageRoom.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a row to delete.");
+                return;
+            }
+
+            string roomId = dg_ManageRoom.SelectedRows[0].Cells["room_id"].Value.ToString();
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if(result == DialogResult.Yes)
+            {
+                try
+                {
+                    string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                    string deleteQuery = "DELETE FROM room WHERE room_id = @room_id";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@room_id", room_id);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            
         }
     }
 }
