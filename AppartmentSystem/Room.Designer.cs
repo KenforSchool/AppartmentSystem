@@ -102,6 +102,7 @@
             this.btn_addRoom.Text = "    Add";
             this.btn_addRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addRoom.UseVisualStyleBackColor = true;
+            this.btn_addRoom.Click += new System.EventHandler(this.btn_addRoom_Click);
             // 
             // lbl_roomNo
             // 

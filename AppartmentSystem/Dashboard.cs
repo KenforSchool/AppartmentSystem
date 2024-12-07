@@ -33,8 +33,8 @@ namespace AppartmentSystem
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
-            GetActiveRoomCount();
-            GetInActiveRoomCount();
+            //GetActiveRoomCount();
+            //GetInActiveRoomCount();
         }
 
         private void btn_manageRoom_Click(object sender, EventArgs e)
@@ -94,6 +94,11 @@ namespace AppartmentSystem
         }
 
         private void panel_dockleft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbl_ActiveRoomOutput_Click(object sender, EventArgs e)
         {
 
         }

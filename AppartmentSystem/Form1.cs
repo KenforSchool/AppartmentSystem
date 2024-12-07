@@ -42,6 +42,7 @@ namespace AppartmentSystem
             DatabaseContext dbContext = new DatabaseContext(connectionString);
 
             string username, user_password;
+
             username = txt_Username.Text;
             user_password = txt_Password.Text;
 
@@ -51,7 +52,7 @@ namespace AppartmentSystem
                 {
                     connection.Open();
 
-                    string querry = "SELECT COUNT(1) FROM administration_table WHERE username = @username AND _password = @password";
+                    string querry = "SELECT COUNT(*) FROM Adminstration_table WHERE username = @username AND _password = @password";
                     SqlCommand command = new SqlCommand(querry, connection);
 
                     command.Parameters.AddWithValue("@username", username);
@@ -74,7 +75,18 @@ namespace AppartmentSystem
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Database Error: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
                 }
             }
 

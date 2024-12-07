@@ -148,6 +148,7 @@
             this.lbl_ActiveRoomOutput.Size = new System.Drawing.Size(50, 13);
             this.lbl_ActiveRoomOutput.TabIndex = 3;
             this.lbl_ActiveRoomOutput.Text = "actRoom";
+            this.lbl_ActiveRoomOutput.Click += new System.EventHandler(this.lbl_ActiveRoomOutput_Click);
             // 
             // lbl_MaintenanceRequest
             // 
