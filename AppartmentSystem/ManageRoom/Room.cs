@@ -52,17 +52,16 @@ namespace AppartmentSystem
             //Connection ng database
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             roomAddingDAL add = new roomAddingDAL(connectionString);
-
             string roomNum = txt_RoomNo.Text;
             //walang design
-            string roomPrice = txt_RoomPrice.Text;
+            double roomPrice = double.Parse(txt_RoomPrice.Text);
 
             string tenantName = txt_tenant.Text;
             //mali yung design
-            DateTime moved_In = DateTime.Now;
+            string moved_In = txt_MovedIn.Text;
 
             //eto yung kinuha yung process
-            bool success = add.AddRoomAndTenant(roomNum, tenantName, , roomPrice, moved_In);
+            bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, moved_In);
 
             if(success)
             {
@@ -120,7 +119,7 @@ namespace AppartmentSystem
             DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
             string roomId = selectedRow.Cells["room_id"].Value.ToString().Trim();
-            int roomPrice = Convert.ToInt32(selectedRow.Cells["room_price"].Value);
+            double roomPrice = Convert.ToDouble(selectedRow.Cells["room_price"].Value);
             string tenantName = selectedRow.Cells["tenant_name"].ToString().Trim();
             string moved_in = selectedRow.Cells["moved_in"].Value.ToString().Trim();
 

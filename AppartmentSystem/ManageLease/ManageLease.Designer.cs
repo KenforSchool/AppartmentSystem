@@ -38,16 +38,16 @@
             this.dg_mlmaintenanceCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_roomNo = new System.Windows.Forms.Label();
             this.txt_roomNo = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTenantName = new System.Windows.Forms.TextBox();
             this.lbl_tenantName = new System.Windows.Forms.Label();
             this.lbl_electricBill = new System.Windows.Forms.Label();
             this.lbl_waterBill = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtElectricBill = new System.Windows.Forms.TextBox();
+            this.txtWaterBill = new System.Windows.Forms.TextBox();
             this.lbl_wifiBill = new System.Windows.Forms.Label();
             this.lbl_maintenanceCost = new System.Windows.Forms.Label();
             this.txt_wifiBill = new System.Windows.Forms.TextBox();
-            this.txt_maintenanceCost = new System.Windows.Forms.TextBox();
+            this.txtRoomBill = new System.Windows.Forms.TextBox();
             this.btn_addLease = new System.Windows.Forms.Button();
             this.btn_deleteLease = new System.Windows.Forms.Button();
             this.btn_updateLease = new System.Windows.Forms.Button();
@@ -119,12 +119,12 @@
             this.txt_roomNo.Size = new System.Drawing.Size(100, 20);
             this.txt_roomNo.TabIndex = 2;
             // 
-            // textBox1
+            // txtTenantName
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtTenantName.Location = new System.Drawing.Point(157, 68);
+            this.txtTenantName.Name = "txtTenantName";
+            this.txtTenantName.Size = new System.Drawing.Size(100, 20);
+            this.txtTenantName.TabIndex = 3;
             // 
             // lbl_tenantName
             // 
@@ -159,19 +159,19 @@
             this.lbl_waterBill.TabIndex = 6;
             this.lbl_waterBill.Text = "Water bill";
             // 
-            // textBox2
+            // txtElectricBill
             // 
-            this.textBox2.Location = new System.Drawing.Point(350, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtElectricBill.Location = new System.Drawing.Point(350, 24);
+            this.txtElectricBill.Name = "txtElectricBill";
+            this.txtElectricBill.Size = new System.Drawing.Size(100, 20);
+            this.txtElectricBill.TabIndex = 7;
             // 
-            // textBox3
+            // txtWaterBill
             // 
-            this.textBox3.Location = new System.Drawing.Point(351, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.txtWaterBill.Location = new System.Drawing.Point(351, 67);
+            this.txtWaterBill.Name = "txtWaterBill";
+            this.txtWaterBill.Size = new System.Drawing.Size(100, 20);
+            this.txtWaterBill.TabIndex = 8;
             // 
             // lbl_wifiBill
             // 
@@ -202,12 +202,12 @@
             this.txt_wifiBill.Size = new System.Drawing.Size(170, 20);
             this.txt_wifiBill.TabIndex = 11;
             // 
-            // txt_maintenanceCost
+            // txtRoomBill
             // 
-            this.txt_maintenanceCost.Location = new System.Drawing.Point(600, 74);
-            this.txt_maintenanceCost.Name = "txt_maintenanceCost";
-            this.txt_maintenanceCost.Size = new System.Drawing.Size(115, 20);
-            this.txt_maintenanceCost.TabIndex = 12;
+            this.txtRoomBill.Location = new System.Drawing.Point(600, 74);
+            this.txtRoomBill.Name = "txtRoomBill";
+            this.txtRoomBill.Size = new System.Drawing.Size(115, 20);
+            this.txtRoomBill.TabIndex = 12;
             // 
             // btn_addLease
             // 
@@ -270,16 +270,16 @@
             this.Controls.Add(this.btn_updateLease);
             this.Controls.Add(this.btn_deleteLease);
             this.Controls.Add(this.btn_addLease);
-            this.Controls.Add(this.txt_maintenanceCost);
+            this.Controls.Add(this.txtRoomBill);
             this.Controls.Add(this.txt_wifiBill);
             this.Controls.Add(this.lbl_maintenanceCost);
             this.Controls.Add(this.lbl_wifiBill);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtWaterBill);
+            this.Controls.Add(this.txtElectricBill);
             this.Controls.Add(this.lbl_waterBill);
             this.Controls.Add(this.lbl_electricBill);
             this.Controls.Add(this.lbl_tenantName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTenantName);
             this.Controls.Add(this.txt_roomNo);
             this.Controls.Add(this.lbl_roomNo);
             this.Controls.Add(this.dataGridView1);
@@ -296,16 +296,16 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbl_roomNo;
         private System.Windows.Forms.TextBox txt_roomNo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTenantName;
         private System.Windows.Forms.Label lbl_tenantName;
         private System.Windows.Forms.Label lbl_electricBill;
         private System.Windows.Forms.Label lbl_waterBill;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtElectricBill;
+        private System.Windows.Forms.TextBox txtWaterBill;
         private System.Windows.Forms.Label lbl_wifiBill;
         private System.Windows.Forms.Label lbl_maintenanceCost;
         private System.Windows.Forms.TextBox txt_wifiBill;
-        private System.Windows.Forms.TextBox txt_maintenanceCost;
+        private System.Windows.Forms.TextBox txtRoomBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlroomNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg_mltenantName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlelectricBill;

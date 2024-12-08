@@ -66,6 +66,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLease\LeaseRepository.cs" />
     <Compile Include="Maintenance\Maintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +79,6 @@
     <Compile Include="ManageLease\ManageLease.Designer.cs">
       <DependentUpon>ManageLease.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageLease\ManageLeaseDAL.cs" />
     <Compile Include="ManageRoom\roomAddingDAL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
