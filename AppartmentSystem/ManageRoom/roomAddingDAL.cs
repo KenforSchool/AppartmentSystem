@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -126,6 +127,34 @@ namespace AppartmentSystem.ManageRoom
                 }
             }
 
+        }
+
+        public DataTable GetRoomTable()
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = @"
+                SELECT
+                     r.room_id,
+                     t.tenant_name,
+                     t.moved_in
+                FROM room r
+                LEFT JOIN tenant t
+                ON r.room_id = t.room_id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+
+            return dataTable;
         }
     }
 }

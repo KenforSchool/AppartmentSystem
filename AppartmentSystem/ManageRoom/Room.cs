@@ -49,6 +49,7 @@ namespace AppartmentSystem
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
+            /*
             //Connection ng database
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             roomAddingDAL add = new roomAddingDAL(connectionString);
@@ -63,7 +64,7 @@ namespace AppartmentSystem
             //eto yung kinuha yung process
             bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, moved_In);
 
-            if(success)
+            if)
             {
                 MessageBox.Show("Room and tenant have been added successfully");
             }
@@ -71,6 +72,7 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("Error has occured. Data has not been saved");
             }
+            */
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
@@ -139,36 +141,27 @@ namespace AppartmentSystem
         //need ng edit sa grid
         private void LoadData()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            roomAddingDAL add = new roomAddingDAL(connectionString);
+            var dataAccess = new roomAddingDAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-            string query = @"
-                SELECT
-                     r.room_id,
-                     t.tenant_name,
-                     t.moved_in
-                FROM room r
-                LEFT JOIN tenant t
-                ON r.room_id = t.room_id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                try
+                DataTable data = dataAccess.GetRoomTable();
+
+                if (data.Rows.Count > 0)
                 {
-                    connection.Open();
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    dg_ManageRoom.DataSource = dataTable;
+                    dg_ManageRoom.DataSource = data;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dg_ManageRoom.DataSource = null;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

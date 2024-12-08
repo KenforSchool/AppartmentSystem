@@ -20,6 +20,21 @@ namespace AppartmentSystem
 
         private void btn_addLease_Click(object sender, EventArgs e)
         {
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            LeaseRepository lease = new LeaseRepository(connectionString);
+
+            string roomId = txt_roomNo.Text.Trim();
+
+            if (!string.IsNullOrEmpty(roomId))
+            {
+                lease.GetTenantRoomId(roomId);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Room ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             if (string.IsNullOrWhiteSpace(txt_roomNo.Text) ||
                 string.IsNullOrWhiteSpace(txtElectricBill.Text) ||
                 string.IsNullOrWhiteSpace(txtWaterBill.Text) ||
@@ -39,23 +54,21 @@ namespace AppartmentSystem
                 MessageBox.Show("Please enter valid numeric values for the bills and room price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            string roomId = txt_roomNo.Text.Trim();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            LeaseRepository lease = new LeaseRepository(connectionString);
-
-            bool isSuccess = lease.addLease(roomId,  electricityBill, waterBill, );
+            bool isSuccess = lease.addLease(roomId,  electricityBill, waterBill, internetBill, roomPrice);
 
             try
             {
-                
+                MessageBox.Show("Lease added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //LoadData();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }
