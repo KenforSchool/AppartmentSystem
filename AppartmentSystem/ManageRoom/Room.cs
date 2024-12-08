@@ -29,38 +29,7 @@ namespace AppartmentSystem
         //pwede pang mabago
         private void frm_room_Load(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            roomAddingDAL add = new roomAddingDAL(connectionString);
-
-            string query = @"
-                SELECT
-                     r.room_id,
-                     t.tenant_name,
-                     t.moved_in
-                FROM room r
-                LEFT JOIN tenant t
-                ON r.room_id = t.room_id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    dg_ManageRoom.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-
-
+            LoadData();
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -93,7 +62,7 @@ namespace AppartmentSystem
             DateTime moved_In = DateTime.Now;
 
             //eto yung kinuha yung process
-            bool success = add.AddRoomAndTenant(roomNum, tenantName, moved_In, roomPrice);
+            bool success = add.AddRoomAndTenant(roomNum, tenantName, , roomPrice, moved_In);
 
             if(success)
             {
@@ -107,7 +76,9 @@ namespace AppartmentSystem
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
         {
-            if(dg_ManageRoom.SelectedRows.Count == 0)
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            if (dg_ManageRoom.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Select a row to delete.");
                 return;
@@ -120,7 +91,7 @@ namespace AppartmentSystem
 
             if(result == DialogResult.Yes)
             {
-                roomAddingDAL room = new roomAddingDAL(roomId);
+                roomAddingDAL room = new roomAddingDAL(connectionString);
 
                 bool isDeleted = room.DeleteRoom(roomId);
 
@@ -139,15 +110,66 @@ namespace AppartmentSystem
 
         private void btn_editRoom_Click(object sender, EventArgs e)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             if (dg_ManageRoom.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Select a row you want to edit.");
                 return;
             }
 
-            string roomId = dg_ManageRoom.SelectedRows[0].Cells["room_id"].Value.ToString();
+            DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
+            string roomId = selectedRow.Cells["room_id"].Value.ToString().Trim();
+            int roomPrice = Convert.ToInt32(selectedRow.Cells["room_price"].Value);
+            string tenantName = selectedRow.Cells["tenant_name"].ToString().Trim();
+            string moved_in = selectedRow.Cells["moved_in"].Value.ToString().Trim();
+
+            roomAddingDAL roomADL = new roomAddingDAL(connectionString);
+            bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice,moved_in);
+
+            if (isUpdated)
+            {
+                MessageBox.Show("Record updated successfully!");
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Error updating record");
+            }
+        }
+        //need ng edit sa grid
+        private void LoadData()
+        {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            roomAddingDAL add = new roomAddingDAL(connectionString);
+
+            string query = @"
+                SELECT
+                     r.room_id,
+                     t.tenant_name,
+                     t.moved_in
+                FROM room r
+                LEFT JOIN tenant t
+                ON r.room_id = t.room_id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dg_ManageRoom.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
     }
 }
