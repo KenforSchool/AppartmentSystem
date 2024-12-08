@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Maintenance));
             this.dg_maintenance = new System.Windows.Forms.DataGridView();
-            this.dg_roomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_issue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_roomNo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_cost = new System.Windows.Forms.Label();
@@ -51,37 +47,13 @@
             // 
             // dg_maintenance
             // 
+            this.dg_maintenance.AllowUserToOrderColumns = true;
             this.dg_maintenance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_maintenance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_maintenance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_roomNo,
-            this.dg_issue,
-            this.dg_cost,
-            this.dg_priority});
             this.dg_maintenance.Location = new System.Drawing.Point(35, 151);
             this.dg_maintenance.Name = "dg_maintenance";
             this.dg_maintenance.Size = new System.Drawing.Size(935, 459);
             this.dg_maintenance.TabIndex = 0;
-            // 
-            // dg_roomNo
-            // 
-            this.dg_roomNo.HeaderText = "Room No.";
-            this.dg_roomNo.Name = "dg_roomNo";
-            // 
-            // dg_issue
-            // 
-            this.dg_issue.HeaderText = "Issue";
-            this.dg_issue.Name = "dg_issue";
-            // 
-            // dg_cost
-            // 
-            this.dg_cost.HeaderText = "Cost ";
-            this.dg_cost.Name = "dg_cost";
-            // 
-            // dg_priority
-            // 
-            this.dg_priority.HeaderText = "Priority";
-            this.dg_priority.Name = "dg_priority";
             // 
             // lbl_roomNo
             // 
@@ -236,10 +208,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dg_maintenance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_roomNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_issue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_priority;
         private System.Windows.Forms.Label lbl_roomNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_cost;

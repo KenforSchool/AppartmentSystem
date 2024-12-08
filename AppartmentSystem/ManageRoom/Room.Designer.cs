@@ -43,10 +43,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_price = new System.Windows.Forms.TextBox();
-            this.dg_Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_Tenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_movedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_movedOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,14 +50,12 @@
             // 
             this.dg_ManageRoom.AllowUserToAddRows = false;
             this.dg_ManageRoom.AllowUserToDeleteRows = false;
+            this.dg_ManageRoom.AllowUserToResizeColumns = false;
+            this.dg_ManageRoom.AllowUserToResizeRows = false;
             this.dg_ManageRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_ManageRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_ManageRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_Room,
-            this.dg_Tenant,
-            this.dg_movedIn,
-            this.dg_movedOut});
             this.dg_ManageRoom.Location = new System.Drawing.Point(56, 138);
+            this.dg_ManageRoom.MultiSelect = false;
             this.dg_ManageRoom.Name = "dg_ManageRoom";
             this.dg_ManageRoom.ReadOnly = true;
             this.dg_ManageRoom.RowHeadersWidth = 51;
@@ -213,34 +207,6 @@
             this.txt_price.Size = new System.Drawing.Size(151, 20);
             this.txt_price.TabIndex = 15;
             // 
-            // dg_Room
-            // 
-            this.dg_Room.HeaderText = "Room";
-            this.dg_Room.MinimumWidth = 6;
-            this.dg_Room.Name = "dg_Room";
-            this.dg_Room.ReadOnly = true;
-            // 
-            // dg_Tenant
-            // 
-            this.dg_Tenant.HeaderText = "Tenant";
-            this.dg_Tenant.MinimumWidth = 6;
-            this.dg_Tenant.Name = "dg_Tenant";
-            this.dg_Tenant.ReadOnly = true;
-            // 
-            // dg_movedIn
-            // 
-            this.dg_movedIn.HeaderText = "moved_in";
-            this.dg_movedIn.MinimumWidth = 6;
-            this.dg_movedIn.Name = "dg_movedIn";
-            this.dg_movedIn.ReadOnly = true;
-            // 
-            // dg_movedOut
-            // 
-            this.dg_movedOut.HeaderText = "price";
-            this.dg_movedOut.MinimumWidth = 6;
-            this.dg_movedOut.Name = "dg_movedOut";
-            this.dg_movedOut.ReadOnly = true;
-            // 
             // frm_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,9 +254,5 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_Room;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_Tenant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_movedIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_movedOut;
     }
 }

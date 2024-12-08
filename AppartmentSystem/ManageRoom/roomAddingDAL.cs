@@ -96,14 +96,18 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public bool EditRoom(string roomId, string tenantName, double room_price, string movedIN)
+        public bool EditRoom(string roomId, string tenantName, double room_price, DateTime movedIN)
         {
-            string roomQuery = "UPDATE room SET room_price = @room_price WHERE room room_id = @room_id";
-            string tenantQuery = "UPDATE room SET tenant_name = @tenantName, move_in = @moveIN WHERE room_id = @room_id";
+            string roomQuery = "UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
+            string tenantQuery = @"
+            UPDATE tenant
+            SET tenant_name = @tenantName, move_in = @moveIN
+            WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
 
-            using(SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
                 SqlTransaction transaction = connection.BeginTransaction();
 
                 try
@@ -117,9 +121,9 @@ namespace AppartmentSystem.ManageRoom
 
                     using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, connection, transaction))
                     {
-                        tenantCommand.Parameters.AddWithValue("@room_id", roomId);
-                        tenantCommand.Parameters.AddWithValue("@tenantName", tenantName);
-                        tenantCommand.Parameters.AddWithValue("@move_IN", movedIN);
+                        tenantCommand.Parameters.AddWithValue("@room_id",roomId);
+                        tenantCommand.Parameters.AddWithValue("@tenantName",tenantName);
+                        tenantCommand.Parameters.AddWithValue("@moveIN", movedIN);
                         tenantCommand.ExecuteNonQuery();
                     }
 
@@ -142,9 +146,10 @@ namespace AppartmentSystem.ManageRoom
 
             string query = @"
                 SELECT
-                     r.room_id,
-                     t.tenant_name,
-                     t.move_in
+                     r.room_id as 'Room Number',
+                     r.room_price as 'Rent',
+                     t.tenant_name as 'Name',
+                     t.move_in as 'Moved in date'
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";

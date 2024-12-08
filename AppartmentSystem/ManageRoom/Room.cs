@@ -8,6 +8,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,16 +31,32 @@ namespace AppartmentSystem
         private void frm_room_Load(object sender, EventArgs e)
         {
             LoadData();
+            if (txt_RoomNo.Text == "")
+            {
+                dg_ManageRoom.SelectionChanged += dg_ManageRoom_SelectionChanged;
+            }
+            else
+            {
+                dg_ManageRoom.SelectionChanged -= dg_ManageRoom_SelectionChanged;
+            }
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            string selectQuery = "SELECT * FROM room";
+            string query = @"
+                SELECT
+                     r.room_id,
+                     r.room_price,
+                     t.tenant_name,
+                     t.move_in
+                FROM room r
+                LEFT JOIN tenant t
+                ON r.room_id = t.room_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
 
@@ -66,6 +83,10 @@ namespace AppartmentSystem
             if(success)
             {
                 MessageBox.Show("Room and tenant have been added successfully");
+                txt_price.Clear();
+                txt_tenant.Clear();
+                txt_RoomNo.Clear();
+                btn_Update_Click(sender, e);
             }
             else
             {
@@ -83,7 +104,7 @@ namespace AppartmentSystem
                 return;
             }
 
-            string roomId = dg_ManageRoom.SelectedRows[0].Cells["room_id"].Value.ToString();
+            string roomId = dg_ManageRoom.SelectedRows[0].Cells[0].Value.ToString();
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -98,6 +119,7 @@ namespace AppartmentSystem
                 if(isDeleted)
                 {
                     MessageBox.Show("Record deleted successfully!");
+                    btn_Update_Click(sender, e);
                 }
                 else
                 {
@@ -118,22 +140,33 @@ namespace AppartmentSystem
 
             DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
-            string roomId = selectedRow.Cells["room_id"].Value.ToString().Trim();
-            double roomPrice = Convert.ToDouble(selectedRow.Cells["room_price"].Value);
-            string tenantName = selectedRow.Cells["tenant_name"].ToString().Trim();
-            string moved_in = selectedRow.Cells["move_in"].Value.ToString().Trim();
+            string roomId = txt_RoomNo.Text;
+            double roomPrice = int.Parse(txt_price.Text);
+            string tenantName = txt_tenant.Text;
+            DateTime moved_in = dateTimePicker1.Value;
 
             roomAddingDAL roomADL = new roomAddingDAL(connectionString);
-            bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice,moved_in);
+            bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice, moved_in);
 
             if (isUpdated)
             {
                 MessageBox.Show("Record updated successfully!");
-                LoadData();
+                btn_Update_Click(sender, e);
             }
             else
             {
                 MessageBox.Show("Error updating record");
+            }
+        }
+
+        private void dg_ManageRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dg_ManageRoom.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
+
+                // Pass values to TextBox controls
+                txt_RoomNo.Text = selectedRow.Cells[0].Value.ToString();
             }
         }
         //need ng edit sa grid
