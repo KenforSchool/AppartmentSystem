@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppartmentSystem.ManageRoom;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -24,51 +25,77 @@ namespace AppartmentSystem
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LeaseRepository lease = new LeaseRepository(connectionString);
 
-            string roomId = txt_roomNo.Text.Trim();
+            double electricity = double.Parse(txtElectricBill.Text);
+            double water = double.Parse(txtWaterBill.Text);
+            double internet = double.Parse(txt_wifiBill.Text);
+            double maintenance = double.Parse(txtRoomBill.Text);
+            string room_id = txt_roomNo.Text;
+            int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Rent"].Value);
+            DateTime dt = dateTimePicker1.Value;
 
-            if (!string.IsNullOrEmpty(roomId))
+            var repo = lease.addLease(room_id, electricity, water, internet, room_price,dt);
+
+            if (repo)
             {
-                lease.GetTenantRoomId(roomId);
+                MessageBox.Show("lease have been added successfully");
+                txtElectricBill.Clear();
+                txtRoomBill.Clear();
+                txtWaterBill.Clear();
+                txtElectricBill.Clear();
+                LoadData();
             }
             else
             {
-                MessageBox.Show("Please enter a valid Room ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            if (string.IsNullOrWhiteSpace(txt_roomNo.Text) ||
-                string.IsNullOrWhiteSpace(txtElectricBill.Text) ||
-                string.IsNullOrWhiteSpace(txtWaterBill.Text) ||
-                string.IsNullOrWhiteSpace(txt_wifiBill.Text) ||
-                string.IsNullOrWhiteSpace(txtRoomBill.Text) ||
-                string.IsNullOrWhiteSpace(txtTenantName.Text))
-            {
-                MessageBox.Show("All fields are required. Please fill in all values.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!int.TryParse(txtElectricBill.Text, out int electricityBill) ||
-                !int.TryParse(txtWaterBill.Text, out int waterBill) ||
-                !int.TryParse(txt_wifiBill.Text, out int internetBill) ||
-                !int.TryParse(txtRoomBill.Text, out int roomPrice))
-            {
-                MessageBox.Show("Please enter valid numeric values for the bills and room price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            bool isSuccess = lease.addLease(roomId,  electricityBill, waterBill, internetBill, roomPrice);
-
-            try
-            {
-                MessageBox.Show("Lease added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //LoadData();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error has occured. Data has not been saved");
             }
         }
 
+        private void ManageLease_Load(object sender, EventArgs e)
+        {
+            LoadData();
+            if (txt_roomNo.Text == "")
+            {
+                dataGridView1.SelectionChanged += dg_ManageRoom_SelectionChanged;
+            }
+            else
+            {
+                dataGridView1.SelectionChanged -= dg_ManageRoom_SelectionChanged;
+            }
+        }
+        private void LoadData()
+        {
+            var dataAccess = new LeaseRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            string room_id = txt_roomNo.Text;
+            try
+            {
+                DataTable data = dataAccess.GetTenantRoomId(room_id);
 
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+                }
+                else
+                {
+                    MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void dg_ManageRoom_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                // Pass values to TextBox controls
+                txt_roomNo.Text = selectedRow.Cells[0].Value.ToString();
+            }
+        }
     }
 }

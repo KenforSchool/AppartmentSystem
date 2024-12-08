@@ -19,43 +19,42 @@ namespace AppartmentSystem
         }
 
         public bool addLease(string roomID, double electricBill, double waterBill,
-            double internetBill, double roomPrice)
+            double internetBill, double roomPrice, DateTime leaseStart)
         {
-
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-
-                SqlTransaction tran = conn.BeginTransaction();
                 try
                 {
-                   
-                    string insertQuery = @"INSERT INTO lease (room_id,  electricity_bill, water_bill, internet_bill, room_price) " +
-                                                "VALUES (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price)";
-                   
-                        using (SqlCommand insertCommand = new SqlCommand(insertQuery, conn, tran))
-                        {
-                            insertCommand.Parameters.AddWithValue("@room_id", roomID);
-                            insertCommand.Parameters.AddWithValue("@electricity_bill", electricBill);
-                            insertCommand.Parameters.AddWithValue("@water_bill", waterBill);
-                            insertCommand.Parameters.AddWithValue("@internet_bill", internetBill);
-                            insertCommand.Parameters.AddWithValue("@room_price", roomPrice);
 
-                            insertCommand.ExecuteNonQuery();
-                        }                        
+                    string insertLeaseQuery = @"
+                    DECLARE @lease_start DATE;
+                    SET @lease_start = @lease;
 
-                        tran.Commit();
-                        MessageBox.Show("Least saved successfully");
-                        return true;
-                    
+                    INSERT INTO lease 
+                    (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start)
+                    VALUES 
+                    (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price, @lease_start)";
+
+                    using (SqlCommand updateLeaseCmd = new SqlCommand(insertLeaseQuery, conn))
+                    {
+                        updateLeaseCmd.Parameters.AddWithValue("@room_id", roomID);
+                        updateLeaseCmd.Parameters.AddWithValue("@electricity_bill", electricBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@water_bill", waterBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@internet_bill", internetBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@room_price", roomPrice);
+                        updateLeaseCmd.Parameters.AddWithValue("@lease", leaseStart);
+
+                        updateLeaseCmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Lease record updated successfully.");
+                    return true;
                 }
                 catch (Exception ex)
                 {
-                    tran.Rollback();
-                    MessageBox.Show("An error occured while saving the lease: " + ex.Message);
+                    MessageBox.Show("An error occurred while updating the lease: " + ex.Message);
                     return false;
                 }
-
             }
         }
 
@@ -63,7 +62,19 @@ namespace AppartmentSystem
         {
             DataTable dataTable = new DataTable();
 
-            string query = "SELECT tenant_name FROM tenant WHERE room_id = @room_id";
+            string query = @"
+            SELECT
+            r.room_id AS 'Room Number',
+            t.tenant_name AS 'Name',
+            r.room_price AS 'Rent',
+            l.electricity_bill AS 'Electricity Bill',
+            l.water_bill AS 'Water Bill',
+            l.internet_bill AS 'Internet Bill'
+            FROM room r
+            LEFT JOIN tenant t
+            ON r.room_id = t.room_id
+            LEFT JOIN lease l
+            ON r.room_id = l.room_id";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

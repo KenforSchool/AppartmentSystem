@@ -104,5 +104,12 @@ namespace AppartmentSystem
         {
 
         }
+
+        private void btn_manageLeases_Click(object sender, EventArgs e)
+        {
+            ManageLease lease = new ManageLease();
+            lease.Show();
+            this.Close();
+        }
     }
 }

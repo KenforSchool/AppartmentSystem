@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLease));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dg_mlroomNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_mltenantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_mlelectricBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_mlWaterbill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_mlwifiBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_mlmaintenanceCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_roomNo = new System.Windows.Forms.Label();
             this.txt_roomNo = new System.Windows.Forms.TextBox();
             this.txtTenantName = new System.Windows.Forms.TextBox();
@@ -52,54 +46,21 @@
             this.btn_deleteLease = new System.Windows.Forms.Button();
             this.btn_updateLease = new System.Windows.Forms.Button();
             this.btn_editLease = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_mlroomNo,
-            this.dg_mltenantName,
-            this.dg_mlelectricBill,
-            this.dg_mlWaterbill,
-            this.dg_mlwifiBill,
-            this.dg_mlmaintenanceCost});
             this.dataGridView1.Location = new System.Drawing.Point(29, 135);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(951, 443);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dg_mlroomNo
-            // 
-            this.dg_mlroomNo.HeaderText = "Room Number";
-            this.dg_mlroomNo.Name = "dg_mlroomNo";
-            // 
-            // dg_mltenantName
-            // 
-            this.dg_mltenantName.HeaderText = "Tenant Name";
-            this.dg_mltenantName.Name = "dg_mltenantName";
-            // 
-            // dg_mlelectricBill
-            // 
-            this.dg_mlelectricBill.HeaderText = "Electric Bill";
-            this.dg_mlelectricBill.Name = "dg_mlelectricBill";
-            // 
-            // dg_mlWaterbill
-            // 
-            this.dg_mlWaterbill.HeaderText = "Water Bill";
-            this.dg_mlWaterbill.Name = "dg_mlWaterbill";
-            // 
-            // dg_mlwifiBill
-            // 
-            this.dg_mlwifiBill.HeaderText = "WiFi Bill";
-            this.dg_mlwifiBill.Name = "dg_mlwifiBill";
-            // 
-            // dg_mlmaintenanceCost
-            // 
-            this.dg_mlmaintenanceCost.HeaderText = "Maintenance Cost";
-            this.dg_mlmaintenanceCost.Name = "dg_mlmaintenanceCost";
             // 
             // lbl_roomNo
             // 
@@ -259,6 +220,14 @@
             this.btn_editLease.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_editLease.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(157, 110);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker1.TabIndex = 17;
+            // 
             // ManageLease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +235,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_editLease);
             this.Controls.Add(this.btn_updateLease);
             this.Controls.Add(this.btn_deleteLease);
@@ -285,6 +255,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "ManageLease";
             this.Text = "ManageLease";
+            this.Load += new System.EventHandler(this.ManageLease_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -306,15 +277,10 @@
         private System.Windows.Forms.Label lbl_maintenanceCost;
         private System.Windows.Forms.TextBox txt_wifiBill;
         private System.Windows.Forms.TextBox txtRoomBill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlroomNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mltenantName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlelectricBill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlWaterbill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlwifiBill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_mlmaintenanceCost;
         private System.Windows.Forms.Button btn_addLease;
         private System.Windows.Forms.Button btn_deleteLease;
         private System.Windows.Forms.Button btn_updateLease;
         private System.Windows.Forms.Button btn_editLease;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

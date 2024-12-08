@@ -93,6 +93,7 @@
             this.btn_manageLeases.Text = "Manage Leases";
             this.btn_manageLeases.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_manageLeases.UseVisualStyleBackColor = false;
+            this.btn_manageLeases.Click += new System.EventHandler(this.btn_manageLeases_Click);
             // 
             // btn_financialData
             // 

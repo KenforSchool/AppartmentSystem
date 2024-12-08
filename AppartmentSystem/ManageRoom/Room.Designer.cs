@@ -184,15 +184,16 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(326, 25);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 13;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(688, 71);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 41);
             this.button1.TabIndex = 14;
@@ -202,7 +203,7 @@
             // txt_price
             // 
             this.txt_price.Location = new System.Drawing.Point(326, 84);
-            this.txt_price.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_price.Margin = new System.Windows.Forms.Padding(2);
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(151, 20);
             this.txt_price.TabIndex = 15;
