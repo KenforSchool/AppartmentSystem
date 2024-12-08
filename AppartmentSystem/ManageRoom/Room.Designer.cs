@@ -40,12 +40,13 @@
             this.lbl_tenant = new System.Windows.Forms.Label();
             this.txt_tenant = new System.Windows.Forms.TextBox();
             this.lbl_movedIn = new System.Windows.Forms.Label();
-            this.lbl_movedOut = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_price = new System.Windows.Forms.Label();
             this.btn_UpdateRoom = new System.Windows.Forms.Button();
             this.btn_editRoom = new System.Windows.Forms.Button();
             this.btn_deleteRoom = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_price = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,34 +159,26 @@
             this.lbl_movedIn.BackColor = System.Drawing.Color.Transparent;
             this.lbl_movedIn.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_movedIn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_movedIn.Location = new System.Drawing.Point(707, 31);
+            this.lbl_movedIn.Location = new System.Drawing.Point(353, 31);
             this.lbl_movedIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_movedIn.Name = "lbl_movedIn";
             this.lbl_movedIn.Size = new System.Drawing.Size(75, 17);
             this.lbl_movedIn.TabIndex = 6;
             this.lbl_movedIn.Text = "Moved In:";
             // 
-            // lbl_movedOut
+            // lbl_price
             // 
-            this.lbl_movedOut.AutoSize = true;
-            this.lbl_movedOut.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_movedOut.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_movedOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_movedOut.Location = new System.Drawing.Point(693, 101);
-            this.lbl_movedOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_movedOut.Name = "lbl_movedOut";
-            this.lbl_movedOut.Size = new System.Drawing.Size(87, 17);
-            this.lbl_movedOut.TabIndex = 7;
-            this.lbl_movedOut.Text = "Moved Out:";
-            this.lbl_movedOut.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(793, 97);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 9;
+            this.lbl_price.AutoSize = true;
+            this.lbl_price.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_price.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_price.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_price.Location = new System.Drawing.Point(353, 106);
+            this.lbl_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_price.Name = "lbl_price";
+            this.lbl_price.Size = new System.Drawing.Size(44, 17);
+            this.lbl_price.TabIndex = 7;
+            this.lbl_price.Text = "Price:";
+            this.lbl_price.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn_UpdateRoom
             // 
@@ -235,10 +228,26 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(789, 31);
+            this.dateTimePicker1.Location = new System.Drawing.Point(435, 31);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(918, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 51);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txt_price
+            // 
+            this.txt_price.Location = new System.Drawing.Point(435, 104);
+            this.txt_price.Name = "txt_price";
+            this.txt_price.Size = new System.Drawing.Size(200, 22);
+            this.txt_price.TabIndex = 15;
             // 
             // frm_room
             // 
@@ -248,12 +257,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1344, 897);
+            this.Controls.Add(this.txt_price);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_deleteRoom);
             this.Controls.Add(this.btn_editRoom);
             this.Controls.Add(this.btn_UpdateRoom);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lbl_movedOut);
+            this.Controls.Add(this.lbl_price);
             this.Controls.Add(this.lbl_movedIn);
             this.Controls.Add(this.txt_tenant);
             this.Controls.Add(this.lbl_tenant);
@@ -284,11 +294,12 @@
         private System.Windows.Forms.Label lbl_tenant;
         private System.Windows.Forms.TextBox txt_tenant;
         private System.Windows.Forms.Label lbl_movedIn;
-        private System.Windows.Forms.Label lbl_movedOut;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_price;
         private System.Windows.Forms.Button btn_UpdateRoom;
         private System.Windows.Forms.Button btn_editRoom;
         private System.Windows.Forms.Button btn_deleteRoom;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_price;
     }
 }
