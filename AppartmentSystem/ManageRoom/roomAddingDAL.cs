@@ -18,9 +18,8 @@ namespace AppartmentSystem.ManageRoom
               connectionString = connString;
         }
 
-        public bool AddRoomAndTenant(string roomNum, string tenantName, double roomPrice, string moved_IN)
+        public bool AddRoomAndTenant( string roomNum, string tenantName, double roomPrice, DateTime moved_IN)
         {
-            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -28,6 +27,7 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
+                    // Insert query for the room table
                     string roomQuery = "INSERT INTO room (room_id, room_price) VALUES (@room_id, @room_price)";
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
@@ -36,31 +36,38 @@ namespace AppartmentSystem.ManageRoom
                         command.ExecuteNonQuery();
                     }
 
-                    string tenantQuery = "INSERT INTO tenant (room_id, tenant_name, moved_in) VALUES (@room_id, @tenant_name, @moved_in)";
+                    // Insert query for the tenant table
+                    string tenantQuery = @"
+                    DECLARE @move_in DATE;
+                    SET @move_in = @move_in_param;
+                    INSERT INTO tenant (room_id, tenant_name, move_in)
+                    VALUES (@room_id, @tenant_name, @move_in)";
                     using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        command.Parameters.AddWithValue("@moved_in", moved_IN);
+                        command.Parameters.AddWithValue("@move_in_param", moved_IN);
                         command.ExecuteNonQuery();
                     }
 
+                    // Commit transaction after successful inserts
                     transaction.Commit();
-                    return true;               
+                    return true;
                 }
-                catch(SqlException) 
+                catch (SqlException sqlEx)
                 {
-                   transaction.Rollback();
-                    MessageBox.Show("Encountered an error when adding a tenant in the room!");
+                    // Rollback transaction on SQL exception
+                    transaction.Rollback();
+                    MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 catch (Exception ex)
                 {
+                    // Rollback transaction on any other exceptions
                     transaction.Rollback();
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                
             }
         }
 
@@ -92,7 +99,7 @@ namespace AppartmentSystem.ManageRoom
         public bool EditRoom(string roomId, string tenantName, double room_price, string movedIN)
         {
             string roomQuery = "UPDATE room SET room_price = @room_price WHERE room room_id = @room_id";
-            string tenantQuery = "UPDATE room SET tenant_name = @tenantName, moved_in = @movedIN WHERE room_id = @room_id";
+            string tenantQuery = "UPDATE room SET tenant_name = @tenantName, move_in = @moveIN WHERE room_id = @room_id";
 
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -112,7 +119,7 @@ namespace AppartmentSystem.ManageRoom
                     {
                         tenantCommand.Parameters.AddWithValue("@room_id", roomId);
                         tenantCommand.Parameters.AddWithValue("@tenantName", tenantName);
-                        tenantCommand.Parameters.AddWithValue("@moved_IN", movedIN);
+                        tenantCommand.Parameters.AddWithValue("@move_IN", movedIN);
                         tenantCommand.ExecuteNonQuery();
                     }
 
@@ -137,7 +144,7 @@ namespace AppartmentSystem.ManageRoom
                 SELECT
                      r.room_id,
                      t.tenant_name,
-                     t.moved_in
+                     t.move_in
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";

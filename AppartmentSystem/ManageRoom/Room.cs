@@ -48,23 +48,22 @@ namespace AppartmentSystem
         }
 
         private void btn_addRoom_Click(object sender, EventArgs e)
-        {
-            /*
+        {          
             //Connection ng database
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             roomAddingDAL add = new roomAddingDAL(connectionString);
             string roomNum = txt_RoomNo.Text;
             //walang design
-            double roomPrice = double.Parse(txt_RoomPrice.Text);
+            double roomPrice = double.Parse(txt_price.Text);
 
             string tenantName = txt_tenant.Text;
             //mali yung design
-            string moved_In = txt_MovedIn.Text;
+            DateTime movedIn = dateTimePicker1.Value;
 
             //eto yung kinuha yung process
-            bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, moved_In);
+            bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn);
 
-            if)
+            if(success)
             {
                 MessageBox.Show("Room and tenant have been added successfully");
             }
@@ -72,7 +71,6 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("Error has occured. Data has not been saved");
             }
-            */
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
@@ -123,7 +121,7 @@ namespace AppartmentSystem
             string roomId = selectedRow.Cells["room_id"].Value.ToString().Trim();
             double roomPrice = Convert.ToDouble(selectedRow.Cells["room_price"].Value);
             string tenantName = selectedRow.Cells["tenant_name"].ToString().Trim();
-            string moved_in = selectedRow.Cells["moved_in"].Value.ToString().Trim();
+            string moved_in = selectedRow.Cells["move_in"].Value.ToString().Trim();
 
             roomAddingDAL roomADL = new roomAddingDAL(connectionString);
             bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice,moved_in);
