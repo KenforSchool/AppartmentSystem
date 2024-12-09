@@ -46,11 +46,11 @@
             // btn_Login
             // 
             this.btn_Login.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Login.BackColor = System.Drawing.Color.Silver;
+            this.btn_Login.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.btn_Login.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
             this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Login.Location = new System.Drawing.Point(121, 340);
+            this.btn_Login.Location = new System.Drawing.Point(122, 378);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(147, 50);
             this.btn_Login.TabIndex = 0;
@@ -63,18 +63,19 @@
             // 
             this.btn_SignUp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_SignUp.AutoSize = true;
-            this.btn_SignUp.BackColor = System.Drawing.Color.Silver;
+            this.btn_SignUp.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.btn_SignUp.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SignUp.ForeColor = System.Drawing.Color.Black;
             this.btn_SignUp.Image = ((System.Drawing.Image)(resources.GetObject("btn_SignUp.Image")));
             this.btn_SignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_SignUp.Location = new System.Drawing.Point(121, 430);
+            this.btn_SignUp.Location = new System.Drawing.Point(122, 322);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(147, 50);
             this.btn_SignUp.TabIndex = 1;
             this.btn_SignUp.Text = "Sign Up";
             this.btn_SignUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_SignUp.UseVisualStyleBackColor = false;
+            this.btn_SignUp.Visible = false;
             this.btn_SignUp.Click += new System.EventHandler(this.btn_SignUp_Click);
             // 
             // lbl_username
@@ -106,7 +107,7 @@
             // txt_Username
             // 
             this.txt_Username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_Username.BackColor = System.Drawing.Color.Silver;
+            this.txt_Username.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Username.Location = new System.Drawing.Point(45, 178);
             this.txt_Username.Name = "txt_Username";
@@ -116,7 +117,7 @@
             // txt_Password
             // 
             this.txt_Password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_Password.BackColor = System.Drawing.Color.Silver;
+            this.txt_Password.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Password.Location = new System.Drawing.Point(45, 252);
             this.txt_Password.Name = "txt_Password";
@@ -129,14 +130,14 @@
             this.lbl_Login.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Login.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbl_Login.Font = new System.Drawing.Font("Calisto MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Login.Font = new System.Drawing.Font("Calisto MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Login.ForeColor = System.Drawing.Color.White;
             this.lbl_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Login.Location = new System.Drawing.Point(0, -2);
             this.lbl_Login.Name = "lbl_Login";
             this.lbl_Login.Size = new System.Drawing.Size(1011, 74);
             this.lbl_Login.TabIndex = 6;
-            this.lbl_Login.Text = "Uno Rental Inc.";
+            this.lbl_Login.Text = "Apartment Management System";
             this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_login

@@ -40,6 +40,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 119);
             this.dataGridView1.Name = "dataGridView1";
@@ -49,7 +50,9 @@
             // lbl_archive
             // 
             this.lbl_archive.AutoSize = true;
+            this.lbl_archive.BackColor = System.Drawing.Color.Transparent;
             this.lbl_archive.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_archive.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.lbl_archive.Location = new System.Drawing.Point(12, 9);
             this.lbl_archive.Name = "lbl_archive";
             this.lbl_archive.Size = new System.Drawing.Size(122, 43);
@@ -59,10 +62,11 @@
             // btn_archiveBack
             // 
             this.btn_archiveBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_archiveBack.Image = ((System.Drawing.Image)(resources.GetObject("btn_archiveBack.Image")));
+            this.btn_archiveBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_archiveBack.BackgroundImage")));
+            this.btn_archiveBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_archiveBack.Location = new System.Drawing.Point(909, 33);
             this.btn_archiveBack.Name = "btn_archiveBack";
-            this.btn_archiveBack.Size = new System.Drawing.Size(55, 43);
+            this.btn_archiveBack.Size = new System.Drawing.Size(40, 35);
             this.btn_archiveBack.TabIndex = 2;
             this.btn_archiveBack.UseVisualStyleBackColor = true;
             // 
@@ -71,6 +75,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_archiveBack);
             this.Controls.Add(this.lbl_archive);

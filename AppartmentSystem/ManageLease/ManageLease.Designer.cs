@@ -50,6 +50,7 @@
             this.btn_archiveLease = new System.Windows.Forms.Button();
             this.lbl_leaseStart = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_mlBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             this.lbl_roomNo.AutoSize = true;
             this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_roomNo.Location = new System.Drawing.Point(20, 28);
+            this.lbl_roomNo.Location = new System.Drawing.Point(100, 34);
             this.lbl_roomNo.Name = "lbl_roomNo";
             this.lbl_roomNo.Size = new System.Drawing.Size(78, 13);
             this.lbl_roomNo.TabIndex = 1;
@@ -82,7 +83,7 @@
             // 
             // txtTenantName
             // 
-            this.txtTenantName.Location = new System.Drawing.Point(107, 66);
+            this.txtTenantName.Location = new System.Drawing.Point(187, 72);
             this.txtTenantName.Name = "txtTenantName";
             this.txtTenantName.Size = new System.Drawing.Size(100, 20);
             this.txtTenantName.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.lbl_tenantName.AutoSize = true;
             this.lbl_tenantName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_tenantName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_tenantName.Location = new System.Drawing.Point(26, 73);
+            this.lbl_tenantName.Location = new System.Drawing.Point(106, 79);
             this.lbl_tenantName.Name = "lbl_tenantName";
             this.lbl_tenantName.Size = new System.Drawing.Size(75, 13);
             this.lbl_tenantName.TabIndex = 4;
@@ -103,7 +104,7 @@
             this.lbl_electricBill.AutoSize = true;
             this.lbl_electricBill.BackColor = System.Drawing.Color.Transparent;
             this.lbl_electricBill.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_electricBill.Location = new System.Drawing.Point(224, 26);
+            this.lbl_electricBill.Location = new System.Drawing.Point(304, 32);
             this.lbl_electricBill.Name = "lbl_electricBill";
             this.lbl_electricBill.Size = new System.Drawing.Size(58, 13);
             this.lbl_electricBill.TabIndex = 5;
@@ -114,7 +115,7 @@
             this.lbl_waterBill.AutoSize = true;
             this.lbl_waterBill.BackColor = System.Drawing.Color.Transparent;
             this.lbl_waterBill.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_waterBill.Location = new System.Drawing.Point(227, 73);
+            this.lbl_waterBill.Location = new System.Drawing.Point(307, 79);
             this.lbl_waterBill.Name = "lbl_waterBill";
             this.lbl_waterBill.Size = new System.Drawing.Size(51, 13);
             this.lbl_waterBill.TabIndex = 6;
@@ -122,14 +123,14 @@
             // 
             // txtElectricBill
             // 
-            this.txtElectricBill.Location = new System.Drawing.Point(288, 23);
+            this.txtElectricBill.Location = new System.Drawing.Point(368, 29);
             this.txtElectricBill.Name = "txtElectricBill";
             this.txtElectricBill.Size = new System.Drawing.Size(100, 20);
             this.txtElectricBill.TabIndex = 7;
             // 
             // txtWaterBill
             // 
-            this.txtWaterBill.Location = new System.Drawing.Point(289, 66);
+            this.txtWaterBill.Location = new System.Drawing.Point(369, 72);
             this.txtWaterBill.Name = "txtWaterBill";
             this.txtWaterBill.Size = new System.Drawing.Size(100, 20);
             this.txtWaterBill.TabIndex = 8;
@@ -139,7 +140,7 @@
             this.lbl_wifiBill.AutoSize = true;
             this.lbl_wifiBill.BackColor = System.Drawing.Color.Transparent;
             this.lbl_wifiBill.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_wifiBill.Location = new System.Drawing.Point(435, 25);
+            this.lbl_wifiBill.Location = new System.Drawing.Point(515, 31);
             this.lbl_wifiBill.Name = "lbl_wifiBill";
             this.lbl_wifiBill.Size = new System.Drawing.Size(41, 13);
             this.lbl_wifiBill.TabIndex = 9;
@@ -150,7 +151,7 @@
             this.lbl_maintenanceCost.AutoSize = true;
             this.lbl_maintenanceCost.BackColor = System.Drawing.Color.Transparent;
             this.lbl_maintenanceCost.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_maintenanceCost.Location = new System.Drawing.Point(438, 73);
+            this.lbl_maintenanceCost.Location = new System.Drawing.Point(518, 79);
             this.lbl_maintenanceCost.Name = "lbl_maintenanceCost";
             this.lbl_maintenanceCost.Size = new System.Drawing.Size(93, 13);
             this.lbl_maintenanceCost.TabIndex = 10;
@@ -158,14 +159,14 @@
             // 
             // txt_wifiBill
             // 
-            this.txt_wifiBill.Location = new System.Drawing.Point(483, 26);
+            this.txt_wifiBill.Location = new System.Drawing.Point(563, 32);
             this.txt_wifiBill.Name = "txt_wifiBill";
             this.txt_wifiBill.Size = new System.Drawing.Size(170, 20);
             this.txt_wifiBill.TabIndex = 11;
             // 
             // txtRoomBill
             // 
-            this.txtRoomBill.Location = new System.Drawing.Point(538, 73);
+            this.txtRoomBill.Location = new System.Drawing.Point(618, 79);
             this.txtRoomBill.Name = "txtRoomBill";
             this.txtRoomBill.Size = new System.Drawing.Size(115, 20);
             this.txtRoomBill.TabIndex = 12;
@@ -223,7 +224,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(107, 108);
+            this.dateTimePicker1.Location = new System.Drawing.Point(187, 114);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
@@ -233,7 +234,7 @@
             // 
             this.lbl_roomNumberleaseOutput.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_roomNumberleaseOutput.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_roomNumberleaseOutput.Location = new System.Drawing.Point(107, 23);
+            this.lbl_roomNumberleaseOutput.Location = new System.Drawing.Point(187, 29);
             this.lbl_roomNumberleaseOutput.Name = "lbl_roomNumberleaseOutput";
             this.lbl_roomNumberleaseOutput.Size = new System.Drawing.Size(100, 23);
             this.lbl_roomNumberleaseOutput.TabIndex = 18;
@@ -253,7 +254,7 @@
             this.lbl_leaseStart.AutoSize = true;
             this.lbl_leaseStart.BackColor = System.Drawing.Color.Transparent;
             this.lbl_leaseStart.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_leaseStart.Location = new System.Drawing.Point(34, 113);
+            this.lbl_leaseStart.Location = new System.Drawing.Point(114, 119);
             this.lbl_leaseStart.Name = "lbl_leaseStart";
             this.lbl_leaseStart.Size = new System.Drawing.Size(64, 13);
             this.lbl_leaseStart.TabIndex = 20;
@@ -261,10 +262,20 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(289, 111);
+            this.textBox1.Location = new System.Drawing.Point(369, 117);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 21;
+            // 
+            // btn_mlBack
+            // 
+            this.btn_mlBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_mlBack.BackgroundImage")));
+            this.btn_mlBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_mlBack.Location = new System.Drawing.Point(13, 12);
+            this.btn_mlBack.Name = "btn_mlBack";
+            this.btn_mlBack.Size = new System.Drawing.Size(40, 35);
+            this.btn_mlBack.TabIndex = 22;
+            this.btn_mlBack.UseVisualStyleBackColor = true;
             // 
             // ManageLease
             // 
@@ -274,6 +285,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_mlBack);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_leaseStart);
             this.Controls.Add(this.btn_archiveLease);
@@ -327,5 +339,6 @@
         private System.Windows.Forms.Button btn_archiveLease;
         private System.Windows.Forms.Label lbl_leaseStart;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_mlBack;
     }
 }

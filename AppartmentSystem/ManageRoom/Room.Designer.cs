@@ -195,10 +195,10 @@
             // 
             this.btn_roomBack.BackColor = System.Drawing.Color.Transparent;
             this.btn_roomBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_roomBack.BackgroundImage")));
-            this.btn_roomBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_roomBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_roomBack.Location = new System.Drawing.Point(12, 5);
             this.btn_roomBack.Name = "btn_roomBack";
-            this.btn_roomBack.Size = new System.Drawing.Size(61, 51);
+            this.btn_roomBack.Size = new System.Drawing.Size(40, 35);
             this.btn_roomBack.TabIndex = 16;
             this.btn_roomBack.UseVisualStyleBackColor = false;
             this.btn_roomBack.Click += new System.EventHandler(this.btn_roomBack_Click);

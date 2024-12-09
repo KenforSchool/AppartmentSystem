@@ -31,7 +31,7 @@ namespace AppartmentSystem
         private void frm_room_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (lbl_roomNumberOutput.Text == "")
+            if (txt_RoomNo.Text == "")
             {
                 dg_ManageRoom.SelectionChanged += dg_ManageRoom_SelectionChanged;
             }

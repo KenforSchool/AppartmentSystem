@@ -173,7 +173,7 @@
             // 
             this.btn_fdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdEdit.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdEdit.Image")));
-            this.btn_fdEdit.Location = new System.Drawing.Point(791, 45);
+            this.btn_fdEdit.Location = new System.Drawing.Point(882, 45);
             this.btn_fdEdit.Name = "btn_fdEdit";
             this.btn_fdEdit.Size = new System.Drawing.Size(85, 46);
             this.btn_fdEdit.TabIndex = 10;
@@ -194,7 +194,7 @@
             // 
             this.btn_fdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdDelete.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdDelete.Image")));
-            this.btn_fdDelete.Location = new System.Drawing.Point(882, 45);
+            this.btn_fdDelete.Location = new System.Drawing.Point(791, 45);
             this.btn_fdDelete.Name = "btn_fdDelete";
             this.btn_fdDelete.Size = new System.Drawing.Size(85, 46);
             this.btn_fdDelete.TabIndex = 12;
@@ -206,7 +206,7 @@
             this.btn_fdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_fdBack.Location = new System.Drawing.Point(12, 12);
             this.btn_fdBack.Name = "btn_fdBack";
-            this.btn_fdBack.Size = new System.Drawing.Size(41, 34);
+            this.btn_fdBack.Size = new System.Drawing.Size(40, 35);
             this.btn_fdBack.TabIndex = 13;
             this.btn_fdBack.UseVisualStyleBackColor = true;
             // 
@@ -221,6 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);

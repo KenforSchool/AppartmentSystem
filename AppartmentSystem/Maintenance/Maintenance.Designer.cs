@@ -132,7 +132,7 @@
             // 
             this.btn_addMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_addMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenance.Image")));
-            this.btn_addMaintenance.Location = new System.Drawing.Point(785, 48);
+            this.btn_addMaintenance.Location = new System.Drawing.Point(695, 49);
             this.btn_addMaintenance.Name = "btn_addMaintenance";
             this.btn_addMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_addMaintenance.TabIndex = 9;
@@ -143,7 +143,7 @@
             // 
             this.btn_editMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_editMaintenance.Image")));
-            this.btn_editMaintenance.Location = new System.Drawing.Point(696, 48);
+            this.btn_editMaintenance.Location = new System.Drawing.Point(873, 49);
             this.btn_editMaintenance.Name = "btn_editMaintenance";
             this.btn_editMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_editMaintenance.TabIndex = 10;
@@ -167,7 +167,7 @@
             // 
             this.btn_deleteMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_deleteMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_deleteMaintenance.Image")));
-            this.btn_deleteMaintenance.Location = new System.Drawing.Point(874, 48);
+            this.btn_deleteMaintenance.Location = new System.Drawing.Point(784, 49);
             this.btn_deleteMaintenance.Name = "btn_deleteMaintenance";
             this.btn_deleteMaintenance.Size = new System.Drawing.Size(83, 43);
             this.btn_deleteMaintenance.TabIndex = 12;
@@ -185,10 +185,10 @@
             // btn_maintenanceBack
             // 
             this.btn_maintenanceBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_maintenanceBack.BackgroundImage")));
-            this.btn_maintenanceBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_maintenanceBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_maintenanceBack.Location = new System.Drawing.Point(12, 11);
             this.btn_maintenanceBack.Name = "btn_maintenanceBack";
-            this.btn_maintenanceBack.Size = new System.Drawing.Size(75, 46);
+            this.btn_maintenanceBack.Size = new System.Drawing.Size(40, 35);
             this.btn_maintenanceBack.TabIndex = 14;
             this.btn_maintenanceBack.UseVisualStyleBackColor = true;
             // 
