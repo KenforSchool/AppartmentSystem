@@ -219,7 +219,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(157, 110);
+            this.dateTimePicker1.Location = new System.Drawing.Point(169, 109);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
@@ -229,9 +229,9 @@
             // 
             this.lbl_roomNumberlease.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_roomNumberlease.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_roomNumberlease.Location = new System.Drawing.Point(166, 21);
+            this.lbl_roomNumberlease.Location = new System.Drawing.Point(169, 24);
             this.lbl_roomNumberlease.Name = "lbl_roomNumberlease";
-            this.lbl_roomNumberlease.Size = new System.Drawing.Size(78, 23);
+            this.lbl_roomNumberlease.Size = new System.Drawing.Size(100, 23);
             this.lbl_roomNumberlease.TabIndex = 18;
             // 
             // ManageLease
