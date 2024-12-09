@@ -19,7 +19,7 @@ namespace AppartmentSystem
         }
 
         public bool addLease(string roomID, double electricBill, double waterBill,
-            double internetBill, double roomPrice, DateTime leaseStart)
+            double internetBill, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -30,11 +30,14 @@ namespace AppartmentSystem
                     string insertLeaseQuery = @"
                     DECLARE @lease_start DATE;
                     SET @lease_start = @lease;
+                    
+                    DECLARE @lease_end DATE;
+                    SET @lease_end = @leaseEnd;
 
                     INSERT INTO lease 
-                    (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start)
+                    (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
                     VALUES 
-                    (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price, @lease_start)";
+                    (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price, @lease_start, @lease_end)";
 
                     using (SqlCommand updateLeaseCmd = new SqlCommand(insertLeaseQuery, conn))
                     {
@@ -44,6 +47,7 @@ namespace AppartmentSystem
                         updateLeaseCmd.Parameters.AddWithValue("@internet_bill", internetBill);
                         updateLeaseCmd.Parameters.AddWithValue("@room_price", roomPrice);
                         updateLeaseCmd.Parameters.AddWithValue("@lease", leaseStart);
+                        updateLeaseCmd.Parameters.AddWithValue("@leaseEnd", leaseEnd);
 
                         updateLeaseCmd.ExecuteNonQuery();
                     }
@@ -84,11 +88,11 @@ namespace AppartmentSystem
         }
 
         public bool editRoom(string roomId, double electricBill, double waterBill,
-            double interntBill, DateTime leaseStart)
+            double interntBill, DateTime leaseStart, DateTime leaseEnd)
         {
             string query = @"UPDATE lease
             set electricity_bill = @electricity_bill, water_bill = @water_bill, internet_bill = @internet_bill 
-            , lease_start = @lease_start WHERE 
+            , lease_start = @lease_start, lease_end = @lease_end WHERE 
             room_id = @room_id";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -104,17 +108,16 @@ namespace AppartmentSystem
                         command.Parameters.AddWithValue("@water_bill", waterBill);
                         command.Parameters.AddWithValue("@internet_bill", interntBill);
                         command.Parameters.AddWithValue("@lease_start", leaseStart);
+                        command.Parameters.AddWithValue("@@lease_end", leaseEnd);
 
                         int rowsAffected = command.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
-                            // Update successful
                             return true;
                         }
                         else
                         {
-                            // No rows were updated
                             MessageBox.Show("No record found with the given room_id.");
                             return false;
                         }
@@ -122,13 +125,13 @@ namespace AppartmentSystem
                 }
                 catch (SqlException ex)
                 {
-                    // Handle SQL errors
+
                     MessageBox.Show("SQL Error: " + ex.Message);
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    // Handle other general errors
+
                     MessageBox.Show("Error: " + ex.Message);
                     return false;
                 }
@@ -147,7 +150,8 @@ namespace AppartmentSystem
             l.electricity_bill AS 'Electricity Bill',
             l.water_bill AS 'Water Bill',
             l.internet_bill AS 'Internet Bill',
-            l.lease_start AS 'Lease Start'
+            l.lease_start AS 'Lease Start',
+            l.lease_end AS 'Lease End'
             FROM room r
             LEFT JOIN tenant t
             ON r.room_id = t.room_id
