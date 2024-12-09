@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLease));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbl_roomNo = new System.Windows.Forms.Label();
-            this.txt_roomNo = new System.Windows.Forms.TextBox();
             this.txtTenantName = new System.Windows.Forms.TextBox();
             this.lbl_tenantName = new System.Windows.Forms.Label();
             this.lbl_electricBill = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.btn_updateLease = new System.Windows.Forms.Button();
             this.btn_editLease = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lbl_roomNumberlease = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +56,10 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 135);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(951, 443);
+            this.dataGridView1.Size = new System.Drawing.Size(951, 423);
             this.dataGridView1.TabIndex = 0;
             // 
             // lbl_roomNo
@@ -67,22 +67,16 @@
             this.lbl_roomNo.AutoSize = true;
             this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_roomNo.Location = new System.Drawing.Point(76, 27);
+            this.lbl_roomNo.Location = new System.Drawing.Point(82, 29);
             this.lbl_roomNo.Name = "lbl_roomNo";
             this.lbl_roomNo.Size = new System.Drawing.Size(78, 13);
             this.lbl_roomNo.TabIndex = 1;
             this.lbl_roomNo.Text = "Room Number:";
-            // 
-            // txt_roomNo
-            // 
-            this.txt_roomNo.Location = new System.Drawing.Point(157, 24);
-            this.txt_roomNo.Name = "txt_roomNo";
-            this.txt_roomNo.Size = new System.Drawing.Size(100, 20);
-            this.txt_roomNo.TabIndex = 2;
+            this.lbl_roomNo.Click += new System.EventHandler(this.lbl_roomNo_Click);
             // 
             // txtTenantName
             // 
-            this.txtTenantName.Location = new System.Drawing.Point(157, 68);
+            this.txtTenantName.Location = new System.Drawing.Point(169, 67);
             this.txtTenantName.Name = "txtTenantName";
             this.txtTenantName.Size = new System.Drawing.Size(100, 20);
             this.txtTenantName.TabIndex = 3;
@@ -92,7 +86,7 @@
             this.lbl_tenantName.AutoSize = true;
             this.lbl_tenantName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_tenantName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_tenantName.Location = new System.Drawing.Point(79, 71);
+            this.lbl_tenantName.Location = new System.Drawing.Point(88, 74);
             this.lbl_tenantName.Name = "lbl_tenantName";
             this.lbl_tenantName.Size = new System.Drawing.Size(75, 13);
             this.lbl_tenantName.TabIndex = 4;
@@ -231,6 +225,16 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 17;
             // 
+            // lbl_roomNumberlease
+            // 
+            this.lbl_roomNumberlease.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_roomNumberlease.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_roomNumberlease.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_roomNumberlease.Location = new System.Drawing.Point(166, 25);
+            this.lbl_roomNumberlease.Name = "lbl_roomNumberlease";
+            this.lbl_roomNumberlease.Size = new System.Drawing.Size(78, 23);
+            this.lbl_roomNumberlease.TabIndex = 18;
+            // 
             // ManageLease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +242,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.lbl_roomNumberlease);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_editLease);
             this.Controls.Add(this.btn_updateLease);
@@ -253,7 +258,6 @@
             this.Controls.Add(this.lbl_electricBill);
             this.Controls.Add(this.lbl_tenantName);
             this.Controls.Add(this.txtTenantName);
-            this.Controls.Add(this.txt_roomNo);
             this.Controls.Add(this.lbl_roomNo);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ManageLease";
@@ -269,7 +273,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lbl_roomNo;
-        private System.Windows.Forms.TextBox txt_roomNo;
         private System.Windows.Forms.TextBox txtTenantName;
         private System.Windows.Forms.Label lbl_tenantName;
         private System.Windows.Forms.Label lbl_electricBill;
@@ -285,5 +288,6 @@
         private System.Windows.Forms.Button btn_updateLease;
         private System.Windows.Forms.Button btn_editLease;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lbl_roomNumberlease;
     }
 }

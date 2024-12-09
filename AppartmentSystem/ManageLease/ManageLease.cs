@@ -171,5 +171,10 @@ namespace AppartmentSystem
                 MessageBox.Show("Error updating record");
             }
         }
+
+        private void lbl_roomNo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

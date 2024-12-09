@@ -162,6 +162,7 @@
             // 
             // lbl_logo_admin_Signup
             // 
+            this.lbl_logo_admin_Signup.BackColor = System.Drawing.Color.Transparent;
             this.lbl_logo_admin_Signup.Image = ((System.Drawing.Image)(resources.GetObject("lbl_logo_admin_Signup.Image")));
             this.lbl_logo_admin_Signup.Location = new System.Drawing.Point(139, 28);
             this.lbl_logo_admin_Signup.Name = "lbl_logo_admin_Signup";
