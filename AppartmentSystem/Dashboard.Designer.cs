@@ -69,14 +69,13 @@
             this.btn_manageRoom.BackColor = System.Drawing.Color.Black;
             this.btn_manageRoom.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_manageRoom.Image = ((System.Drawing.Image)(resources.GetObject("btn_manageRoom.Image")));
             this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_manageRoom.Location = new System.Drawing.Point(16, 7);
             this.btn_manageRoom.Name = "btn_manageRoom";
             this.btn_manageRoom.Size = new System.Drawing.Size(160, 55);
             this.btn_manageRoom.TabIndex = 1;
             this.btn_manageRoom.Text = "   Manage Room";
-            this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_manageRoom.UseVisualStyleBackColor = false;
             this.btn_manageRoom.Click += new System.EventHandler(this.btn_manageRoom_Click);
             // 
@@ -90,7 +89,7 @@
             this.btn_manageLeases.Name = "btn_manageLeases";
             this.btn_manageLeases.Size = new System.Drawing.Size(160, 55);
             this.btn_manageLeases.TabIndex = 2;
-            this.btn_manageLeases.Text = "Manage Leases";
+            this.btn_manageLeases.Text = "   Manage Leases";
             this.btn_manageLeases.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_manageLeases.UseVisualStyleBackColor = false;
             this.btn_manageLeases.Click += new System.EventHandler(this.btn_manageLeases_Click);
@@ -105,7 +104,7 @@
             this.btn_financialData.Name = "btn_financialData";
             this.btn_financialData.Size = new System.Drawing.Size(160, 55);
             this.btn_financialData.TabIndex = 3;
-            this.btn_financialData.Text = "Financial Data";
+            this.btn_financialData.Text = "   Financial Data";
             this.btn_financialData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_financialData.UseVisualStyleBackColor = false;
             // 
@@ -119,7 +118,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 55);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Track And Assign Maintenance";
+            this.button1.Text = "   Track And Assign    Maintenance";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -224,6 +223,7 @@
             this.panel_headDashboard.Name = "panel_headDashboard";
             this.panel_headDashboard.Size = new System.Drawing.Size(1008, 65);
             this.panel_headDashboard.TabIndex = 9;
+            this.panel_headDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_headDashboard_Paint);
             // 
             // panel_dockleft
             // 
@@ -242,6 +242,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);

@@ -39,6 +39,12 @@ namespace AppartmentSystem
             {
                 dg_ManageRoom.SelectionChanged -= dg_ManageRoom_SelectionChanged;
             }
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            int h = Screen.PrimaryScreen.Bounds.Height;
+
+            this.Location = new Point(0, 0);
+            this.Size = new Size(w, h);
+
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -196,6 +202,11 @@ namespace AppartmentSystem
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_roomBack_Click(object sender, EventArgs e)
         {
 
         }

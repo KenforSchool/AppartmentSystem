@@ -19,6 +19,7 @@ namespace AppartmentSystem
             InitializeComponent();
             panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
             panel_dockleft.BackColor = Color.FromArgb(125, Color.Black);
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,6 +36,12 @@ namespace AppartmentSystem
         {
             //GetActiveRoomCount();
             //GetInActiveRoomCount();
+
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            int h = Screen.PrimaryScreen.Bounds.Height;
+
+            this.Location = new Point(0, 0);
+            this.Size = new Size(w, h);
         }
 
         private void btn_manageRoom_Click(object sender, EventArgs e)
@@ -110,6 +117,11 @@ namespace AppartmentSystem
             ManageLease lease = new ManageLease();
             lease.Show();
             this.Close();
+        }
+
+        private void panel_headDashboard_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
