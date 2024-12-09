@@ -45,7 +45,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.AutoSize = true;
+            this.btn_Login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Login.BackColor = System.Drawing.Color.Silver;
             this.btn_Login.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
@@ -61,6 +61,8 @@
             // 
             // btn_SignUp
             // 
+            this.btn_SignUp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SignUp.AutoSize = true;
             this.btn_SignUp.BackColor = System.Drawing.Color.Silver;
             this.btn_SignUp.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SignUp.ForeColor = System.Drawing.Color.Black;
@@ -77,6 +79,7 @@
             // 
             // lbl_username
             // 
+            this.lbl_username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_username.AutoSize = true;
             this.lbl_username.BackColor = System.Drawing.Color.Transparent;
             this.lbl_username.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,6 +92,7 @@
             // 
             // lbl_password
             // 
+            this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_password.AutoSize = true;
             this.lbl_password.BackColor = System.Drawing.Color.Transparent;
             this.lbl_password.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +105,7 @@
             // 
             // txt_Username
             // 
+            this.txt_Username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_Username.BackColor = System.Drawing.Color.Silver;
             this.txt_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Username.Location = new System.Drawing.Point(45, 178);
@@ -110,6 +115,7 @@
             // 
             // txt_Password
             // 
+            this.txt_Password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_Password.BackColor = System.Drawing.Color.Silver;
             this.txt_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_Password.Location = new System.Drawing.Point(45, 252);
@@ -120,20 +126,23 @@
             // 
             // lbl_Login
             // 
+            this.lbl_Login.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Login.BackColor = System.Drawing.Color.Gainsboro;
             this.lbl_Login.Font = new System.Drawing.Font("Calisto MT", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Login.ForeColor = System.Drawing.Color.White;
-            this.lbl_Login.Image = ((System.Drawing.Image)(resources.GetObject("lbl_Login.Image")));
             this.lbl_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Login.Location = new System.Drawing.Point(0, -2);
             this.lbl_Login.Name = "lbl_Login";
             this.lbl_Login.Size = new System.Drawing.Size(1011, 74);
             this.lbl_Login.TabIndex = 6;
-            this.lbl_Login.Text = "      Apartment Management System";
+            this.lbl_Login.Text = "Uno Rental Inc.";
             this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_login
             // 
+            this.panel_login.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_login.AutoSize = true;
             this.panel_login.BackColor = System.Drawing.Color.Silver;
             this.panel_login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_login.Controls.Add(this.cb_showPassword);
@@ -151,6 +160,7 @@
             // 
             // cb_showPassword
             // 
+            this.cb_showPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_showPassword.AutoSize = true;
             this.cb_showPassword.ForeColor = System.Drawing.Color.White;
             this.cb_showPassword.Location = new System.Drawing.Point(45, 278);
@@ -162,6 +172,7 @@
             // 
             // lbl_logo_admin_Signup
             // 
+            this.lbl_logo_admin_Signup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_logo_admin_Signup.BackColor = System.Drawing.Color.Transparent;
             this.lbl_logo_admin_Signup.Image = ((System.Drawing.Image)(resources.GetObject("lbl_logo_admin_Signup.Image")));
             this.lbl_logo_admin_Signup.Location = new System.Drawing.Point(139, 28);
@@ -171,6 +182,7 @@
             // 
             // lbl_motto
             // 
+            this.lbl_motto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_motto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_motto.ForeColor = System.Drawing.Color.White;
@@ -198,6 +210,7 @@
             this.panel_login.ResumeLayout(false);
             this.panel_login.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

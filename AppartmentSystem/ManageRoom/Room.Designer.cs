@@ -80,11 +80,11 @@
             // 
             this.lbl_roomNo.AutoSize = true;
             this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_roomNo.Font = new System.Drawing.Font("Calisto MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_roomNo.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_roomNo.Location = new System.Drawing.Point(99, 25);
             this.lbl_roomNo.Name = "lbl_roomNo";
-            this.lbl_roomNo.Size = new System.Drawing.Size(43, 14);
+            this.lbl_roomNo.Size = new System.Drawing.Size(39, 17);
             this.lbl_roomNo.TabIndex = 2;
             this.lbl_roomNo.Text = "Room:";
             // 

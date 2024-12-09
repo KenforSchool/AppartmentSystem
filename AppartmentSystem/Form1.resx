@@ -121,7 +121,7 @@
   <data name="btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5gAAAOYBIly6UQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVFhH7dc7
+        5QAAAOUBj+WbPAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVFhH7dc7
         LwRRGMbxCSpxa9ChoVDREBJRiUaiFxoavgCVW6LQoNaIb0ApRCXBqoSo3aITl9CI6/+d5E0m68ycObNn
         icST/IqZnHnnyczuzmyQIi1Yxw3e8ZnBA3YxCKf04xmmoVmtIFXq8QjTkEINw5pZ6AGX6EEZsqQBG9B5
         p7BmC3pAqsaWVOIFOrMKiTmELu6UHR5yAZ3ZJDuSUowC5/g7BXagi1tlh4c4FeiClFgIt8yZxjGGwi17
@@ -148,43 +148,6 @@
         rAYRgWk3sB2UNlzMW8x9VOfLhXZ/y5dMuyjt9vyQhTxF9bZc3HMD20Xpk3EE40U+1ulXU/RHoaNb9RFa
         vOUGLhe18Cak9MNSr37iBqaX4RCaNjG16B+gwFdEaLmajuGUdnusjea1f+sltBV38AkR7sQrNP1upPRW
         027Xhqsd7RvVX1aRfu7KHAXnAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="lbl_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
 </value>
   </data>
   <data name="lbl_logo_admin_Signup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
