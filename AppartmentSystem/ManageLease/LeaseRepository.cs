@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +26,7 @@ namespace AppartmentSystem
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
+
                 try
                 {
 
@@ -70,13 +73,14 @@ namespace AppartmentSystem
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@room_id", roomId);
 
                         int rowsAffected = command.ExecuteNonQuery();
                         return rowsAffected > 0;
+
+
                     }
                 }
             }
@@ -84,6 +88,54 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("SQL Error: " + ex.Message);
                 return false;
+            }
+        }
+
+        public bool addArchive(string roomID, double electricBill, double waterBill,
+            double internetBill, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open ();
+
+                try
+                {
+                    string insertLeaseQuery = @"
+                    
+                    DECLARE @lease_start DATE;
+                    SET @lease_start = @lease;
+                    
+                    DECLARE @lease_end DATE;
+                    SET @lease_end = @leaseEnd;
+
+                    INSERT INTO lease_archive
+                    (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
+                    SELECT 
+                    room_id, electricity_bill, water_bill, internet_bill, room_price, @lease_start, @lease_end
+                    FROM lease
+                    WHERE lease_id = @lease_id";
+
+                    using (SqlCommand updateLeaseCmd = new SqlCommand(insertLeaseQuery, connection))
+                    {
+                        updateLeaseCmd.Parameters.AddWithValue("@room_id", roomID);
+                        updateLeaseCmd.Parameters.AddWithValue("@electricity_bill", electricBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@water_bill", waterBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@internet_bill", internetBill);
+                        updateLeaseCmd.Parameters.AddWithValue("@room_price", roomPrice);
+                        updateLeaseCmd.Parameters.AddWithValue("@lease", leaseStart);
+                        updateLeaseCmd.Parameters.AddWithValue("@leaseEnd", leaseEnd);
+
+                        updateLeaseCmd.ExecuteNonQuery();
+                    }
+
+                    return true;
+                }
+                catch (SqlException sql)
+                {
+
+                    MessageBox.Show("Error: " + sql.Message);
+                    return false;
+                }
             }
         }
 

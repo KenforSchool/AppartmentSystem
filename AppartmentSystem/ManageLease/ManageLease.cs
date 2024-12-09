@@ -35,7 +35,7 @@ namespace AppartmentSystem
             double internet = double.Parse(txt_wifiBill.Text);
             double maintenance = double.Parse(txtRoomBill.Text);
             string room_id = lbl_roomNumberlease.Text;
-            int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Rent"].Value);
+            int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value);
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
@@ -126,7 +126,7 @@ namespace AppartmentSystem
                 LeaseRepository room = new LeaseRepository(connectionString);
 
                 bool isDeleted = room.DeleteRoom(roomId);
-
+                Archive();
 
                 if (isDeleted)
                 {
@@ -177,6 +177,33 @@ namespace AppartmentSystem
         private void lbl_roomNo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Archive()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+            string roomId = selectedRow.Cells[1].Value.ToString();
+            double roomPrice = Convert.ToDouble(selectedRow.Cells[2].Value);
+            double electricity = Convert.ToDouble(selectedRow.Cells[3].Value);
+            double water = Convert.ToDouble(selectedRow.Cells[4].Value);
+            double internet = Convert.ToDouble(selectedRow.Cells[5].Value);
+            DateTime moved_in = Convert.ToDateTime(selectedRow.Cells[6].Value);
+            DateTime moved_out = Convert.ToDateTime(selectedRow.Cells[7].Value);
+
+            LeaseRepository lease = new LeaseRepository(connectionString);
+            bool isUpdated = lease.addArchive(roomId, electricity,water,internet,roomPrice,moved_in, moved_out);
+
+            if (isUpdated)
+            {
+                MessageBox.Show("Record send to archive!");
+            }
+            else
+            {
+                MessageBox.Show("Redord not save");
+            }
         }
     }
 }
