@@ -195,6 +195,7 @@
             this.btn_deleteLease.Text = "    Delete";
             this.btn_deleteLease.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_deleteLease.UseVisualStyleBackColor = true;
+            this.btn_deleteLease.Click += new System.EventHandler(this.btn_deleteLease_Click);
             // 
             // btn_updateLease
             // 
@@ -207,6 +208,7 @@
             this.btn_updateLease.Text = "Update";
             this.btn_updateLease.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_updateLease.UseVisualStyleBackColor = true;
+            this.btn_updateLease.Click += new System.EventHandler(this.btn_updateLease_Click);
             // 
             // btn_editLease
             // 

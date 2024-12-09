@@ -19,6 +19,11 @@ namespace AppartmentSystem
             InitializeComponent();
         }
 
+        private void btn_updateLease_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
         private void btn_addLease_Click(object sender, EventArgs e)
         {
 
@@ -42,7 +47,8 @@ namespace AppartmentSystem
                 txtRoomBill.Clear();
                 txtWaterBill.Clear();
                 txtElectricBill.Clear();
-                LoadData();
+                btn_updateLease_Click(sender, e);
+                
             }
             else
             {
@@ -62,6 +68,7 @@ namespace AppartmentSystem
                 dataGridView1.SelectionChanged -= dg_ManageRoom_SelectionChanged;
             }
         }
+
         private void LoadData()
         {
             var dataAccess = new LeaseRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
@@ -95,6 +102,40 @@ namespace AppartmentSystem
 
                 // Pass values to TextBox controls
                 txt_roomNo.Text = selectedRow.Cells[0].Value.ToString();
+                txtTenantName.Text = selectedRow.Cells[1].Value.ToString();
+            }
+        }
+
+        private void btn_deleteLease_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a row to delete.");
+                return;
+            }
+
+            string roomId = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                LeaseRepository room = new LeaseRepository(connectionString);
+
+                bool isDeleted = room.DeleteRoom(roomId);
+
+
+                if (isDeleted)
+                {
+                    MessageBox.Show("Record deleted successfully!");
+                    btn_updateLease_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Error: Record could not be deleted");
+                }
             }
         }
     }
