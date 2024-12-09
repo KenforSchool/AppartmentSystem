@@ -33,7 +33,11 @@ namespace AppartmentSystem
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            int h = Screen.PrimaryScreen.Bounds.Height;
 
+            this.Location = new Point(0, 0);
+            this.Size = new Size(w, h);
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
