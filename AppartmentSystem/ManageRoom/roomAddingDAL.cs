@@ -27,7 +27,6 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
-                    // Insert query for the room table
                     string roomQuery = "INSERT INTO room (room_id, room_price) VALUES (@room_id, @room_price)";
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
@@ -35,11 +34,10 @@ namespace AppartmentSystem.ManageRoom
                         command.Parameters.AddWithValue("@room_price", roomPrice);
                         command.ExecuteNonQuery();
                     }
-
-                    // Insert query for the tenant table
                     string tenantQuery = @"
                     DECLARE @move_in DATE;
                     SET @move_in = @move_in_param;
+
                     INSERT INTO tenant (room_id, tenant_name, move_in)
                     VALUES (@room_id, @tenant_name, @move_in)";
                     using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
@@ -50,20 +48,17 @@ namespace AppartmentSystem.ManageRoom
                         command.ExecuteNonQuery();
                     }
 
-                    // Commit transaction after successful inserts
                     transaction.Commit();
                     return true;
                 }
                 catch (SqlException sqlEx)
                 {
-                    // Rollback transaction on SQL exception
                     transaction.Rollback();
                     MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    // Rollback transaction on any other exceptions
                     transaction.Rollback();
                     MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
