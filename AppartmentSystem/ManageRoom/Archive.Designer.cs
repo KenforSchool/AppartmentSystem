@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Archive));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dg_archiveRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_archiveTenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_archiveMovedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_archivePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_archive = new System.Windows.Forms.Label();
             this.btn_archiveBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -45,35 +41,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_archiveRoom,
-            this.dg_archiveTenant,
-            this.dg_archiveMovedIn,
-            this.dg_archivePrice});
             this.dataGridView1.Location = new System.Drawing.Point(20, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(963, 416);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dg_archiveRoom
-            // 
-            this.dg_archiveRoom.HeaderText = "Room Number ";
-            this.dg_archiveRoom.Name = "dg_archiveRoom";
-            // 
-            // dg_archiveTenant
-            // 
-            this.dg_archiveTenant.HeaderText = "Tenant";
-            this.dg_archiveTenant.Name = "dg_archiveTenant";
-            // 
-            // dg_archiveMovedIn
-            // 
-            this.dg_archiveMovedIn.HeaderText = "Moved In";
-            this.dg_archiveMovedIn.Name = "dg_archiveMovedIn";
-            // 
-            // dg_archivePrice
-            // 
-            this.dg_archivePrice.HeaderText = "Price ";
-            this.dg_archivePrice.Name = "dg_archivePrice";
             // 
             // lbl_archive
             // 
@@ -116,10 +87,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_archiveRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_archiveTenant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_archiveMovedIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_archivePrice;
         private System.Windows.Forms.Label lbl_archive;
         private System.Windows.Forms.Button btn_archiveBack;
     }
