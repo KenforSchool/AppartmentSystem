@@ -190,6 +190,8 @@
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(151, 20);
             this.txt_price.TabIndex = 15;
+            this.txt_price.TextChanged += new System.EventHandler(this.txt_price_TextChanged);
+            this.txt_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_price_KeyPress);
             // 
             // btn_roomBack
             // 

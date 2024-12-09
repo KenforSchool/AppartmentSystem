@@ -71,33 +71,44 @@ namespace AppartmentSystem
         }
 
         private void btn_addRoom_Click(object sender, EventArgs e)
-        {          
-            //Connection ng database
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            roomAddingDAL add = new roomAddingDAL(connectionString);
-            string roomNum = txt_RoomNo.Text;
-            //walang design
-            double roomPrice = double.Parse(txt_price.Text);
-
-            string tenantName = txt_tenant.Text;
-            //mali yung design
-            DateTime movedIn = dateTimePicker1.Value;
-
-            //eto yung kinuha yung process
-            bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn);
-
-            if(success)
+        {
+            try
             {
-                MessageBox.Show("Room and tenant have been added successfully");
-                txt_price.Clear();
-                txt_tenant.Clear();
-                txt_RoomNo.Clear();
-                btn_Update_Click(sender, e);
+                //Connection ng database
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                roomAddingDAL add = new roomAddingDAL(connectionString);
+                string roomNum = txt_RoomNo.Text;
+                //walang design
+                double roomPrice = double.Parse(txt_price.Text);
+
+                string tenantName = txt_tenant.Text;
+                //mali yung design
+                DateTime movedIn = dateTimePicker1.Value;
+
+                //eto yung kinuha yung process
+                bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn);
+
+                if (success)
+                {
+                    MessageBox.Show("Room and tenant have been added successfully");
+                    txt_price.Clear();
+                    txt_tenant.Clear();
+                    txt_RoomNo.Clear();
+                    btn_Update_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Error has occured. Data has not been saved");
+                }
             }
-            else
+            catch (FormatException ex)
             {
-                MessageBox.Show("Error has occured. Data has not been saved");
+                DialogResult result = MessageBox.Show(ex.Message,
+                "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
+
+            
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
@@ -209,6 +220,19 @@ namespace AppartmentSystem
         private void btn_roomBack_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
