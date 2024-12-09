@@ -196,10 +196,10 @@ namespace AppartmentSystem
 
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-            string roomId = lbl_roomNumberlease.Text;
-            double electricityBill = double.Parse(txtElectricBill.Text);
-            double internetBill = double.Parse(txt_wifiBill.Text);
-            double waterBill = double.Parse(txtWaterBill.Text);
+            string roomId = selectedRow.Cells[1].Value.ToString();
+            double electricityBill = double.Parse(selectedRow.Cells[4].Value.ToString());
+            double internetBill = double.Parse(selectedRow.Cells[6].Value.ToString());
+            double waterBill = double.Parse(selectedRow.Cells[5].Value.ToString());
             //double maintenanceBill = double.Parse(txtRoomBill.Text);
             double room_price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value);
             string tenantName = txtTenantName.Text;
