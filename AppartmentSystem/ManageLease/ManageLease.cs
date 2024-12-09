@@ -35,7 +35,7 @@ namespace AppartmentSystem
             double internet = double.Parse(txt_wifiBill.Text);
             double maintenance = double.Parse(txtRoomBill.Text);
             string room_id = lbl_roomNumberlease.Text;
-            int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value);
+            int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value);
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
@@ -108,8 +108,13 @@ namespace AppartmentSystem
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
                 // Pass values to TextBox controls
-                lbl_roomNumberlease.Text = selectedRow.Cells[0].Value.ToString();
-                txtTenantName.Text = selectedRow.Cells[1].Value.ToString();
+                lbl_roomNumberlease.Text = selectedRow.Cells[1].Value.ToString();
+                txtTenantName.Text = selectedRow.Cells[2].Value.ToString();
+                textBox1.Text = selectedRow.Cells[0].Value.ToString();
+                txtElectricBill.Text = selectedRow.Cells[4].Value.ToString();
+                //txtRoomBill.Text = selectedRow.Cells[0].Value.ToString();
+                txtWaterBill.Text = selectedRow.Cells[5].Value.ToString();
+                txt_wifiBill.Text = selectedRow.Cells[6].Value.ToString();
             }
         }
 
@@ -122,7 +127,7 @@ namespace AppartmentSystem
                 return;
             }
 
-            string roomId = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string roomId = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -191,16 +196,18 @@ namespace AppartmentSystem
 
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-            string roomId = selectedRow.Cells[1].Value.ToString();
-            double roomPrice = Convert.ToDouble(selectedRow.Cells[2].Value);
-            double electricity = Convert.ToDouble(selectedRow.Cells[3].Value);
-            double water = Convert.ToDouble(selectedRow.Cells[4].Value);
-            double internet = Convert.ToDouble(selectedRow.Cells[5].Value);
-            DateTime moved_in = Convert.ToDateTime(selectedRow.Cells[6].Value);
-            DateTime moved_out = Convert.ToDateTime(selectedRow.Cells[7].Value);
+            string roomId = lbl_roomNumberlease.Text;
+            double electricityBill = double.Parse(txtElectricBill.Text);
+            double internetBill = double.Parse(txt_wifiBill.Text);
+            double waterBill = double.Parse(txtWaterBill.Text);
+            //double maintenanceBill = double.Parse(txtRoomBill.Text);
+            double room_price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value);
+            string tenantName = txtTenantName.Text;
+            DateTime moved_in = dateTimePicker1.Value;
+            DateTime moved_out = moved_in.AddMonths(1);
 
             LeaseRepository lease = new LeaseRepository(connectionString);
-            bool isUpdated = lease.addArchive(roomId, electricity,water,internet,roomPrice,moved_in, moved_out);
+            bool isUpdated = lease.ArchiveLeaseData(roomId,electricityBill,waterBill,internetBill, room_price, moved_in, moved_out);
 
             if (isUpdated)
             {

@@ -91,48 +91,39 @@ namespace AppartmentSystem
             }
         }
 
-        public bool addArchive(string roomID, double electricBill, double waterBill,
-            double internetBill, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
+        public bool ArchiveLeaseData(string roomID, double electricityBill, double waterBill,
+        double internetBill, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                connection.Open ();
+                connection.Open();
 
                 try
                 {
-                    string insertLeaseQuery = @"
-                    
-                    DECLARE @lease_start DATE;
-                    SET @lease_start = @lease;
-                    
-                    DECLARE @lease_end DATE;
-                    SET @lease_end = @leaseEnd;
+                    string insertArchiveQuery = @"
+                INSERT INTO lease_archive
+                (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
+                VALUES
+                (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price, @lease_start, @lease_end)
+                 ";
 
-                    INSERT INTO lease_archive
-                    (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
-                    SELECT 
-                    room_id, electricity_bill, water_bill, internet_bill, room_price, @lease_start, @lease_end
-                    FROM lease
-                    WHERE lease_id = @lease_id";
-
-                    using (SqlCommand updateLeaseCmd = new SqlCommand(insertLeaseQuery, connection))
+                    using (SqlCommand command = new SqlCommand(insertArchiveQuery, connection))
                     {
-                        updateLeaseCmd.Parameters.AddWithValue("@room_id", roomID);
-                        updateLeaseCmd.Parameters.AddWithValue("@electricity_bill", electricBill);
-                        updateLeaseCmd.Parameters.AddWithValue("@water_bill", waterBill);
-                        updateLeaseCmd.Parameters.AddWithValue("@internet_bill", internetBill);
-                        updateLeaseCmd.Parameters.AddWithValue("@room_price", roomPrice);
-                        updateLeaseCmd.Parameters.AddWithValue("@lease", leaseStart);
-                        updateLeaseCmd.Parameters.AddWithValue("@leaseEnd", leaseEnd);
+                        command.Parameters.AddWithValue("@room_id", roomID);
+                        command.Parameters.AddWithValue("@electricity_bill", electricityBill);
+                        command.Parameters.AddWithValue("@water_bill", waterBill);
+                        command.Parameters.AddWithValue("@internet_bill", internetBill);
+                        command.Parameters.AddWithValue("@room_price", roomPrice);
+                        command.Parameters.AddWithValue("@lease_start", leaseStart);
+                        command.Parameters.AddWithValue("@lease_end", leaseEnd);
 
-                        updateLeaseCmd.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
                     }
 
                     return true;
                 }
                 catch (SqlException sql)
                 {
-
                     MessageBox.Show("Error: " + sql.Message);
                     return false;
                 }
@@ -196,6 +187,7 @@ namespace AppartmentSystem
 
             string query = @"
             SELECT
+            l.lease_id AS 'Lease ID',
             r.room_id AS 'Room Number',
             t.tenant_name AS 'Name',
             r.room_price AS 'Rent',
