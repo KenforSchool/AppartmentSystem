@@ -17,8 +17,7 @@ namespace AppartmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_financialData());
-
+            Application.Run(new FrmLogin());
 
         }
     }

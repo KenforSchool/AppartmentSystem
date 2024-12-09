@@ -49,6 +49,7 @@
             this.lbl_roomNumberleaseOutput = new System.Windows.Forms.Label();
             this.btn_archiveLease = new System.Windows.Forms.Button();
             this.lbl_leaseStart = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -258,6 +259,13 @@
             this.lbl_leaseStart.TabIndex = 20;
             this.lbl_leaseStart.Text = "Lease Start:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(289, 111);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 21;
+            // 
             // ManageLease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +274,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_leaseStart);
             this.Controls.Add(this.btn_archiveLease);
             this.Controls.Add(this.lbl_roomNumberleaseOutput);
@@ -317,5 +326,6 @@
         private System.Windows.Forms.Label lbl_roomNumberleaseOutput;
         private System.Windows.Forms.Button btn_archiveLease;
         private System.Windows.Forms.Label lbl_leaseStart;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
