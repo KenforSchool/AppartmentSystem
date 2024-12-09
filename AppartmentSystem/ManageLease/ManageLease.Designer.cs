@@ -221,6 +221,7 @@
             this.btn_editLease.Text = "    Edit";
             this.btn_editLease.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_editLease.UseVisualStyleBackColor = true;
+            this.btn_editLease.Click += new System.EventHandler(this.btn_editLease_Click);
             // 
             // dateTimePicker1
             // 

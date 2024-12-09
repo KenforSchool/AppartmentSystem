@@ -83,6 +83,58 @@ namespace AppartmentSystem
             }
         }
 
+        public bool editRoom(string roomId, double electricBill, double waterBill,
+            double interntBill, DateTime leaseStart)
+        {
+            string query = @"UPDATE lease
+            set electricity_bill = @electricity_bill, water_bill = @water_bill, internet_bill = @internet_bill 
+            , lease_start = @lease_start WHERE 
+            room_id = @room_id";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@room_id", roomId);
+                        command.Parameters.AddWithValue("@electricity_bill", electricBill);
+                        command.Parameters.AddWithValue("@water_bill", waterBill);
+                        command.Parameters.AddWithValue("@internet_bill", interntBill);
+                        command.Parameters.AddWithValue("@lease_start", leaseStart);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            // Update successful
+                            return true;
+                        }
+                        else
+                        {
+                            // No rows were updated
+                            MessageBox.Show("No record found with the given room_id.");
+                            return false;
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    // Handle SQL errors
+                    MessageBox.Show("SQL Error: " + ex.Message);
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    // Handle other general errors
+                    MessageBox.Show("Error: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
         public DataTable GetTenantRoomId(string roomID)
         {
             DataTable dataTable = new DataTable();
@@ -94,7 +146,8 @@ namespace AppartmentSystem
             r.room_price AS 'Rent',
             l.electricity_bill AS 'Electricity Bill',
             l.water_bill AS 'Water Bill',
-            l.internet_bill AS 'Internet Bill'
+            l.internet_bill AS 'Internet Bill',
+            l.lease_start AS 'Lease Start'
             FROM room r
             LEFT JOIN tenant t
             ON r.room_id = t.room_id

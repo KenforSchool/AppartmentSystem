@@ -138,5 +138,38 @@ namespace AppartmentSystem
                 }
             }
         }
+
+        private void btn_editLease_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a row you want to edit.");
+                return;
+            }
+
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+            string roomId = txt_roomNo.Text;
+            double electricityBill = double.Parse(txtElectricBill.Text);
+            double internetBill = double.Parse(txt_wifiBill.Text);
+            double waterBill = double.Parse(txtWaterBill.Text);
+            double maintenanceBill = double.Parse(txtRoomBill.Text);
+            string tenantName = txtTenantName.Text;
+            DateTime moved_in = dateTimePicker1.Value;
+
+            LeaseRepository lease = new LeaseRepository(connectionString);
+            bool isUpdated = lease.editRoom(roomId,electricityBill,waterBill,internetBill, moved_in);
+
+            if (isUpdated)
+            {
+                MessageBox.Show("Record updated successfully!");
+                btn_updateLease_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Error updating record");
+            }
+        }
     }
 }
