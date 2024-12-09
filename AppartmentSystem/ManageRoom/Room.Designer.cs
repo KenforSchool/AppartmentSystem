@@ -32,7 +32,6 @@
             this.dg_ManageRoom = new System.Windows.Forms.DataGridView();
             this.btn_addRoom = new System.Windows.Forms.Button();
             this.lbl_roomNo = new System.Windows.Forms.Label();
-            this.txt_RoomNo = new System.Windows.Forms.TextBox();
             this.lbl_tenant = new System.Windows.Forms.Label();
             this.txt_tenant = new System.Windows.Forms.TextBox();
             this.lbl_movedIn = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txt_price = new System.Windows.Forms.TextBox();
             this.btn_roomBack = new System.Windows.Forms.Button();
+            this.lbl_roomNumberOutput = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.dg_ManageRoom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_ManageRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_ManageRoom.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dg_ManageRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_ManageRoom.Location = new System.Drawing.Point(56, 138);
             this.dg_ManageRoom.MultiSelect = false;
@@ -83,18 +84,11 @@
             this.lbl_roomNo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_roomNo.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_roomNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_roomNo.Location = new System.Drawing.Point(141, 24);
+            this.lbl_roomNo.Location = new System.Drawing.Point(141, 27);
             this.lbl_roomNo.Name = "lbl_roomNo";
             this.lbl_roomNo.Size = new System.Drawing.Size(39, 17);
             this.lbl_roomNo.TabIndex = 2;
             this.lbl_roomNo.Text = "Room:";
-            // 
-            // txt_RoomNo
-            // 
-            this.txt_RoomNo.Location = new System.Drawing.Point(185, 21);
-            this.txt_RoomNo.Name = "txt_RoomNo";
-            this.txt_RoomNo.Size = new System.Drawing.Size(100, 20);
-            this.txt_RoomNo.TabIndex = 3;
             // 
             // lbl_tenant
             // 
@@ -209,6 +203,14 @@
             this.btn_roomBack.UseVisualStyleBackColor = false;
             this.btn_roomBack.Click += new System.EventHandler(this.btn_roomBack_Click);
             // 
+            // lbl_roomNumberOutput
+            // 
+            this.lbl_roomNumberOutput.BackColor = System.Drawing.Color.White;
+            this.lbl_roomNumberOutput.Location = new System.Drawing.Point(185, 27);
+            this.lbl_roomNumberOutput.Name = "lbl_roomNumberOutput";
+            this.lbl_roomNumberOutput.Size = new System.Drawing.Size(100, 20);
+            this.lbl_roomNumberOutput.TabIndex = 17;
+            // 
             // frm_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +220,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.lbl_roomNumberOutput);
             this.Controls.Add(this.btn_roomBack);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.dateTimePicker1);
@@ -228,7 +231,6 @@
             this.Controls.Add(this.lbl_movedIn);
             this.Controls.Add(this.txt_tenant);
             this.Controls.Add(this.lbl_tenant);
-            this.Controls.Add(this.txt_RoomNo);
             this.Controls.Add(this.lbl_roomNo);
             this.Controls.Add(this.btn_addRoom);
             this.Controls.Add(this.dg_ManageRoom);
@@ -246,7 +248,6 @@
         private System.Windows.Forms.DataGridView dg_ManageRoom;
         private System.Windows.Forms.Button btn_addRoom;
         private System.Windows.Forms.Label lbl_roomNo;
-        private System.Windows.Forms.TextBox txt_RoomNo;
         private System.Windows.Forms.Label lbl_tenant;
         private System.Windows.Forms.TextBox txt_tenant;
         private System.Windows.Forms.Label lbl_movedIn;
@@ -257,5 +258,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.Button btn_roomBack;
+        private System.Windows.Forms.Label lbl_roomNumberOutput;
     }
 }

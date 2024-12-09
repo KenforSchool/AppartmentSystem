@@ -34,7 +34,7 @@ namespace AppartmentSystem
             double water = double.Parse(txtWaterBill.Text);
             double internet = double.Parse(txt_wifiBill.Text);
             double maintenance = double.Parse(txtRoomBill.Text);
-            string room_id = lbl_roomNumberlease.Text;
+            string room_id = lbl_roomNumberleaseOutput.Text;
             int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Rent"].Value);
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
@@ -60,7 +60,7 @@ namespace AppartmentSystem
         private void ManageLease_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (lbl_roomNumberlease.Text == "")
+            if (lbl_roomNumberleaseOutput.Text == "")
             {
                 dataGridView1.SelectionChanged += dg_ManageRoom_SelectionChanged;
             }
@@ -79,7 +79,7 @@ namespace AppartmentSystem
         private void LoadData()
         {
             var dataAccess = new LeaseRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            string room_id = lbl_roomNumberlease.Text;
+            string room_id = lbl_roomNumberleaseOutput.Text;
             try
             {
                 DataTable data = dataAccess.GetTenantRoomId(room_id);
@@ -108,7 +108,7 @@ namespace AppartmentSystem
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
                 // Pass values to TextBox controls
-                lbl_roomNumberlease.Text = selectedRow.Cells[0].Value.ToString();
+                lbl_roomNumberleaseOutput.Text = selectedRow.Cells[0].Value.ToString();
                 txtTenantName.Text = selectedRow.Cells[1].Value.ToString();
             }
         }
@@ -157,7 +157,7 @@ namespace AppartmentSystem
 
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-            string roomId = lbl_roomNumberlease.Text;
+            string roomId = lbl_roomNumberleaseOutput.Text;
             double electricityBill = double.Parse(txtElectricBill.Text);
             double internetBill = double.Parse(txt_wifiBill.Text);
             double waterBill = double.Parse(txtWaterBill.Text);

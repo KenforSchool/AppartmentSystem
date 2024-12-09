@@ -46,7 +46,7 @@
             this.btn_updateLease = new System.Windows.Forms.Button();
             this.btn_editLease = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lbl_roomNumberlease = new System.Windows.Forms.Label();
+            this.lbl_roomNumberleaseOutput = new System.Windows.Forms.Label();
             this.btn_archiveLease = new System.Windows.Forms.Button();
             this.lbl_leaseStart = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,6 +59,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(29, 155);
             this.dataGridView1.Name = "dataGridView1";
@@ -227,14 +228,14 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 17;
             // 
-            // lbl_roomNumberlease
+            // lbl_roomNumberleaseOutput
             // 
-            this.lbl_roomNumberlease.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_roomNumberlease.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_roomNumberlease.Location = new System.Drawing.Point(107, 23);
-            this.lbl_roomNumberlease.Name = "lbl_roomNumberlease";
-            this.lbl_roomNumberlease.Size = new System.Drawing.Size(100, 23);
-            this.lbl_roomNumberlease.TabIndex = 18;
+            this.lbl_roomNumberleaseOutput.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_roomNumberleaseOutput.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_roomNumberleaseOutput.Location = new System.Drawing.Point(107, 23);
+            this.lbl_roomNumberleaseOutput.Name = "lbl_roomNumberleaseOutput";
+            this.lbl_roomNumberleaseOutput.Size = new System.Drawing.Size(100, 23);
+            this.lbl_roomNumberleaseOutput.TabIndex = 18;
             // 
             // btn_archiveLease
             // 
@@ -267,7 +268,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.lbl_leaseStart);
             this.Controls.Add(this.btn_archiveLease);
-            this.Controls.Add(this.lbl_roomNumberlease);
+            this.Controls.Add(this.lbl_roomNumberleaseOutput);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_editLease);
             this.Controls.Add(this.btn_updateLease);
@@ -313,7 +314,7 @@
         private System.Windows.Forms.Button btn_updateLease;
         private System.Windows.Forms.Button btn_editLease;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lbl_roomNumberlease;
+        private System.Windows.Forms.Label lbl_roomNumberleaseOutput;
         private System.Windows.Forms.Button btn_archiveLease;
         private System.Windows.Forms.Label lbl_leaseStart;
     }
