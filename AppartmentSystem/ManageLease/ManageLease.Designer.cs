@@ -228,9 +228,8 @@
             // lbl_roomNumberlease
             // 
             this.lbl_roomNumberlease.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_roomNumberlease.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_roomNumberlease.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_roomNumberlease.Location = new System.Drawing.Point(166, 25);
+            this.lbl_roomNumberlease.Location = new System.Drawing.Point(166, 21);
             this.lbl_roomNumberlease.Name = "lbl_roomNumberlease";
             this.lbl_roomNumberlease.Size = new System.Drawing.Size(78, 23);
             this.lbl_roomNumberlease.TabIndex = 18;
