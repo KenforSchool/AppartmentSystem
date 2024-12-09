@@ -133,7 +133,8 @@ namespace AppartmentSystem
         public bool editRoom(string roomId, double electricBill, double waterBill,
             double interntBill, DateTime leaseStart, DateTime leaseEnd)
         {
-            string query = @"UPDATE lease
+            string query = @"
+            UPDATE lease
             set electricity_bill = @electricity_bill, water_bill = @water_bill, internet_bill = @internet_bill 
             , lease_start = @lease_start, lease_end = @lease_end WHERE 
             room_id = @room_id";
@@ -151,7 +152,7 @@ namespace AppartmentSystem
                         command.Parameters.AddWithValue("@water_bill", waterBill);
                         command.Parameters.AddWithValue("@internet_bill", interntBill);
                         command.Parameters.AddWithValue("@lease_start", leaseStart);
-                        command.Parameters.AddWithValue("@@lease_end", leaseEnd);
+                        command.Parameters.AddWithValue("@lease_end", leaseEnd);
 
                         int rowsAffected = command.ExecuteNonQuery();
 
@@ -187,7 +188,6 @@ namespace AppartmentSystem
 
             string query = @"
             SELECT
-            l.lease_id AS 'Lease ID',
             r.room_id AS 'Room Number',
             t.tenant_name AS 'Name',
             r.room_price AS 'Rent',

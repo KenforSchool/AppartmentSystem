@@ -49,7 +49,6 @@
             this.lbl_roomNumberleaseOutput = new System.Windows.Forms.Label();
             this.btn_archiveLease = new System.Windows.Forms.Button();
             this.lbl_leaseStart = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_mlBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -248,6 +247,7 @@
             this.btn_archiveLease.Size = new System.Drawing.Size(85, 46);
             this.btn_archiveLease.TabIndex = 19;
             this.btn_archiveLease.UseVisualStyleBackColor = true;
+            this.btn_archiveLease.Click += new System.EventHandler(this.btn_archiveLease_Click);
             // 
             // lbl_leaseStart
             // 
@@ -259,13 +259,6 @@
             this.lbl_leaseStart.Size = new System.Drawing.Size(64, 13);
             this.lbl_leaseStart.TabIndex = 20;
             this.lbl_leaseStart.Text = "Lease Start:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(369, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 21;
             // 
             // btn_mlBack
             // 
@@ -286,7 +279,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_mlBack);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_leaseStart);
             this.Controls.Add(this.btn_archiveLease);
             this.Controls.Add(this.lbl_roomNumberleaseOutput);
@@ -338,7 +330,6 @@
         private System.Windows.Forms.Label lbl_roomNumberleaseOutput;
         private System.Windows.Forms.Button btn_archiveLease;
         private System.Windows.Forms.Label lbl_leaseStart;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_mlBack;
     }
 }
