@@ -36,9 +36,10 @@ namespace AppartmentSystem
             double maintenance = double.Parse(txtRoomBill.Text);
             string room_id = txt_roomNo.Text;
             int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Rent"].Value);
-            DateTime dt = dateTimePicker1.Value;
+            DateTime moved_in = dateTimePicker1.Value;
+            DateTime moved_out = moved_in.AddMonths(1);
 
-            var repo = lease.addLease(room_id, electricity, water, internet, room_price,dt);
+            var repo = lease.addLease(room_id, electricity, water, internet, room_price, moved_in, moved_out);
 
             if (repo)
             {
@@ -157,9 +158,10 @@ namespace AppartmentSystem
             double maintenanceBill = double.Parse(txtRoomBill.Text);
             string tenantName = txtTenantName.Text;
             DateTime moved_in = dateTimePicker1.Value;
+            DateTime moved_out = moved_in.AddMonths(1);
 
             LeaseRepository lease = new LeaseRepository(connectionString);
-            bool isUpdated = lease.editRoom(roomId,electricityBill,waterBill,internetBill, moved_in);
+            bool isUpdated = lease.editRoom(roomId,electricityBill,waterBill,internetBill, moved_in, moved_out);
 
             if (isUpdated)
             {
