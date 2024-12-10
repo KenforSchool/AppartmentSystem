@@ -46,6 +46,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(963, 416);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lbl_archive
             // 
@@ -69,6 +70,7 @@
             this.btn_archiveBack.Size = new System.Drawing.Size(40, 35);
             this.btn_archiveBack.TabIndex = 2;
             this.btn_archiveBack.UseVisualStyleBackColor = true;
+            this.btn_archiveBack.Click += new System.EventHandler(this.btn_archiveBack_Click);
             // 
             // frm_Archive
             // 
