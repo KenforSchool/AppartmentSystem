@@ -18,7 +18,7 @@ namespace AppartmentSystem.ManageRoom
               connectionString = connString;
         }
 
-        public bool AddRoomAndTenant( string roomNum, string tenantName, double roomPrice, DateTime moved_IN)
+        public bool AddRoomAndTenant( string roomNum, string tenantName, double roomPrice, DateTime moved_IN, DateTime moved_OUT)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -38,13 +38,21 @@ namespace AppartmentSystem.ManageRoom
                     DECLARE @move_in DATE;
                     SET @move_in = @move_in_param;
 
-                    INSERT INTO tenant (room_id, tenant_name, move_in)
-                    VALUES (@room_id, @tenant_name, @move_in)";
+                    DECLARE @moved_out DATE;
+                    SET @moved_out = @moved_out_param;
+
+                    INSERT INTO tenant (room_id, tenant_name, move_in, moved_out)
+                    VALUES (@room_id, @tenant_name, @move_in, @moved_out)
+
+                    INSERT INTO LeaseDetails (room_id, tenant_name, LeaseStartDate, LeaseEndDate)
+                    VALUES (@room_id, @tenant_name, @move_in, @moved_out)";
+
                     using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@tenant_name", tenantName);
                         command.Parameters.AddWithValue("@move_in_param", moved_IN);
+                        command.Parameters.AddWithValue("@moved_out_param", moved_OUT);
                         command.ExecuteNonQuery();
                     }
 

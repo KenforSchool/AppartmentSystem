@@ -64,6 +64,7 @@
             this.dg_ManageRoom.RowHeadersWidth = 51;
             this.dg_ManageRoom.Size = new System.Drawing.Size(897, 476);
             this.dg_ManageRoom.TabIndex = 0;
+            this.dg_ManageRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_ManageRoom_CellClick);
             // 
             // btn_addRoom
             // 
@@ -211,6 +212,7 @@
             this.txt_RoomNo.Name = "txt_RoomNo";
             this.txt_RoomNo.Size = new System.Drawing.Size(100, 20);
             this.txt_RoomNo.TabIndex = 17;
+            this.txt_RoomNo.Click += new System.EventHandler(this.txt_RoomNo_Click);
             // 
             // frm_room
             // 

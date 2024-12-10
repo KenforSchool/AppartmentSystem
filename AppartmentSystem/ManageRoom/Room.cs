@@ -55,7 +55,8 @@ namespace AppartmentSystem
                      r.room_id,
                      r.room_price,
                      t.tenant_name,
-                     t.move_in
+                     t.move_in,
+                     t.moved_out
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";
@@ -72,21 +73,22 @@ namespace AppartmentSystem
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
+
             try
             {
+                
                 //Connection ng database
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                 roomAddingDAL add = new roomAddingDAL(connectionString);
                 string roomNum = txt_RoomNo.Text;
-                //walang design
                 double roomPrice = double.Parse(txt_price.Text);
 
                 string tenantName = txt_tenant.Text;
-                //mali yung design
                 DateTime movedIn = dateTimePicker1.Value;
+                DateTime moved_out = movedIn.AddMonths(1);
 
                 //eto yung kinuha yung process
-                bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn);
+                bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn, moved_out);
 
                 if (success)
                 {
@@ -157,23 +159,32 @@ namespace AppartmentSystem
 
             DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
-            string roomId = txt_RoomNo.Text;
-            double roomPrice = int.Parse(txt_price.Text);
-            string tenantName = txt_tenant.Text;
-            DateTime moved_in = dateTimePicker1.Value;
-
-            roomAddingDAL roomADL = new roomAddingDAL(connectionString);
-            bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice, moved_in);
-
-            if (isUpdated)
+            try
             {
-                MessageBox.Show("Record updated successfully!");
-                btn_Update_Click(sender, e);
+                string roomId = txt_RoomNo.Text;
+                double roomPrice = int.Parse(txt_price.Text);
+                string tenantName = txt_tenant.Text;
+                DateTime moved_in = dateTimePicker1.Value;
+
+                roomAddingDAL roomADL = new roomAddingDAL(connectionString);
+                bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice, moved_in);
+
+                if (isUpdated)
+                {
+                    MessageBox.Show("Record updated successfully!");
+                    btn_Update_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Error updating record");
+                }
             }
-            else
+            catch (FormatException ex)
             {
-                MessageBox.Show("Error updating record");
+
+                MessageBox.Show($"Double check the input you enter: {ex.Message}", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void dg_ManageRoom_SelectionChanged(object sender, EventArgs e)
@@ -201,7 +212,6 @@ namespace AppartmentSystem
                 }
                 else
                 {
-                    MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dg_ManageRoom.DataSource = null;
                 }
             }
@@ -214,12 +224,14 @@ namespace AppartmentSystem
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            dateTimePicker1.MinDate = DateTime.Now;
         }
 
         private void btn_roomBack_Click(object sender, EventArgs e)
         {
-
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
         }
 
         private void txt_price_TextChanged(object sender, EventArgs e)
@@ -233,6 +245,16 @@ namespace AppartmentSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void txt_RoomNo_Click(object sender, EventArgs e)
+        {
+            btn_addRoom.Enabled = true;
+        }
+
+        private void dg_ManageRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btn_addRoom.Enabled = false;
         }
     }
 }
