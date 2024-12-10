@@ -138,6 +138,7 @@
             this.btn_addMaintenance.TabIndex = 9;
             this.btn_addMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addMaintenance.UseVisualStyleBackColor = true;
+            this.btn_addMaintenance.Click += new System.EventHandler(this.btn_addMaintenance_Click);
             // 
             // btn_editMaintenance
             // 

@@ -95,7 +95,7 @@
             this.lbl_tenant.AutoSize = true;
             this.lbl_tenant.BackColor = System.Drawing.Color.Transparent;
             this.lbl_tenant.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tenant.Location = new System.Drawing.Point(135, 85);
+            this.lbl_tenant.Location = new System.Drawing.Point(140, 84);
             this.lbl_tenant.Name = "lbl_tenant";
             this.lbl_tenant.Size = new System.Drawing.Size(44, 17);
             this.lbl_tenant.TabIndex = 4;

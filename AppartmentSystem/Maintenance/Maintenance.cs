@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppartmentSystem.Maintenance;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,18 @@ namespace AppartmentSystem
 
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
+        }
+
+        private void btn_addMaintenance_Click(object sender, EventArgs e)
+        {
+            frm_addMaintenance Frm_AddMaintenance = new frm_addMaintenance();
+            Frm_AddMaintenance.Show();
+            this.Hide();
+
+
+
+
+
         }
     }
 }
