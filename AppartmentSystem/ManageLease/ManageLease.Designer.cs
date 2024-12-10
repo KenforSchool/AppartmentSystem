@@ -66,7 +66,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(29, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(951, 423);
+            this.dataGridView1.Size = new System.Drawing.Size(951, 538);
             this.dataGridView1.TabIndex = 0;
             // 
             // lbl_roomNo
