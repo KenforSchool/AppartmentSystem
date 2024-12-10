@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,31 +31,12 @@ namespace AppartmentSystem
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LeaseRepository lease = new LeaseRepository(connectionString);
 
-            double electricity = double.Parse(txtElectricBill.Text);
-            double water = double.Parse(txtWaterBill.Text);
-            double internet = double.Parse(txt_wifiBill.Text);
-            double maintenance = double.Parse(txtRoomBill.Text);
             string room_id = lbl_roomNumberleaseOutput.Text;
             int room_price = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value);
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
-            var repo = lease.addLease(room_id, electricity, water, internet, room_price, moved_in, moved_out);
-
-            if (repo)
-            {
-                MessageBox.Show("lease have been added successfully");
-                txtElectricBill.Clear();
-                txtRoomBill.Clear();
-                txtWaterBill.Clear();
-                txtElectricBill.Clear();
-                btn_updateLease_Click(sender, e);
-                
-            }
-            else
-            {
-                MessageBox.Show("Error has occured. Data has not been saved");
-            }
+            
         }
 
         private void ManageLease_Load(object sender, EventArgs e)
@@ -90,7 +72,6 @@ namespace AppartmentSystem
                 }
                 else
                 {
-                    MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dataGridView1.DataSource = null;
                 }
             }
@@ -106,14 +87,10 @@ namespace AppartmentSystem
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                // Pass values to TextBox controls
                 lbl_roomNumberleaseOutput.Text = selectedRow.Cells[0].Value.ToString();
                 txtTenantName.Text = selectedRow.Cells[1].Value.ToString();
-                txtElectricBill.Text = selectedRow.Cells[3].Value.ToString();
-                //txtRoomBill.Text = selectedRow.Cells[0].Value.ToString();
-                txtWaterBill.Text = selectedRow.Cells[4].Value.ToString();
-                txt_wifiBill.Text = selectedRow.Cells[5].Value.ToString();
+                Addbutton();
+
             }
         }
 
@@ -162,16 +139,12 @@ namespace AppartmentSystem
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
             string roomId = lbl_roomNumberleaseOutput.Text;
-            double electricityBill = double.Parse(txtElectricBill.Text);
-            double internetBill = double.Parse(txt_wifiBill.Text);
-            double waterBill = double.Parse(txtWaterBill.Text);
-            double maintenanceBill = double.Parse(txtRoomBill.Text);
             string tenantName = txtTenantName.Text;
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
             LeaseRepository lease = new LeaseRepository(connectionString);
-            bool isUpdated = lease.editRoom(roomId,electricityBill,waterBill,internetBill, moved_in, moved_out);
+            bool isUpdated = lease.editRoom(roomId, moved_in, moved_out);
 
             if (isUpdated)
             {
@@ -196,17 +169,13 @@ namespace AppartmentSystem
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
             string roomId = selectedRow.Cells[0].Value.ToString();
-            double electricityBill = double.Parse(selectedRow.Cells[3].Value.ToString());
-            double internetBill = double.Parse(selectedRow.Cells[5].Value.ToString());
-            double waterBill = double.Parse(selectedRow.Cells[4].Value.ToString());
-            //double maintenanceBill = double.Parse(txtRoomBill.Text);
             double room_price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
             string tenantName = txtTenantName.Text;
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
             LeaseRepository lease = new LeaseRepository(connectionString);
-            bool isUpdated = lease.ArchiveLeaseData(roomId,electricityBill,waterBill,internetBill, room_price, moved_in, moved_out);
+            bool isUpdated = lease.ArchiveLeaseData(roomId, room_price, moved_in, moved_out);
 
             if (isUpdated)
             {
@@ -223,6 +192,61 @@ namespace AppartmentSystem
             frm_Archive frm_Archive = new frm_Archive();
             frm_Archive.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            LeaseRepository lease = new LeaseRepository(connectionString);
+
+            int renewButtonColumnIndex = dataGridView1.Columns["RenewButton"].Index;
+            int leaveButtonColumnIndex = dataGridView1.Columns["LeaveButton"].Index;
+
+            if(e.ColumnIndex == renewButtonColumnIndex && e.RowIndex >= 0)
+            {
+                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                var leaseDetails = lease.GetTenantRoomId(roomNumber);
+
+                if (leaseDetails != null)
+                {
+
+                    DateTime currentEndDate = DateTime.Now;
+
+                    DateTime newEndDate = currentEndDate.AddMonths(1);
+
+                    if (lease.UpdateLeaseStatus(roomNumber, "Renewed", DateTime.Now, newEndDate))
+                    {
+                        MessageBox.Show("Lease renewed successfully!");
+                        LoadData();
+                    }
+                }
+            }
+                else if (e.ColumnIndex == leaveButtonColumnIndex && e.RowIndex >= 0)
+            {
+                btn_deleteLease_Click(sender, e);
+            }
+        }
+        
+        public void Addbutton()
+        {
+            DataGridViewButtonColumn renewButtonColumn = new DataGridViewButtonColumn();
+            renewButtonColumn.Name = "RenewButton";
+            renewButtonColumn.HeaderText = "Actions";
+            renewButtonColumn.Text = "Renew";
+            renewButtonColumn.UseColumnTextForButtonValue = true;
+
+            DataGridViewButtonColumn leaveButtonColumn = new DataGridViewButtonColumn();
+            leaveButtonColumn.Name = "LeaveButton";
+            leaveButtonColumn.HeaderText = "Actions";
+            leaveButtonColumn.Text = "Leave";
+            leaveButtonColumn.UseColumnTextForButtonValue = true;
+
+            dataGridView1.Columns.Add(renewButtonColumn);
+            dataGridView1.Columns.Add(leaveButtonColumn);
+
+            int lastIndex = dataGridView1.Columns.Count - 1;
+            dataGridView1.Columns["RenewButton"].DisplayIndex = lastIndex - 1;
+            dataGridView1.Columns["LeaveButton"].DisplayIndex = lastIndex;
         }
     }
 }
