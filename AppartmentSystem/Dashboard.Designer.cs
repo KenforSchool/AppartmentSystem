@@ -45,11 +45,13 @@
             this.panel_maintenanceRequest = new System.Windows.Forms.Panel();
             this.panel_headDashboard = new System.Windows.Forms.Panel();
             this.panel_dockleft = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
             this.panel_headDashboard.SuspendLayout();
             this.panel_dockleft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_header
@@ -238,6 +240,15 @@
             this.panel_dockleft.TabIndex = 10;
             this.panel_dockleft.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_dockleft_Paint);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(404, 512);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(552, 193);
+            this.dataGridView1.TabIndex = 11;
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +257,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_dockleft);
             this.Controls.Add(this.panel_headDashboard);
             this.Controls.Add(this.panel_maintenanceRequest);
@@ -264,6 +276,7 @@
             this.panel_headDashboard.ResumeLayout(false);
             this.panel_headDashboard.PerformLayout();
             this.panel_dockleft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +299,6 @@
         private System.Windows.Forms.Panel panel_maintenanceRequest;
         private System.Windows.Forms.Panel panel_headDashboard;
         private System.Windows.Forms.Panel panel_dockleft;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -41,9 +41,12 @@
             // lbl_room
             // 
             this.lbl_room.AutoSize = true;
-            this.lbl_room.Location = new System.Drawing.Point(71, 45);
+            this.lbl_room.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_room.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_room.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_room.Location = new System.Drawing.Point(73, 43);
             this.lbl_room.Name = "lbl_room";
-            this.lbl_room.Size = new System.Drawing.Size(35, 13);
+            this.lbl_room.Size = new System.Drawing.Size(36, 17);
             this.lbl_room.TabIndex = 0;
             this.lbl_room.Text = "Room";
             // 
@@ -95,6 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btn_addMaintenanceInfo);
             this.Controls.Add(this.dataGridView1);
