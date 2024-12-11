@@ -63,7 +63,7 @@
             this.lbl_header.BackColor = System.Drawing.Color.Transparent;
             this.lbl_header.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_header.ForeColor = System.Drawing.Color.White;
-            this.lbl_header.Location = new System.Drawing.Point(189, 9);
+            this.lbl_header.Location = new System.Drawing.Point(384, 9);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(211, 50);
             this.lbl_header.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             // btn_manageRoom
             // 
-            this.btn_manageRoom.BackColor = System.Drawing.Color.Transparent;
+            this.btn_manageRoom.BackColor = System.Drawing.Color.LightCyan;
             this.btn_manageRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_manageRoom.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -230,27 +230,33 @@
             this.panel_headDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_headDashboard.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel_headDashboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_headDashboard.BackgroundImage")));
+            this.panel_headDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel_headDashboard.Controls.Add(this.label1);
+            this.panel_headDashboard.Controls.Add(this.lbl_admin);
             this.panel_headDashboard.Controls.Add(this.lbl_header);
-            this.panel_headDashboard.Location = new System.Drawing.Point(195, 0);
+            this.panel_headDashboard.Location = new System.Drawing.Point(0, 0);
             this.panel_headDashboard.Name = "panel_headDashboard";
-            this.panel_headDashboard.Size = new System.Drawing.Size(1014, 62);
+            this.panel_headDashboard.Size = new System.Drawing.Size(1209, 71);
             this.panel_headDashboard.TabIndex = 9;
             this.panel_headDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_headDashboard_Paint);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(509, 222);
+            this.dataGridView1.Location = new System.Drawing.Point(502, 90);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(552, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(484, 236);
             this.dataGridView1.TabIndex = 11;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lbl_admin);
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btn_manageRoom);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_manageLeases);
@@ -258,23 +264,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 729);
+            this.panel1.Size = new System.Drawing.Size(201, 729);
             this.panel1.TabIndex = 12;
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 68);
+            this.label1.Size = new System.Drawing.Size(71, 62);
             this.label1.TabIndex = 6;
             // 
             // lbl_admin
             // 
             this.lbl_admin.AutoSize = true;
+            this.lbl_admin.BackColor = System.Drawing.Color.Transparent;
             this.lbl_admin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_admin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_admin.Location = new System.Drawing.Point(69, 14);
+            this.lbl_admin.Location = new System.Drawing.Point(78, 13);
             this.lbl_admin.Name = "lbl_admin";
             this.lbl_admin.Size = new System.Drawing.Size(120, 45);
             this.lbl_admin.TabIndex = 5;
@@ -288,12 +296,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_headDashboard);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_maintenanceRequest);
             this.Controls.Add(this.panel_inactRoom);
             this.Controls.Add(this.panel_actRoom);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Name = "Frm_Dashboard";
             this.Text = "Dashboard";
@@ -308,7 +316,6 @@
             this.panel_headDashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
