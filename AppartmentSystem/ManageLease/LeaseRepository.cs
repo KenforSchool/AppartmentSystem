@@ -21,8 +21,8 @@ namespace AppartmentSystem
             _connectionString = connectionString;
         }
 
-        //Araling yung functions ng DateTime?
-        public bool RenewLease(string roomNumber)
+        //Renewal ng tenant
+        public bool RenewLease(string roomNumber, DateTime LeaseEndDate)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -30,16 +30,74 @@ namespace AppartmentSystem
                 UPDATE LeaseDetails
                 SET 
                 Status = 'Renewed',
+                LeaseStartDate = @leaseEndDate,
                 LeaseEndDate = DATEADD(MONTH, 1, LeaseEndDate)
                 WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
 
                 using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                    command.Parameters.AddWithValue("@leaseEndDate", LeaseEndDate);
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;
                 }
+            }
+        }
+        
+        //Function kapag umalis tenant
+        public bool MoveOutTenant(string roomNumber)
+        {
+            using(var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string leftQuery = @"
+                DELETE LeaseDetails
+                WHERE
+                room_id = @roomId";
+
+                using(var command = new SqlCommand(leftQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@roomId", roomNumber);
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+        public bool AddToHistory(string roomNumber, string tenantName, DateTime tenantLeft)
+        {
+            using (var sqlConnection = new SqlConnection(_connectionString))
+            {
+                sqlConnection.Open();
+
+                try
+                {
+
+                    string query = @"
+                    INSERT INTO
+                    ()
+                    VALUES
+                    ()";
+
+                    using (SqlCommand command = new SqlCommand(query, sqlConnection))
+                    {
+                        command.Parameters.AddWithValue("@room_id", roomNumber);
+                        command.Parameters.AddWithValue("@tenant_name", tenantName);
+                        command.Parameters.AddWithValue("@tenant_left", tenantLeft);
+                        command.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+                catch (SqlException ex)
+                {
+
+                    MessageBox.Show("Error :" + ex.Message);
+                    return false;
+                }
+                
             }
         }
 
@@ -76,7 +134,7 @@ namespace AppartmentSystem
 
                 try
                 {
-                    string insertArchiveQuery = @"
+                 string insertArchiveQuery = @"
                 INSERT INTO lease_archive
                 (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
                 VALUES

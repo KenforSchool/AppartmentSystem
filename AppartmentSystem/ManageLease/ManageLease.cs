@@ -186,8 +186,10 @@ namespace AppartmentSystem
             if(e.ColumnIndex == renewButtonColumnIndex && e.RowIndex >= 0)
             {
                 string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+                DateTime newStartDate = DateTime.Now.AddMonths(1);
+                
 
-                if (lease.RenewLease(roomNumber))
+                if (lease.RenewLease(roomNumber, newStartDate))
                 {
                     MessageBox.Show("Lease renewed successfully!");
                     LoadData();
@@ -198,8 +200,14 @@ namespace AppartmentSystem
                 }
             }
             else if (e.ColumnIndex == leaveButtonColumnIndex && e.RowIndex >= 0)
-            {   
-                btn_deleteLease_Click(sender, e);
+            {
+                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+
+                if (lease.MoveOutTenant(roomNumber))
+                {
+                    MessageBox.Show("Tenant left the apartment!");
+                    LoadData();
+                }
             }
         }
         
@@ -207,11 +215,13 @@ namespace AppartmentSystem
         {
             DataGridViewButtonColumn renewButtonColumn = new DataGridViewButtonColumn();
             renewButtonColumn.Name = "RenewButton";
+            renewButtonColumn.HeaderText = string.Empty;
             renewButtonColumn.Text = "Renew";
             renewButtonColumn.UseColumnTextForButtonValue = true;
 
             DataGridViewButtonColumn leaveButtonColumn = new DataGridViewButtonColumn();
             leaveButtonColumn.Name = "LeaveButton";
+            leaveButtonColumn.HeaderText= string.Empty;
             leaveButtonColumn.Text = "Leave";
             leaveButtonColumn.UseColumnTextForButtonValue = true;
 
