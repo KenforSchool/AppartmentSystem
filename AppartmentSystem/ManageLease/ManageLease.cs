@@ -18,6 +18,9 @@ namespace AppartmentSystem
         public ManageLease()
         {
             InitializeComponent();
+            panel_sample.BackColor = Color.FromArgb(125, Color.Black);
+
+
             LoadData();
             Addbutton();
         }
@@ -43,7 +46,7 @@ namespace AppartmentSystem
 
         private void ManageLease_Load(object sender, EventArgs e)
         {
-            LoadData();
+            
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
 
@@ -232,6 +235,18 @@ namespace AppartmentSystem
             dataGridView1.Columns["RenewButton"].DisplayIndex = lastIndex - 1;
             dataGridView1.Columns["LeaveButton"].DisplayIndex = lastIndex;
         }
+
+        private void txtTenantName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
         //kailangan ayusin yung left btn

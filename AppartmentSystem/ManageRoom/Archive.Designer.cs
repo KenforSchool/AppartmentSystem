@@ -52,20 +52,20 @@
             // 
             this.lbl_archive.AutoSize = true;
             this.lbl_archive.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_archive.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_archive.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.lbl_archive.Location = new System.Drawing.Point(12, 9);
+            this.lbl_archive.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_archive.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lbl_archive.Location = new System.Drawing.Point(12, 19);
             this.lbl_archive.Name = "lbl_archive";
-            this.lbl_archive.Size = new System.Drawing.Size(122, 43);
+            this.lbl_archive.Size = new System.Drawing.Size(131, 45);
             this.lbl_archive.TabIndex = 1;
-            this.lbl_archive.Text = "Archive";
+            this.lbl_archive.Text = "History";
             // 
             // btn_archiveBack
             // 
             this.btn_archiveBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_archiveBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_archiveBack.BackgroundImage")));
             this.btn_archiveBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_archiveBack.Location = new System.Drawing.Point(909, 33);
+            this.btn_archiveBack.Location = new System.Drawing.Point(943, 19);
             this.btn_archiveBack.Name = "btn_archiveBack";
             this.btn_archiveBack.Size = new System.Drawing.Size(40, 35);
             this.btn_archiveBack.TabIndex = 2;

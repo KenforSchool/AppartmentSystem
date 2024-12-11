@@ -175,10 +175,10 @@
             // lbl_TotalActiveRoom
             // 
             this.lbl_TotalActiveRoom.AutoSize = true;
-            this.lbl_TotalActiveRoom.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TotalActiveRoom.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(3, 67);
             this.lbl_TotalActiveRoom.Name = "lbl_TotalActiveRoom";
-            this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(158, 33);
+            this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(181, 37);
             this.lbl_TotalActiveRoom.TabIndex = 0;
             this.lbl_TotalActiveRoom.Text = "Active Room";
             this.lbl_TotalActiveRoom.Click += new System.EventHandler(this.label1_Click);
