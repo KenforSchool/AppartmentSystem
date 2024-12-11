@@ -17,7 +17,7 @@ namespace AppartmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageLease());
+            Application.Run(new FrmLogin());
 
         }
     }

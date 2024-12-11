@@ -30,6 +30,8 @@ namespace AppartmentSystem
         public Frm_Maintenance()
         {
             InitializeComponent();
+            LoadData();
+            addButton();
         }
 
         private void Maintenance_Load(object sender, EventArgs e)
@@ -61,17 +63,32 @@ namespace AppartmentSystem
             {
                 DataTable table = data_access.getMaintenanceList();
 
-                if(dg_maintenance.Rows.Count > 0)
+                if(table.Rows.Count > 0)
                 {
                     dg_maintenance.DataSource = table;
                 }
+                else
+                {
                     dg_maintenance.DataSource = null;
+                }
+                               
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        public void addButton()
+        {
+            DataGridViewButtonColumn full_descpription = new DataGridViewButtonColumn();
+            full_descpription.Name = "Description";
+            full_descpription.HeaderText = string.Empty;
+            full_descpription.Text = "See Description";
+            full_descpription.UseColumnTextForButtonValue = true;
+
+            dg_maintenance.Columns.Add(full_descpription);
         }
 
         private void btn_maintenanceBack_Click(object sender, EventArgs e)

@@ -32,21 +32,18 @@ namespace AppartmentSystem
 
                     string addQuery = @"
                     DECLARE @ExpenseDate DATE;
-                    SET @ExpenseDate = @ExpensseDate_param;
+                    SET @ExpenseDate = @Expense_param;
 
-                    INSERT INTO
-                    Expenses
-                    (room_id, ExpenseDate, ExpenseType, Amount, Description)
-                    VALUES
-                    (@roomId, @_ExpenseDate, @_ExpenseType, @_Amount, @Description)";
+                    INSERT INTO Expenses(room_id, ExpenseDate, ExpenseType, Amount, Description)
+                    VALUES (@roomId, @ExpenseDate, @ExpenseType, @Amount, @Description)";
 
                     using (SqlCommand command = new SqlCommand(addQuery, connection, transaction))
                     {
 
                         command.Parameters.AddWithValue("@roomId", roomId);
-                        command.Parameters.AddWithValue("@ExpensseDate_param", expenseDate);
-                        command.Parameters.AddWithValue("@_ExpenseType", expenseType);
-                        command.Parameters.AddWithValue("@_Amount", amount);
+                        command.Parameters.AddWithValue("@Expense_param", expenseDate);
+                        command.Parameters.AddWithValue("@ExpenseType", expenseType);
+                        command.Parameters.AddWithValue("@Amount", amount);
                         command.Parameters.AddWithValue("@Description", description);
                         command.ExecuteNonQuery();
                     }
@@ -72,10 +69,9 @@ namespace AppartmentSystem
             SELECT 
                 ExpenseID AS 'ID',
                 room_id AS 'Room Number',
-                ExpenseType AS 'Expense Type'
-                Amount,
-                Description
-            FROM Description";
+                ExpenseType AS 'Expense Type',
+                Amount
+            FROM Expenses";
 
             using (SqlConnection connection = new SqlConnection(_ConnectionString))
             {

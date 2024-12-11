@@ -50,7 +50,8 @@
             // 
             // dg_maintenance
             // 
-            this.dg_maintenance.AllowUserToOrderColumns = true;
+            this.dg_maintenance.AllowUserToAddRows = false;
+            this.dg_maintenance.AllowUserToDeleteRows = false;
             this.dg_maintenance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_maintenance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -58,6 +59,7 @@
             this.dg_maintenance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_maintenance.Location = new System.Drawing.Point(35, 181);
             this.dg_maintenance.Name = "dg_maintenance";
+            this.dg_maintenance.ReadOnly = true;
             this.dg_maintenance.Size = new System.Drawing.Size(917, 429);
             this.dg_maintenance.TabIndex = 0;
             this.dg_maintenance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_maintenance_CellContentClick);
