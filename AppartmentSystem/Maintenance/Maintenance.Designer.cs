@@ -211,6 +211,7 @@
             this.btn_maintenanceBack.Size = new System.Drawing.Size(37, 35);
             this.btn_maintenanceBack.TabIndex = 14;
             this.btn_maintenanceBack.UseVisualStyleBackColor = true;
+            this.btn_maintenanceBack.Click += new System.EventHandler(this.btn_maintenanceBack_Click);
             // 
             // label2
             // 

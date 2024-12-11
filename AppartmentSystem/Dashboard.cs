@@ -17,8 +17,8 @@ namespace AppartmentSystem
         public Frm_Dashboard()
         {
             InitializeComponent();
-            panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
-            panel_dockleft.BackColor = Color.FromArgb(125, Color.Black);
+            //panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
+            
             
         }
 
