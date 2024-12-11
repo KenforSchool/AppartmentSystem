@@ -35,5 +35,10 @@ namespace AppartmentSystem
         {
 
         }
+
+        private void btn_fdAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

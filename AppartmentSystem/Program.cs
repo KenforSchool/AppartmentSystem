@@ -1,4 +1,5 @@
-﻿using AppartmentSystem.ManageRoom;
+﻿using AppartmentSystem.Maintenance;
+using AppartmentSystem.ManageRoom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace AppartmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Dashboard());
+            Application.Run(new MaintenanceDescription());
 
         }
     }

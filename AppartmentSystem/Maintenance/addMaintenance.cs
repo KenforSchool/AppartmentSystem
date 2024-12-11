@@ -31,5 +31,10 @@ namespace AppartmentSystem.Maintenance
         {
 
         }
+
+        private void cb_roomaddMaintenance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
