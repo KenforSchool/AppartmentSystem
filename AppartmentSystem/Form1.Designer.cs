@@ -207,6 +207,7 @@
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.panel_login);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmLogin";
             this.Text = " LoginFrm";
             this.Load += new System.EventHandler(this.FrmLogin_Load);

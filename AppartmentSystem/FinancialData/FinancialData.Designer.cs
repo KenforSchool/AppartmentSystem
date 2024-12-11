@@ -287,6 +287,7 @@
             this.Controls.Add(this.lbl_fdtenantName);
             this.Controls.Add(this.lbl_fdroomNumber);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_financialData";
             this.Text = "FinancialData";
             this.Load += new System.EventHandler(this.frm_financialData_Load);

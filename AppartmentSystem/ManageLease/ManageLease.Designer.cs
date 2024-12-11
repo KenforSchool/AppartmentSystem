@@ -265,6 +265,7 @@
             this.Controls.Add(this.btn_renewalLease);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_sample);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ManageLease";
             this.Text = "ManageLease";
             this.Load += new System.EventHandler(this.ManageLease_Load);

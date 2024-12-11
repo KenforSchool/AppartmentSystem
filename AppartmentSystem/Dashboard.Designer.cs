@@ -306,6 +306,7 @@
             this.Controls.Add(this.panel_actRoom);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Frm_Dashboard_Load);

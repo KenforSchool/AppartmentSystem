@@ -87,6 +87,7 @@
             this.Controls.Add(this.btn_backDesc);
             this.Controls.Add(this.lbl_Header);
             this.Controls.Add(this.lbl_infoOutput);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MaintenanceDescription";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
