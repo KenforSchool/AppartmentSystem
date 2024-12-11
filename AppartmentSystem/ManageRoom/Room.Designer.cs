@@ -284,6 +284,7 @@
             this.Controls.Add(this.lbl_roomNo);
             this.Controls.Add(this.btn_addRoom);
             this.Controls.Add(this.dg_ManageRoom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_room";
             this.Text = "Room";
             this.Load += new System.EventHandler(this.frm_room_Load);

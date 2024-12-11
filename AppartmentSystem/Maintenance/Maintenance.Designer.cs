@@ -266,6 +266,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_roomNo);
             this.Controls.Add(this.dg_maintenance);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Frm_Maintenance";
             this.Text = "Maintenance";
             this.Load += new System.EventHandler(this.Maintenance_Load);
