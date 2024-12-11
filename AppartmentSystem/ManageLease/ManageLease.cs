@@ -10,6 +10,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AppartmentSystem
 {
@@ -186,30 +187,50 @@ namespace AppartmentSystem
             int renewButtonColumnIndex = dataGridView1.Columns["RenewButton"].Index;
             int leaveButtonColumnIndex = dataGridView1.Columns["LeaveButton"].Index;
 
-            if(e.ColumnIndex == renewButtonColumnIndex && e.RowIndex >= 0)
-            {
-                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
-                DateTime newStartDate = DateTime.Now.AddMonths(1);
-                
+            string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+            string tenantName = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+            string status = e.ColumnIndex == renewButtonColumnIndex ? "Renewed" : "Left";
+            DateTime dateNow = DateTime.Now;
 
-                if (lease.RenewLease(roomNumber, newStartDate))
-                {
-                    MessageBox.Show("Lease renewed successfully!");
-                    LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to renew lease. Please try again.");
-                }
-            }
-            else if (e.ColumnIndex == leaveButtonColumnIndex && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
 
-                if (lease.MoveOutTenant(roomNumber))
+                // Validate: Only one action per day
+                if (!lease.CanPerformActionToday(roomNumber))
                 {
-                    MessageBox.Show("Tenant left the apartment!");
-                    LoadData();
+                    return;
+                }
+
+                if (e.ColumnIndex == renewButtonColumnIndex)
+                {
+
+                    if (lease.RenewLease(roomNumber, dateNow))
+                    {
+                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        {
+                            MessageBox.Show("Lease renewed successfully!");
+                            LoadData();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to renew lease. Please try again.");
+                    }
+                }
+                else if (e.ColumnIndex == leaveButtonColumnIndex)
+                {
+                    if (lease.TenantLeft(roomNumber))
+                    {
+                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        {
+                            MessageBox.Show("Tenant left the apartment!");
+                            LoadData();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to process tenant leaving. Please try again.");
+                    }
                 }
             }
         }
@@ -244,6 +265,13 @@ namespace AppartmentSystem
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_mlBack_Click(object sender, EventArgs e)
+        {
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
         }
 
 

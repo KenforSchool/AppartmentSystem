@@ -124,6 +124,7 @@
             this.btn_mlBack.Size = new System.Drawing.Size(40, 35);
             this.btn_mlBack.TabIndex = 22;
             this.btn_mlBack.UseVisualStyleBackColor = true;
+            this.btn_mlBack.Click += new System.EventHandler(this.btn_mlBack_Click);
             // 
             // txtRoomBill
             // 

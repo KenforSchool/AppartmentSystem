@@ -30,7 +30,7 @@ namespace AppartmentSystem
                 UPDATE LeaseDetails
                 SET 
                 Status = 'Renewed',
-                LeaseStartDate = @leaseEndDate,
+                LeaseStartDate = LeaseEndDate,
                 LeaseEndDate = DATEADD(MONTH, 1, LeaseEndDate)
                 WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
 
@@ -38,6 +38,27 @@ namespace AppartmentSystem
                 {
                     command.Parameters.AddWithValue("@RoomNumber", roomNumber);
                     command.Parameters.AddWithValue("@leaseEndDate", LeaseEndDate);
+
+                    connection.Open();
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool TenantLeft(string roomNumbr)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+
+                string query = @"
+                UPDATE LeaseDetails
+                SET 
+                Status = 'Left'
+                WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
+
+                using (var command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.AddWithValue("@RoomNumber", roomNumbr);
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;
@@ -66,7 +87,7 @@ namespace AppartmentSystem
             }
         }
 
-        public bool AddToHistory(string roomNumber, string tenantName, DateTime tenantLeft)
+        public bool AddToHistory(string roomNumber, string tenantName, string _process, DateTime tenantLeft)
         {
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
@@ -76,16 +97,17 @@ namespace AppartmentSystem
                 {
 
                     string query = @"
-                    INSERT INTO
-                    ()
+                    INSERT INTO history 
+                    (room_id, tenant_name, action_date, process)
                     VALUES
-                    ()";
+                    (@roomId, @tenantName, @actionDate, @process)";
 
                     using (SqlCommand command = new SqlCommand(query, sqlConnection))
                     {
-                        command.Parameters.AddWithValue("@room_id", roomNumber);
-                        command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        command.Parameters.AddWithValue("@tenant_left", tenantLeft);
+                        command.Parameters.AddWithValue("@roomId", roomNumber);
+                        command.Parameters.AddWithValue("@tenantName", tenantName);
+                        command.Parameters.AddWithValue("@actionDate", tenantLeft);
+                        command.Parameters.AddWithValue("@process", _process);
                         command.ExecuteNonQuery();
 
                         return true;
@@ -98,6 +120,26 @@ namespace AppartmentSystem
                     return false;
                 }
                 
+            }
+        }
+
+        public bool CanPerformActionToday(string roomNumber)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+            SELECT COUNT(*) 
+            FROM history 
+            WHERE room_id = @RoomNumber AND CAST(action_date AS DATE) = CAST(GETDATE() AS DATE)";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@RoomNumber", roomNumber);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+                    return count == 0;
+                }
             }
         }
 
