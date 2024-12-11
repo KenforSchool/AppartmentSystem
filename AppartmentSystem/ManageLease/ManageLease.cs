@@ -18,6 +18,8 @@ namespace AppartmentSystem
         public ManageLease()
         {
             InitializeComponent();
+            LoadData();
+            Addbutton();
         }
 
         private void btn_updateLease_Click(object sender, EventArgs e)
@@ -42,14 +44,6 @@ namespace AppartmentSystem
         private void ManageLease_Load(object sender, EventArgs e)
         {
             LoadData();
-            if (lbl_roomNumberleaseOutput.Text == "")
-            {
-                dataGridView1.SelectionChanged += dg_ManageRoom_SelectionChanged;
-            }
-            else
-            {
-                dataGridView1.SelectionChanged -= dg_ManageRoom_SelectionChanged;
-            }
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
 
@@ -82,18 +76,6 @@ namespace AppartmentSystem
 
         }
 
-        private void dg_ManageRoom_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                lbl_roomNumberleaseOutput.Text = selectedRow.Cells[0].Value.ToString();
-                txtTenantName.Text = selectedRow.Cells[1].Value.ToString();
-                Addbutton();
-
-            }
-        }
-
         private void btn_deleteLease_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -103,7 +85,7 @@ namespace AppartmentSystem
                 return;
             }
 
-            string roomId = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string roomId = dataGridView1.SelectedRows[0].Cells["Room Number"].Value.ToString();
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -113,7 +95,6 @@ namespace AppartmentSystem
                 LeaseRepository room = new LeaseRepository(connectionString);
 
                 bool isDeleted = room.DeleteRoom(roomId);
-                Archive();
 
                 if (isDeleted)
                 {
@@ -204,26 +185,29 @@ namespace AppartmentSystem
 
             if(e.ColumnIndex == renewButtonColumnIndex && e.RowIndex >= 0)
             {
-                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                var leaseDetails = lease.GetTenantRoomId(roomNumber);
+                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+                DateTime newStartDate = DateTime.Now.AddMonths(1);
+                
 
-                if (leaseDetails != null)
+                if (lease.RenewLease(roomNumber, newStartDate))
                 {
-
-                    DateTime currentEndDate = DateTime.Now;
-
-                    DateTime newEndDate = currentEndDate.AddMonths(1);
-
-                    if (lease.UpdateLeaseStatus(roomNumber, "Renewed", DateTime.Now, newEndDate))
-                    {
-                        MessageBox.Show("Lease renewed successfully!");
-                        LoadData();
-                    }
+                    MessageBox.Show("Lease renewed successfully!");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to renew lease. Please try again.");
                 }
             }
-                else if (e.ColumnIndex == leaveButtonColumnIndex && e.RowIndex >= 0)
+            else if (e.ColumnIndex == leaveButtonColumnIndex && e.RowIndex >= 0)
             {
-                btn_deleteLease_Click(sender, e);
+                string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+
+                if (lease.MoveOutTenant(roomNumber))
+                {
+                    MessageBox.Show("Tenant left the apartment!");
+                    LoadData();
+                }
             }
         }
         
@@ -231,13 +215,13 @@ namespace AppartmentSystem
         {
             DataGridViewButtonColumn renewButtonColumn = new DataGridViewButtonColumn();
             renewButtonColumn.Name = "RenewButton";
-            renewButtonColumn.HeaderText = "Actions";
+            renewButtonColumn.HeaderText = string.Empty;
             renewButtonColumn.Text = "Renew";
             renewButtonColumn.UseColumnTextForButtonValue = true;
 
             DataGridViewButtonColumn leaveButtonColumn = new DataGridViewButtonColumn();
             leaveButtonColumn.Name = "LeaveButton";
-            leaveButtonColumn.HeaderText = "Actions";
+            leaveButtonColumn.HeaderText= string.Empty;
             leaveButtonColumn.Text = "Leave";
             leaveButtonColumn.UseColumnTextForButtonValue = true;
 
@@ -248,5 +232,8 @@ namespace AppartmentSystem
             dataGridView1.Columns["RenewButton"].DisplayIndex = lastIndex - 1;
             dataGridView1.Columns["LeaveButton"].DisplayIndex = lastIndex;
         }
+
+
+        //kailangan ayusin yung left btn
     }
 }
