@@ -33,7 +33,7 @@
             this.btn_manageRoom = new System.Windows.Forms.Button();
             this.btn_manageLeases = new System.Windows.Forms.Button();
             this.btn_financialData = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_AssignMaintenance = new System.Windows.Forms.Button();
             this.lbl_maintenanceRequestOutput = new System.Windows.Forms.Label();
             this.lbl_InactiveRoomOutput = new System.Windows.Forms.Label();
             this.lbl_ActiveRoomOutput = new System.Windows.Forms.Label();
@@ -72,24 +72,25 @@
             // btn_manageRoom
             // 
             this.btn_manageRoom.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_manageRoom.FlatAppearance.BorderSize = 0;
             this.btn_manageRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_manageRoom.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_manageRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_manageRoom.Location = new System.Drawing.Point(21, 120);
             this.btn_manageRoom.Name = "btn_manageRoom";
             this.btn_manageRoom.Size = new System.Drawing.Size(160, 80);
             this.btn_manageRoom.TabIndex = 1;
-            this.btn_manageRoom.Text = "   Manage Room";
-            this.btn_manageRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_manageRoom.Text = "  Manage Room";
             this.btn_manageRoom.UseVisualStyleBackColor = false;
             this.btn_manageRoom.Click += new System.EventHandler(this.btn_manageRoom_Click);
             // 
             // btn_manageLeases
             // 
             this.btn_manageLeases.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_manageLeases.FlatAppearance.BorderSize = 0;
             this.btn_manageLeases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_manageLeases.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_manageLeases.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageLeases.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageLeases.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_manageLeases.Location = new System.Drawing.Point(21, 284);
@@ -104,33 +105,35 @@
             // btn_financialData
             // 
             this.btn_financialData.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_financialData.FlatAppearance.BorderSize = 0;
             this.btn_financialData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_financialData.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_financialData.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_financialData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_financialData.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_financialData.Location = new System.Drawing.Point(21, 439);
             this.btn_financialData.Name = "btn_financialData";
             this.btn_financialData.Size = new System.Drawing.Size(160, 80);
             this.btn_financialData.TabIndex = 3;
-            this.btn_financialData.Text = "   Financial Data";
+            this.btn_financialData.Text = "  Financial Data";
             this.btn_financialData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_financialData.UseVisualStyleBackColor = false;
             this.btn_financialData.Click += new System.EventHandler(this.btn_financialData_Click);
             // 
-            // button1
+            // btn_AssignMaintenance
             // 
-            this.button1.BackColor = System.Drawing.Color.LightCyan;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(21, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 80);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Track And Assign Maintenance";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_AssignMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_AssignMaintenance.FlatAppearance.BorderSize = 0;
+            this.btn_AssignMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AssignMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AssignMaintenance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_AssignMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_AssignMaintenance.Location = new System.Drawing.Point(21, 583);
+            this.btn_AssignMaintenance.Name = "btn_AssignMaintenance";
+            this.btn_AssignMaintenance.Size = new System.Drawing.Size(160, 80);
+            this.btn_AssignMaintenance.TabIndex = 4;
+            this.btn_AssignMaintenance.Text = "Track And Assign Maintenance";
+            this.btn_AssignMaintenance.UseVisualStyleBackColor = false;
+            this.btn_AssignMaintenance.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_maintenanceRequestOutput
             // 
@@ -279,7 +282,7 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btn_manageRoom);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_AssignMaintenance);
             this.panel1.Controls.Add(this.btn_manageLeases);
             this.panel1.Controls.Add(this.btn_financialData);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -326,7 +329,7 @@
         private System.Windows.Forms.Button btn_manageRoom;
         private System.Windows.Forms.Button btn_manageLeases;
         private System.Windows.Forms.Button btn_financialData;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_AssignMaintenance;
         private System.Windows.Forms.Label lbl_TotalActiveRoom;
         private System.Windows.Forms.Label lbl_InactiveRoom;
         private System.Windows.Forms.Label lbl_maintenanceRequestOutput;

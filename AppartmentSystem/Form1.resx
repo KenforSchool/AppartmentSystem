@@ -121,7 +121,7 @@
   <data name="btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5AAAAOQBXaJ52AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVFhH7dc7
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVFhH7dc7
         LwRRGMbxCSpxa9ChoVDREBJRiUaiFxoavgCVW6LQoNaIb0ApRCXBqoSo3aITl9CI6/+d5E0m68ycObNn
         icST/IqZnHnnyczuzmyQIi1Yxw3e8ZnBA3YxCKf04xmmoVmtIFXq8QjTkEINw5pZ6AGX6EEZsqQBG9B5
         p7BmC3pAqsaWVOIFOrMKiTmELu6UHR5yAZ3ZJDuSUowC5/g7BXagi1tlh4c4FeiClFgIt8yZxjGGwi17
@@ -153,7 +153,7 @@
   <data name="lbl_logo_admin_Signup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARuSURBVHhe7VtL
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARuSURBVHhe7VtL
         jBRFGN6IQpAo4IUQRRHlEW+GhMSABgkHowlcMB4IJhJPEIWjric2HDmxPHwi74OvhEBCjCEEwoVwED1g
         iCfDY3fTU13dMD3TK7vbfn/nO2xqap1X92wVmS/5sjPdVf//ff34u6qmd6CPPvroGbI7d+YnWm+taX2g
         FoZnwCvkGdmGfVukDZs/PkiDYBUNJ2DWhNLmdBrHK9ndX2Sjowtg5jD4L821Q+kznN2//zTD+YVapfJ8

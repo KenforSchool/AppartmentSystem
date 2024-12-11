@@ -139,6 +139,7 @@
             // 
             this.btn_addMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_addMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addMaintenance.FlatAppearance.BorderSize = 0;
             this.btn_addMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenance.Image")));
@@ -155,6 +156,7 @@
             // 
             this.btn_editMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editMaintenance.FlatAppearance.BorderSize = 0;
             this.btn_editMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_editMaintenance.Image")));
@@ -183,6 +185,7 @@
             // 
             this.btn_deleteMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_deleteMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_deleteMaintenance.FlatAppearance.BorderSize = 0;
             this.btn_deleteMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_deleteMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deleteMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_deleteMaintenance.Image")));

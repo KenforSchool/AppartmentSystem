@@ -69,6 +69,7 @@
             // 
             this.btn_renewalLease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_renewalLease.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_renewalLease.FlatAppearance.BorderSize = 0;
             this.btn_renewalLease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_renewalLease.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_renewalLease.Image = ((System.Drawing.Image)(resources.GetObject("btn_renewalLease.Image")));
@@ -101,6 +102,7 @@
             // 
             this.btn_historyLease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_historyLease.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_historyLease.FlatAppearance.BorderSize = 0;
             this.btn_historyLease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_historyLease.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_historyLease.Image = ((System.Drawing.Image)(resources.GetObject("btn_historyLease.Image")));
@@ -221,7 +223,7 @@
             this.panel_sample.Controls.Add(this.txtRoomBill);
             this.panel_sample.Location = new System.Drawing.Point(519, 10);
             this.panel_sample.Name = "panel_sample";
-            this.panel_sample.Size = new System.Drawing.Size(151, 44);
+            this.panel_sample.Size = new System.Drawing.Size(161, 40);
             this.panel_sample.TabIndex = 23;
             this.panel_sample.Visible = false;
             // 
