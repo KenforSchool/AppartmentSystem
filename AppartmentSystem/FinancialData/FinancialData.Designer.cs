@@ -179,6 +179,7 @@
             this.btn_fdAdd.TabIndex = 9;
             this.btn_fdAdd.Text = "     Add";
             this.btn_fdAdd.UseVisualStyleBackColor = false;
+            this.btn_fdAdd.Click += new System.EventHandler(this.btn_fdAdd_Click);
             // 
             // btn_fdEdit
             // 

@@ -50,7 +50,7 @@
             this.btn_Login.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
             this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Login.Location = new System.Drawing.Point(122, 378);
+            this.btn_Login.Location = new System.Drawing.Point(122, 405);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(147, 50);
             this.btn_Login.TabIndex = 0;

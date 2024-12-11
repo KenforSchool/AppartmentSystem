@@ -44,10 +44,10 @@
             this.panel_inactRoom = new System.Windows.Forms.Panel();
             this.panel_maintenanceRequest = new System.Windows.Forms.Panel();
             this.panel_headDashboard = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_admin = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
@@ -241,6 +241,27 @@
             this.panel_headDashboard.TabIndex = 9;
             this.panel_headDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_headDashboard_Paint);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 62);
+            this.label1.TabIndex = 6;
+            // 
+            // lbl_admin
+            // 
+            this.lbl_admin.AutoSize = true;
+            this.lbl_admin.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_admin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_admin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_admin.Location = new System.Drawing.Point(78, 13);
+            this.lbl_admin.Name = "lbl_admin";
+            this.lbl_admin.Size = new System.Drawing.Size(120, 45);
+            this.lbl_admin.TabIndex = 5;
+            this.lbl_admin.Text = "Admin";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -266,27 +287,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(201, 729);
             this.panel1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 62);
-            this.label1.TabIndex = 6;
-            // 
-            // lbl_admin
-            // 
-            this.lbl_admin.AutoSize = true;
-            this.lbl_admin.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_admin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_admin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_admin.Location = new System.Drawing.Point(78, 13);
-            this.lbl_admin.Name = "lbl_admin";
-            this.lbl_admin.Size = new System.Drawing.Size(120, 45);
-            this.lbl_admin.TabIndex = 5;
-            this.lbl_admin.Text = "Admin";
             // 
             // Frm_Dashboard
             // 
