@@ -153,31 +153,6 @@ namespace AppartmentSystem
             }
         }
 
-        public bool DeleteRoom(string roomId)
-        {
-            string query = "DELETE FROM LeaseDetails WHERE room_id = @room_id";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomId);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
-
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("SQL Error: " + ex.Message);
-                return false;
-            }
-        }
-
         public bool ArchiveLeaseData(string roomID, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))

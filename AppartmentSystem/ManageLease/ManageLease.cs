@@ -93,23 +93,6 @@ namespace AppartmentSystem
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                LeaseRepository room = new LeaseRepository(connectionString);
-
-                bool isDeleted = room.DeleteRoom(roomId);
-
-                if (isDeleted)
-                {
-                    MessageBox.Show("Record deleted successfully!");
-                    btn_updateLease_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Error: Record could not be deleted");
-                }
-            }
         }
 
         private void btn_editLease_Click(object sender, EventArgs e)

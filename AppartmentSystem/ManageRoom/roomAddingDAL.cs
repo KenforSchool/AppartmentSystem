@@ -23,6 +23,7 @@ namespace AppartmentSystem.ManageRoom
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
                 SqlTransaction transaction = connection.BeginTransaction();
 
                 try
@@ -34,6 +35,7 @@ namespace AppartmentSystem.ManageRoom
                         command.Parameters.AddWithValue("@room_price", roomPrice);
                         command.ExecuteNonQuery();
                     }
+
                     string tenantQuery = @"
                     DECLARE @move_in DATE;
                     SET @move_in = @move_in_param;
