@@ -36,7 +36,7 @@ namespace AppartmentSystem.ManageRoom
 
             string query = @"SELECT 
             history_id AS 'History ID',
-            room_id AS 'Room Number',
+            tenant_name AS 'Name',
             action_date AS 'Date',
             process AS 'Process'
             FROM history";

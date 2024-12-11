@@ -278,6 +278,11 @@ namespace AppartmentSystem
             {
                 e.Handled = true;
             }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

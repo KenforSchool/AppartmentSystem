@@ -22,7 +22,7 @@ namespace AppartmentSystem
         }
 
         //Renewal ng tenant
-        public bool RenewLease(string roomNumber, DateTime LeaseEndDate)
+        public bool RenewLease(int leaseNumber, DateTime LeaseEndDate)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -32,11 +32,11 @@ namespace AppartmentSystem
                 Status = 'Renewed',
                 LeaseStartDate = LeaseEndDate,
                 LeaseEndDate = DATEADD(MONTH, 1, LeaseEndDate)
-                WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
+                WHERE lease_id = (SELECT lease_id FROM LeaseDetails WHERE lease_id = @leaseNumber)";
 
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                    command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
                     command.Parameters.AddWithValue("@leaseEndDate", LeaseEndDate);
 
                     connection.Open();
@@ -45,29 +45,39 @@ namespace AppartmentSystem
             }
         }
 
-        public bool TenantLeft(string roomNumbr)
+        public bool TenantLeft(int leaseNumber)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
+
+                connection.Open();
+
+                string removeTenant = @"
+                DELETE LeaseDetails
+                WHERE lease_id  = @leaseNumber";
+
+                using (var _command = new SqlCommand(removeTenant, connection))
+                {
+                    _command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
+                }
 
                 string query = @"
                 UPDATE LeaseDetails
                 SET 
                 Status = 'Left'
-                WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
+                WHERE lease_id = (SELECT lease_id FROM LeaseDetails WHERE lease_id = @leaseNumber)";
 
                 using (var command = new SqlCommand(query,connection))
                 {
-                    command.Parameters.AddWithValue("@RoomNumber", roomNumbr);
-
-                    connection.Open();
-                    return command.ExecuteNonQuery() > 0;
+                    command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
                 }
+
+                return true;
             }
         }
         
         //Function kapag umalis tenant
-        public bool MoveOutTenant(string roomNumber)
+        public bool MoveOutTenant(int leaseNumber)
         {
             using(var connection = new SqlConnection(_connectionString))
             {
@@ -76,18 +86,18 @@ namespace AppartmentSystem
                 string leftQuery = @"
                 DELETE LeaseDetails
                 WHERE
-                room_id = @roomId";
+                lease_id = @lease_id";
 
                 using(var command = new SqlCommand(leftQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@roomId", roomNumber);
+                    command.Parameters.AddWithValue("@lease_id", leaseNumber);
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }
             }
         }
 
-        public bool AddToHistory(string roomNumber, string tenantName, string _process, DateTime tenantLeft)
+        public bool AddToHistory(int leaseId, string tenantName, string _process, DateTime tenantLeft)
         {
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
@@ -98,13 +108,13 @@ namespace AppartmentSystem
 
                     string query = @"
                     INSERT INTO history 
-                    (room_id, tenant_name, action_date, process)
+                    (lease_id, tenant_name, action_date, process)
                     VALUES
-                    (@roomId, @tenantName, @actionDate, @process)";
+                    (@lease_id, @tenantName, @actionDate, @process)";
 
                     using (SqlCommand command = new SqlCommand(query, sqlConnection))
                     {
-                        command.Parameters.AddWithValue("@roomId", roomNumber);
+                        command.Parameters.AddWithValue("@lease_id", leaseId);
                         command.Parameters.AddWithValue("@tenantName", tenantName);
                         command.Parameters.AddWithValue("@actionDate", tenantLeft);
                         command.Parameters.AddWithValue("@process", _process);
@@ -123,18 +133,18 @@ namespace AppartmentSystem
             }
         }
 
-        public bool CanPerformActionToday(string roomNumber)
+        public bool CanPerformActionToday(int leaseNumber)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 string query = @"
-            SELECT COUNT(*) 
-            FROM history 
-            WHERE room_id = @RoomNumber AND CAST(action_date AS DATE) = CAST(GETDATE() AS DATE)";
+                SELECT COUNT(*) 
+                FROM history 
+                WHERE lease_id = @leaseNumber AND CAST(action_date AS DATE) = CAST(GETDATE() AS DATE)";
 
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@RoomNumber", roomNumber);
+                    command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
 
                     connection.Open();
                     int count = (int)command.ExecuteScalar();
@@ -256,6 +266,7 @@ namespace AppartmentSystem
 
             string query = @"
             SELECT
+            r.lease_id AS 'ID',
             r.room_id AS 'Room Number',
             r.tenant_name AS 'Name',
             o.room_price AS 'Rent',

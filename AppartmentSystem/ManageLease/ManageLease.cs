@@ -187,6 +187,7 @@ namespace AppartmentSystem
             int renewButtonColumnIndex = dataGridView1.Columns["RenewButton"].Index;
             int leaveButtonColumnIndex = dataGridView1.Columns["LeaveButton"].Index;
 
+            int leaseId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
             string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
             string tenantName = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
             string status = e.ColumnIndex == renewButtonColumnIndex ? "Renewed" : "Left";
@@ -196,7 +197,7 @@ namespace AppartmentSystem
             {
 
                 // Validate: Only one action per day
-                if (!lease.CanPerformActionToday(roomNumber))
+                if (!lease.CanPerformActionToday(leaseId))
                 {
                     return;
                 }
@@ -204,9 +205,9 @@ namespace AppartmentSystem
                 if (e.ColumnIndex == renewButtonColumnIndex)
                 {
 
-                    if (lease.RenewLease(roomNumber, dateNow))
+                    if (lease.RenewLease(leaseId, dateNow))
                     {
-                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
                         {
                             MessageBox.Show("Lease renewed successfully!");
                             LoadData();
@@ -219,9 +220,9 @@ namespace AppartmentSystem
                 }
                 else if (e.ColumnIndex == leaveButtonColumnIndex)
                 {
-                    if (lease.TenantLeft(roomNumber))
+                    if (lease.TenantLeft(leaseId))
                     {
-                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
                         {
                             MessageBox.Show("Tenant left the apartment!");
                             LoadData();
@@ -273,9 +274,6 @@ namespace AppartmentSystem
             dashboard.Show();
             this.Close();
         }
-
-
-
 
         //kailangan ayusin yung left btn
     }

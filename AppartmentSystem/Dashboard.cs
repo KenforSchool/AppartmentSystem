@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppartmentSystem.Maintenance;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -122,6 +123,20 @@ namespace AppartmentSystem
         private void panel_headDashboard_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_financialData_Click(object sender, EventArgs e)
+        {
+            frm_financialData financialData = new frm_financialData();
+            financialData.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frm_addMaintenance maintenance = new frm_addMaintenance();
+            maintenance.Show();
+            this.Close();
         }
     }
 }

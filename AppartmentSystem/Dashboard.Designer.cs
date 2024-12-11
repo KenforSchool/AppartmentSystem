@@ -115,6 +115,7 @@
             this.btn_financialData.Text = "   Financial Data";
             this.btn_financialData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_financialData.UseVisualStyleBackColor = false;
+            this.btn_financialData.Click += new System.EventHandler(this.btn_financialData_Click);
             // 
             // button1
             // 
@@ -129,6 +130,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Track And Assign Maintenance";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbl_maintenanceRequestOutput
             // 
