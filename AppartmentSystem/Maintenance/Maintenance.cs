@@ -93,12 +93,23 @@ namespace AppartmentSystem
 
         private void btn_maintenanceBack_Click(object sender, EventArgs e)
         {
-
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
         }
 
         private void dg_maintenance_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            MaintenanceDAL maintenance = new MaintenanceDAL(connectionString);
 
+            int description = dg_maintenance.Columns["Description"].Index;
+
+            if (e.RowIndex == description)
+            {
+                MaintenanceDescription descrip = new MaintenanceDescription();
+                descrip.Show();
+            }
         }
     }
 }

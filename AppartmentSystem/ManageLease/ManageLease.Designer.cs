@@ -178,7 +178,6 @@
             this.lbl_roomNo.Size = new System.Drawing.Size(79, 17);
             this.lbl_roomNo.TabIndex = 1;
             this.lbl_roomNo.Text = "Room Number:";
-            this.lbl_roomNo.Click += new System.EventHandler(this.lbl_roomNo_Click);
             // 
             // dateTimePicker1
             // 
@@ -187,7 +186,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 17;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbl_leaseStart
             // 

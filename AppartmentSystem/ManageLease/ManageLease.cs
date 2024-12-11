@@ -146,11 +146,6 @@ namespace AppartmentSystem
             }
         }
 
-        private void lbl_roomNo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Archive()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -263,11 +258,6 @@ namespace AppartmentSystem
         }
 
         private void txtTenantName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

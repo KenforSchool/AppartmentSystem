@@ -42,6 +42,7 @@
             this.lbl_infoOutput.Name = "lbl_infoOutput";
             this.lbl_infoOutput.Size = new System.Drawing.Size(719, 310);
             this.lbl_infoOutput.TabIndex = 0;
+            this.lbl_infoOutput.Click += new System.EventHandler(this.lbl_infoOutput_Click);
             // 
             // lbl_Header
             // 
