@@ -56,7 +56,6 @@ namespace AppartmentSystem
                      r.room_price,
                      t.tenant_name,
                      t.move_in,
-                     t.moved_out
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";

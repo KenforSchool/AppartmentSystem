@@ -22,23 +22,24 @@ namespace AppartmentSystem
         }
 
         //Araling yung functions ng DateTime?
-        public bool UpdateLeaseStatus(string roomId, string status, DateTime? leaseStart, DateTime? LeaseEnd)
+        public bool RenewLease(string roomNumber)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                string query = "UPDATE LeaseDetails  SET Status = @Status, LeaseStartDate = @EndStartDate WHERE " +
-                    "room_id = (SELECT room_id FROM room WHERE room_id = @room_id)";
+                string query = @"
+                UPDATE LeaseDetails
+                SET 
+                Status = 'Renewed',
+                LeaseEndDate = DATEADD(MONTH, 1, LeaseEndDate)
+                WHERE room_id = (SELECT room_id FROM room WHERE room_id = @RoomNumber)";
 
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Status", status);
-                    command.Parameters.AddWithValue("@room_id", roomId);
-                    command.Parameters.AddWithValue("@EndStartDate", LeaseEnd);
+                    command.Parameters.AddWithValue("@RoomNumber", roomNumber);
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;
                 }
-
             }
         }
 
