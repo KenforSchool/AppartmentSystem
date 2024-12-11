@@ -52,9 +52,10 @@
             this.btn_Login.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
             this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Login.Location = new System.Drawing.Point(122, 405);
+            this.btn_Login.Location = new System.Drawing.Point(163, 498);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(147, 50);
+            this.btn_Login.Size = new System.Drawing.Size(196, 62);
             this.btn_Login.TabIndex = 0;
             this.btn_Login.Text = "    Log in";
             this.btn_Login.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -70,9 +71,10 @@
             this.btn_SignUp.ForeColor = System.Drawing.Color.Black;
             this.btn_SignUp.Image = ((System.Drawing.Image)(resources.GetObject("btn_SignUp.Image")));
             this.btn_SignUp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_SignUp.Location = new System.Drawing.Point(122, 322);
+            this.btn_SignUp.Location = new System.Drawing.Point(163, 396);
+            this.btn_SignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_SignUp.Name = "btn_SignUp";
-            this.btn_SignUp.Size = new System.Drawing.Size(147, 50);
+            this.btn_SignUp.Size = new System.Drawing.Size(196, 63);
             this.btn_SignUp.TabIndex = 1;
             this.btn_SignUp.Text = "Sign Up";
             this.btn_SignUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -87,9 +89,10 @@
             this.lbl_username.BackColor = System.Drawing.Color.Transparent;
             this.lbl_username.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_username.ForeColor = System.Drawing.Color.White;
-            this.lbl_username.Location = new System.Drawing.Point(38, 152);
+            this.lbl_username.Location = new System.Drawing.Point(51, 187);
+            this.lbl_username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_username.Name = "lbl_username";
-            this.lbl_username.Size = new System.Drawing.Size(101, 25);
+            this.lbl_username.Size = new System.Drawing.Size(126, 32);
             this.lbl_username.TabIndex = 2;
             this.lbl_username.Text = "Username:";
             // 
@@ -100,9 +103,10 @@
             this.lbl_password.BackColor = System.Drawing.Color.Transparent;
             this.lbl_password.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_password.ForeColor = System.Drawing.Color.White;
-            this.lbl_password.Location = new System.Drawing.Point(41, 226);
+            this.lbl_password.Location = new System.Drawing.Point(55, 278);
+            this.lbl_password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(95, 25);
+            this.lbl_password.Size = new System.Drawing.Size(116, 32);
             this.lbl_password.TabIndex = 3;
             this.lbl_password.Text = "Password:";
             // 
@@ -111,9 +115,10 @@
             this.txt_Username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_Username.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Username.Location = new System.Drawing.Point(45, 178);
+            this.txt_Username.Location = new System.Drawing.Point(60, 219);
+            this.txt_Username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Username.Name = "txt_Username";
-            this.txt_Username.Size = new System.Drawing.Size(279, 20);
+            this.txt_Username.Size = new System.Drawing.Size(371, 22);
             this.txt_Username.TabIndex = 4;
             // 
             // txt_Password
@@ -121,9 +126,10 @@
             this.txt_Password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_Password.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Password.Location = new System.Drawing.Point(45, 252);
+            this.txt_Password.Location = new System.Drawing.Point(60, 310);
+            this.txt_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Password.Name = "txt_Password";
-            this.txt_Password.Size = new System.Drawing.Size(279, 20);
+            this.txt_Password.Size = new System.Drawing.Size(371, 22);
             this.txt_Password.TabIndex = 5;
             this.txt_Password.UseSystemPasswordChar = true;
             // 
@@ -136,8 +142,9 @@
             this.lbl_Login.ForeColor = System.Drawing.Color.White;
             this.lbl_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_Login.Location = new System.Drawing.Point(0, -2);
+            this.lbl_Login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Login.Name = "lbl_Login";
-            this.lbl_Login.Size = new System.Drawing.Size(1011, 74);
+            this.lbl_Login.Size = new System.Drawing.Size(1348, 91);
             this.lbl_Login.TabIndex = 6;
             this.lbl_Login.Text = "Apartment Management System";
             this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -156,9 +163,10 @@
             this.panel_login.Controls.Add(this.btn_Login);
             this.panel_login.Controls.Add(this.txt_Username);
             this.panel_login.Controls.Add(this.btn_SignUp);
-            this.panel_login.Location = new System.Drawing.Point(536, 127);
+            this.panel_login.Location = new System.Drawing.Point(715, 156);
+            this.panel_login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_login.Name = "panel_login";
-            this.panel_login.Size = new System.Drawing.Size(387, 515);
+            this.panel_login.Size = new System.Drawing.Size(515, 633);
             this.panel_login.TabIndex = 7;
             // 
             // cb_showPassword
@@ -166,9 +174,10 @@
             this.cb_showPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_showPassword.AutoSize = true;
             this.cb_showPassword.ForeColor = System.Drawing.Color.White;
-            this.cb_showPassword.Location = new System.Drawing.Point(45, 278);
+            this.cb_showPassword.Location = new System.Drawing.Point(60, 342);
+            this.cb_showPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_showPassword.Name = "cb_showPassword";
-            this.cb_showPassword.Size = new System.Drawing.Size(102, 17);
+            this.cb_showPassword.Size = new System.Drawing.Size(125, 20);
             this.cb_showPassword.TabIndex = 7;
             this.cb_showPassword.Text = "Show Password";
             this.cb_showPassword.UseVisualStyleBackColor = true;
@@ -178,9 +187,10 @@
             this.lbl_logo_admin_Signup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_logo_admin_Signup.BackColor = System.Drawing.Color.Transparent;
             this.lbl_logo_admin_Signup.Image = ((System.Drawing.Image)(resources.GetObject("lbl_logo_admin_Signup.Image")));
-            this.lbl_logo_admin_Signup.Location = new System.Drawing.Point(139, 28);
+            this.lbl_logo_admin_Signup.Location = new System.Drawing.Point(185, 34);
+            this.lbl_logo_admin_Signup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_logo_admin_Signup.Name = "lbl_logo_admin_Signup";
-            this.lbl_logo_admin_Signup.Size = new System.Drawing.Size(105, 93);
+            this.lbl_logo_admin_Signup.Size = new System.Drawing.Size(140, 114);
             this.lbl_logo_admin_Signup.TabIndex = 6;
             // 
             // lbl_motto
@@ -189,27 +199,30 @@
             this.lbl_motto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_motto.ForeColor = System.Drawing.Color.White;
-            this.lbl_motto.Location = new System.Drawing.Point(64, 306);
+            this.lbl_motto.Location = new System.Drawing.Point(85, 377);
+            this.lbl_motto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_motto.Name = "lbl_motto";
-            this.lbl_motto.Size = new System.Drawing.Size(386, 169);
+            this.lbl_motto.Size = new System.Drawing.Size(515, 208);
             this.lbl_motto.TabIndex = 8;
             this.lbl_motto.Text = "You Live, We Provide";
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1344, 897);
             this.Controls.Add(this.lbl_motto);
             this.Controls.Add(this.lbl_Login);
             this.Controls.Add(this.panel_login);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmLogin";
             this.Text = " LoginFrm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panel_login.ResumeLayout(false);
             this.panel_login.PerformLayout();
