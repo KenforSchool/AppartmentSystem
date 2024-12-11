@@ -146,31 +146,6 @@ namespace AppartmentSystem
             }
         }
 
-        private void Archive()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-            string roomId = selectedRow.Cells[0].Value.ToString();
-            double room_price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
-            string tenantName = txtTenantName.Text;
-            DateTime moved_in = dateTimePicker1.Value;
-            DateTime moved_out = moved_in.AddMonths(1);
-
-            LeaseRepository lease = new LeaseRepository(connectionString);
-            bool isUpdated = lease.ArchiveLeaseData(roomId, room_price, moved_in, moved_out);
-
-            if (isUpdated)
-            {
-                MessageBox.Show("Record send to archive!");
-            }
-            else
-            {
-                MessageBox.Show("Redord not save");
-            }
-        }
-
         private void btn_archiveLease_Click(object sender, EventArgs e)
         {
             frm_Archive frm_Archive = new frm_Archive();

@@ -20,11 +20,6 @@ namespace AppartmentSystem.Maintenance
             LoadData();
         }
 
-        private void lbl_infoOutput_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         public void LoadData()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;

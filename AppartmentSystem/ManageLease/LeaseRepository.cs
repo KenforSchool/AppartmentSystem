@@ -153,41 +153,6 @@ namespace AppartmentSystem
             }
         }
 
-        public bool ArchiveLeaseData(string roomID, double roomPrice, DateTime leaseStart, DateTime leaseEnd)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                try
-                {
-                 string insertArchiveQuery = @"
-                INSERT INTO lease_archive
-                (room_id, electricity_bill, water_bill, internet_bill, room_price, lease_start, lease_end)
-                VALUES
-                (@room_id, @electricity_bill, @water_bill, @internet_bill, @room_price, @lease_start, @lease_end)
-                 ";
-
-                    using (SqlCommand command = new SqlCommand(insertArchiveQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomID);
-                        command.Parameters.AddWithValue("@room_price", roomPrice);
-                        command.Parameters.AddWithValue("@lease_start", leaseStart);
-                        command.Parameters.AddWithValue("@lease_end", leaseEnd);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    return true;
-                }
-                catch (SqlException sql)
-                {
-                    MessageBox.Show("Error: " + sql.Message);
-                    return false;
-                }
-            }
-        }
-
         public bool editRoom(string roomId, DateTime leaseStart, DateTime leaseEnd)
         {
             string query = @"
