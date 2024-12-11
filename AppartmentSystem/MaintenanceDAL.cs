@@ -18,7 +18,7 @@ namespace AppartmentSystem
             _ConnectionString = connectionString;
         }
 
-        public bool addMaintenanceBill(string roomId, int amount, string expenseType, 
+        public bool addMaintenanceBill(string roomId, double amount, string expenseType, 
             string description, DateTime expenseDate)
         {
             using (SqlConnection connection = new SqlConnection(_ConnectionString))
@@ -32,7 +32,7 @@ namespace AppartmentSystem
 
                     string addQuery = @"
                     DECLARE @ExpenseDate DATE;
-                    SET @_ExpenseDate = @ExpensseDate_param;
+                    SET @ExpenseDate = @ExpensseDate_param;
 
                     INSERT INTO
                     Expenses
@@ -90,6 +90,29 @@ namespace AppartmentSystem
             }
 
             return table;
+        }
+
+        public DataTable getRoomList()
+        {
+            DataTable room = new DataTable();
+
+            string query = @"
+            SELECT 
+            room_id 
+            FROM room";
+
+            using (SqlConnection connection = new SqlConnection(_ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(room);
+                    }
+                }
+            }
+            return room;
         }
     }
 }

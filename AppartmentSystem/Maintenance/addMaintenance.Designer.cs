@@ -65,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_roomaddMaintenance.FormattingEnabled = true;
             this.cb_roomaddMaintenance.Location = new System.Drawing.Point(731, 192);
-            this.cb_roomaddMaintenance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_roomaddMaintenance.Margin = new System.Windows.Forms.Padding(4);
             this.cb_roomaddMaintenance.Name = "cb_roomaddMaintenance";
             this.cb_roomaddMaintenance.Size = new System.Drawing.Size(160, 25);
             this.cb_roomaddMaintenance.TabIndex = 1;
@@ -80,7 +80,7 @@
             this.btn_addMaintenanceInfo.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenanceInfo.Image")));
             this.btn_addMaintenanceInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addMaintenanceInfo.Location = new System.Drawing.Point(1139, 107);
-            this.btn_addMaintenanceInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addMaintenanceInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addMaintenanceInfo.Name = "btn_addMaintenanceInfo";
             this.btn_addMaintenanceInfo.Size = new System.Drawing.Size(140, 60);
             this.btn_addMaintenanceInfo.TabIndex = 3;
@@ -97,12 +97,13 @@
             this.btn_addmaintenanceSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_addmaintenanceSave.Image")));
             this.btn_addmaintenanceSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addmaintenanceSave.Location = new System.Drawing.Point(991, 107);
-            this.btn_addmaintenanceSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addmaintenanceSave.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addmaintenanceSave.Name = "btn_addmaintenanceSave";
             this.btn_addmaintenanceSave.Size = new System.Drawing.Size(140, 60);
             this.btn_addmaintenanceSave.TabIndex = 4;
             this.btn_addmaintenanceSave.Text = "      Save";
             this.btn_addmaintenanceSave.UseVisualStyleBackColor = false;
+            this.btn_addmaintenanceSave.Click += new System.EventHandler(this.btn_addmaintenanceSave_Click);
             // 
             // btn_addmaintenanceback
             // 
@@ -110,7 +111,7 @@
             this.btn_addmaintenanceback.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_addmaintenanceback.BackgroundImage")));
             this.btn_addmaintenanceback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_addmaintenanceback.Location = new System.Drawing.Point(1229, 16);
-            this.btn_addmaintenanceback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addmaintenanceback.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addmaintenanceback.Name = "btn_addmaintenanceback";
             this.btn_addmaintenanceback.Size = new System.Drawing.Size(49, 46);
             this.btn_addmaintenanceback.TabIndex = 5;
@@ -156,7 +157,7 @@
             // 
             this.cb_addExpenseType.FormattingEnabled = true;
             this.cb_addExpenseType.Location = new System.Drawing.Point(169, 192);
-            this.cb_addExpenseType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_addExpenseType.Margin = new System.Windows.Forms.Padding(4);
             this.cb_addExpenseType.Name = "cb_addExpenseType";
             this.cb_addExpenseType.Size = new System.Drawing.Size(160, 25);
             this.cb_addExpenseType.TabIndex = 9;
@@ -178,7 +179,7 @@
             // 
             this.dp_addMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dp_addMaintenance.Location = new System.Drawing.Point(1013, 193);
-            this.dp_addMaintenance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dp_addMaintenance.Margin = new System.Windows.Forms.Padding(4);
             this.dp_addMaintenance.Name = "dp_addMaintenance";
             this.dp_addMaintenance.Size = new System.Drawing.Size(265, 25);
             this.dp_addMaintenance.TabIndex = 11;
@@ -198,7 +199,7 @@
             // txt_addAmount
             // 
             this.txt_addAmount.Location = new System.Drawing.Point(467, 192);
-            this.txt_addAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_addAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txt_addAmount.Name = "txt_addAmount";
             this.txt_addAmount.Size = new System.Drawing.Size(132, 25);
             this.txt_addAmount.TabIndex = 13;
@@ -248,7 +249,7 @@
             this.Controls.Add(this.cb_roomaddMaintenance);
             this.Controls.Add(this.lbl_room);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_addMaintenance";
             this.Text = "addMaintenance";
             this.Load += new System.EventHandler(this.frm_addMaintenance_Load);
