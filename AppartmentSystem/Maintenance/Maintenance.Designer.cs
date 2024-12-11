@@ -60,6 +60,7 @@
             this.dg_maintenance.Name = "dg_maintenance";
             this.dg_maintenance.Size = new System.Drawing.Size(917, 429);
             this.dg_maintenance.TabIndex = 0;
+            this.dg_maintenance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_maintenance_CellContentClick);
             // 
             // lbl_roomNo
             // 

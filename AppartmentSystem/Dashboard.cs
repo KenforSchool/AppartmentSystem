@@ -152,7 +152,7 @@ namespace AppartmentSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frm_addMaintenance maintenance = new frm_addMaintenance();
+           Frm_Maintenance maintenance = new Frm_Maintenance();
             maintenance.Show();
             this.Close();
         }

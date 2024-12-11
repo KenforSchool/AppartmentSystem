@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -50,13 +51,35 @@ namespace AppartmentSystem
             Frm_AddMaintenance.Show();
             this.Hide();
 
+        }
 
+        public void LoadData()
+        {
+            var data_access = new MaintenanceDAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
+            try
+            {
+                DataTable table = data_access.getMaintenanceList();
 
+                if(dg_maintenance.Rows.Count > 0)
+                {
+                    dg_maintenance.DataSource = table;
+                }
+                    dg_maintenance.DataSource = null;
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btn_maintenanceBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dg_maintenance_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
