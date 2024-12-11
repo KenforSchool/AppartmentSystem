@@ -169,6 +169,7 @@
             // 
             this.btn_fdAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdAdd.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdAdd.FlatAppearance.BorderSize = 0;
             this.btn_fdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_fdAdd.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdAdd.Image")));
@@ -185,6 +186,7 @@
             // 
             this.btn_fdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdEdit.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdEdit.FlatAppearance.BorderSize = 0;
             this.btn_fdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_fdEdit.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdEdit.Image")));
@@ -211,6 +213,7 @@
             // 
             this.btn_fdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdDelete.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdDelete.FlatAppearance.BorderSize = 0;
             this.btn_fdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdDelete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_fdDelete.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdDelete.Image")));

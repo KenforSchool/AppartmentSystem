@@ -9,16 +9,30 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace AppartmentSystem
 {
     public partial class frm_room : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+            (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+              );
+
         public frm_room()
         {
             InitializeComponent();
@@ -45,6 +59,16 @@ namespace AppartmentSystem
 
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
+
+
+            btn_addRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addRoom.Width,
+            btn_addRoom.Height, 30, 30));
+
+            btn_deleteRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_deleteRoom.Width,
+            btn_deleteRoom.Height, 30, 30));
+
+            btn_editRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoom.Width,
+            btn_editRoom.Height, 30, 30));
 
         }
 

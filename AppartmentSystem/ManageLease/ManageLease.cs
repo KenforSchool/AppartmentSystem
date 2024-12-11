@@ -6,16 +6,31 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace AppartmentSystem
 {
     public partial class ManageLease : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+             (
+              int nLeft,
+              int nTop,
+              int nRight,
+              int nBottom,
+              int nWidthEllipse,
+              int nHeightEllipse
+               );
+
+
         public ManageLease()
         {
             InitializeComponent();
@@ -42,17 +57,23 @@ namespace AppartmentSystem
             DateTime moved_in = dateTimePicker1.Value;
             DateTime moved_out = moved_in.AddMonths(1);
 
-            
+
         }
 
         private void ManageLease_Load(object sender, EventArgs e)
         {
-            
+
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
 
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
+
+            btn_renewalLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_renewalLease.Width,
+           btn_renewalLease.Height, 30, 30));
+
+            btn_historyLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_historyLease.Width,
+           btn_historyLease.Height, 30, 30));
 
         }
 

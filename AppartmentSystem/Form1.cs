@@ -11,11 +11,23 @@ using System.Configuration;
 using System.Data.SqlClient;
 using AppartmentSystem;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace AppartmentSystem
 {
     public partial class FrmLogin : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+            (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+              );
 
         public FrmLogin()
         {
@@ -38,6 +50,14 @@ namespace AppartmentSystem
 
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
+
+            panel_login.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel_login.Width,
+            panel_login.Height, 30, 30));
+
+            btn_Login.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Login.Width,
+            btn_Login.Height, 30, 30));
+
+
         }
 
         private void btn_Login_Click(object sender, EventArgs e)

@@ -47,15 +47,17 @@
             // 
             this.btn_Login.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Login.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btn_Login.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.FlatAppearance.BorderSize = 0;
+            this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Login.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
-            this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Login.Location = new System.Drawing.Point(122, 405);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(147, 50);
             this.btn_Login.TabIndex = 0;
-            this.btn_Login.Text = "  Log in";
-            this.btn_Login.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Login.Text = "    Log in";
+            this.btn_Login.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
@@ -83,11 +85,11 @@
             this.lbl_username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_username.AutoSize = true;
             this.lbl_username.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_username.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_username.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_username.ForeColor = System.Drawing.Color.White;
             this.lbl_username.Location = new System.Drawing.Point(38, 152);
             this.lbl_username.Name = "lbl_username";
-            this.lbl_username.Size = new System.Drawing.Size(94, 23);
+            this.lbl_username.Size = new System.Drawing.Size(101, 25);
             this.lbl_username.TabIndex = 2;
             this.lbl_username.Text = "Username:";
             // 
@@ -96,11 +98,11 @@
             this.lbl_password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_password.AutoSize = true;
             this.lbl_password.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_password.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_password.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_password.ForeColor = System.Drawing.Color.White;
             this.lbl_password.Location = new System.Drawing.Point(41, 226);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(91, 23);
+            this.lbl_password.Size = new System.Drawing.Size(95, 25);
             this.lbl_password.TabIndex = 3;
             this.lbl_password.Text = "Password:";
             // 
