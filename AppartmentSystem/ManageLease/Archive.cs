@@ -34,7 +34,7 @@ namespace AppartmentSystem.ManageRoom
 
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            string query = @"SELECT * FROM lease_archive";
+            string query = @"SELECT * FROM history";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
