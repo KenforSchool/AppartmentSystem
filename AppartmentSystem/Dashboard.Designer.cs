@@ -46,8 +46,8 @@
             this.panel_headDashboard = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_admin = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_admin = new System.Windows.Forms.Label();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
@@ -182,7 +182,7 @@
             // 
             this.lbl_TotalActiveRoom.AutoSize = true;
             this.lbl_TotalActiveRoom.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(3, 67);
+            this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(-6, 63);
             this.lbl_TotalActiveRoom.Name = "lbl_TotalActiveRoom";
             this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(181, 37);
             this.lbl_TotalActiveRoom.TabIndex = 0;
@@ -218,7 +218,7 @@
             this.panel_maintenanceRequest.Controls.Add(this.lbl_MaintenanceRequest);
             this.panel_maintenanceRequest.Controls.Add(this.lbl_maintenanceRequestOutput);
             this.panel_maintenanceRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel_maintenanceRequest.Location = new System.Drawing.Point(502, 90);
+            this.panel_maintenanceRequest.Location = new System.Drawing.Point(217, 361);
             this.panel_maintenanceRequest.Name = "panel_maintenanceRequest";
             this.panel_maintenanceRequest.Size = new System.Drawing.Size(286, 100);
             this.panel_maintenanceRequest.TabIndex = 8;
@@ -239,7 +239,7 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(404, 512);
+            this.dataGridView1.Location = new System.Drawing.Point(509, 222);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(552, 193);
             this.dataGridView1.TabIndex = 11;
@@ -259,6 +259,14 @@
             this.panel1.Size = new System.Drawing.Size(200, 729);
             this.panel1.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 68);
+            this.label1.TabIndex = 6;
+            // 
             // lbl_admin
             // 
             this.lbl_admin.AutoSize = true;
@@ -269,14 +277,6 @@
             this.lbl_admin.Size = new System.Drawing.Size(120, 45);
             this.lbl_admin.TabIndex = 5;
             this.lbl_admin.Text = "Admin";
-            // 
-            // label1
-            // 
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 68);
-            this.label1.TabIndex = 6;
             // 
             // Frm_Dashboard
             // 
