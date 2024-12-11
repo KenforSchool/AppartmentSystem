@@ -34,7 +34,12 @@ namespace AppartmentSystem.ManageRoom
 
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            string query = @"SELECT * FROM history";
+            string query = @"SELECT 
+            history_id AS 'History ID',
+            room_id AS 'Room Number',
+            action_date AS 'Date',
+            process AS 'Process'
+            FROM history";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

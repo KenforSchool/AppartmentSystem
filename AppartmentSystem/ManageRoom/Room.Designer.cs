@@ -117,6 +117,8 @@
             this.txt_tenant.Name = "txt_tenant";
             this.txt_tenant.Size = new System.Drawing.Size(100, 20);
             this.txt_tenant.TabIndex = 5;
+            this.txt_tenant.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_tenant_MouseClick);
+            this.txt_tenant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tenant_KeyPress);
             // 
             // lbl_movedIn
             // 
@@ -207,7 +209,7 @@
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(151, 20);
             this.txt_price.TabIndex = 15;
-            this.txt_price.TextChanged += new System.EventHandler(this.txt_price_TextChanged);
+            this.txt_price.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_price_MouseClick);
             this.txt_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_price_KeyPress);
             // 
             // btn_roomBack
@@ -230,6 +232,7 @@
             this.txt_RoomNo.Size = new System.Drawing.Size(100, 20);
             this.txt_RoomNo.TabIndex = 17;
             this.txt_RoomNo.Click += new System.EventHandler(this.txt_RoomNo_Click);
+            this.txt_RoomNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_RoomNo_KeyPress);
             // 
             // label1
             // 

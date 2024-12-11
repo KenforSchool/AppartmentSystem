@@ -13,6 +13,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AppartmentSystem
 {
@@ -52,10 +53,10 @@ namespace AppartmentSystem
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             string query = @"
                 SELECT
-                     r.room_id,
-                     r.room_price,
-                     t.tenant_name,
-                     t.move_in
+                     r.room_id AS 'Room Number',
+                     r.room_price AS 'Rent',
+                     t.tenant_name AS 'Name',
+                     t.move_in AS 'Move In'
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";
@@ -72,7 +73,6 @@ namespace AppartmentSystem
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
-
             try
             {
                 
@@ -107,9 +107,7 @@ namespace AppartmentSystem
                 DialogResult result = MessageBox.Show(ex.Message,
                 "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-
-            
+                       
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
@@ -150,13 +148,14 @@ namespace AppartmentSystem
         private void btn_editRoom_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            if (dg_ManageRoom.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Select a row you want to edit.");
-                return;
-            }
 
             DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
+
+            if (dg_ManageRoom.SelectedRows.Count == 0)
+            {
+                btn_editRoom.Enabled = false;
+                return;
+            }
 
             try
             {
@@ -190,9 +189,8 @@ namespace AppartmentSystem
         {
             if (dg_ManageRoom.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
-                // Pass values to TextBox controls
+                DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
                 txt_RoomNo.Text = selectedRow.Cells[0].Value.ToString();
             }
         }
@@ -233,11 +231,6 @@ namespace AppartmentSystem
             this.Close();
         }
 
-        private void txt_price_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -249,11 +242,42 @@ namespace AppartmentSystem
         private void txt_RoomNo_Click(object sender, EventArgs e)
         {
             btn_addRoom.Enabled = true;
+            btn_editRoom.Enabled = true;
         }
 
         private void dg_ManageRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_addRoom.Enabled = false;
+            btn_editRoom.Enabled = false;
+        }
+
+        private void txt_tenant_MouseClick(object sender, MouseEventArgs e)
+        {
+            btn_addRoom.Enabled = true;
+            btn_editRoom.Enabled = true;
+        }
+
+        private void txt_price_MouseClick(object sender, MouseEventArgs e)
+        {
+            btn_addRoom.Enabled = true;
+            btn_editRoom.Enabled = true;
+        }
+
+        private void txt_RoomNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txt_tenant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
