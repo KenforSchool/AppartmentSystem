@@ -93,23 +93,6 @@ namespace AppartmentSystem
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                LeaseRepository room = new LeaseRepository(connectionString);
-
-                bool isDeleted = room.DeleteRoom(roomId);
-
-                if (isDeleted)
-                {
-                    MessageBox.Show("Record deleted successfully!");
-                    btn_updateLease_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Error: Record could not be deleted");
-                }
-            }
         }
 
         private void btn_editLease_Click(object sender, EventArgs e)
@@ -187,6 +170,7 @@ namespace AppartmentSystem
             int renewButtonColumnIndex = dataGridView1.Columns["RenewButton"].Index;
             int leaveButtonColumnIndex = dataGridView1.Columns["LeaveButton"].Index;
 
+            int leaseId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
             string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
             string tenantName = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
             string status = e.ColumnIndex == renewButtonColumnIndex ? "Renewed" : "Left";
@@ -196,7 +180,7 @@ namespace AppartmentSystem
             {
 
                 // Validate: Only one action per day
-                if (!lease.CanPerformActionToday(roomNumber))
+                if (!lease.CanPerformActionToday(leaseId))
                 {
                     return;
                 }
@@ -204,9 +188,9 @@ namespace AppartmentSystem
                 if (e.ColumnIndex == renewButtonColumnIndex)
                 {
 
-                    if (lease.RenewLease(roomNumber, dateNow))
+                    if (lease.RenewLease(leaseId, dateNow))
                     {
-                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
                         {
                             MessageBox.Show("Lease renewed successfully!");
                             LoadData();
@@ -219,9 +203,9 @@ namespace AppartmentSystem
                 }
                 else if (e.ColumnIndex == leaveButtonColumnIndex)
                 {
-                    if (lease.TenantLeft(roomNumber))
+                    if (lease.TenantLeft(leaseId))
                     {
-                        if (lease.AddToHistory(roomNumber, tenantName, status, dateNow))
+                        if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
                         {
                             MessageBox.Show("Tenant left the apartment!");
                             LoadData();
@@ -273,9 +257,6 @@ namespace AppartmentSystem
             dashboard.Show();
             this.Close();
         }
-
-
-
 
         //kailangan ayusin yung left btn
     }
