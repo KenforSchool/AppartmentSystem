@@ -43,13 +43,13 @@
             this.txt_fdrentCost = new System.Windows.Forms.TextBox();
             this.txt_fdmaintenanceCost = new System.Windows.Forms.TextBox();
             this.btn_fdAdd = new System.Windows.Forms.Button();
-            this.btn_fdEdit = new System.Windows.Forms.Button();
             this.btn_fdUpdate = new System.Windows.Forms.Button();
             this.btn_fdDelete = new System.Windows.Forms.Button();
             this.btn_fdBack = new System.Windows.Forms.Button();
             this.lbl_fdroomNumberOutput = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_fdPaid = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,22 +182,6 @@
             this.btn_fdAdd.UseVisualStyleBackColor = false;
             this.btn_fdAdd.Click += new System.EventHandler(this.btn_fdAdd_Click);
             // 
-            // btn_fdEdit
-            // 
-            this.btn_fdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fdEdit.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_fdEdit.FlatAppearance.BorderSize = 0;
-            this.btn_fdEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_fdEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_fdEdit.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdEdit.Image")));
-            this.btn_fdEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_fdEdit.Location = new System.Drawing.Point(866, 75);
-            this.btn_fdEdit.Name = "btn_fdEdit";
-            this.btn_fdEdit.Size = new System.Drawing.Size(105, 46);
-            this.btn_fdEdit.TabIndex = 10;
-            this.btn_fdEdit.Text = "    Edit ";
-            this.btn_fdEdit.UseVisualStyleBackColor = false;
-            // 
             // btn_fdUpdate
             // 
             this.btn_fdUpdate.Location = new System.Drawing.Point(973, 289);
@@ -246,6 +230,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(33, 12);
             this.label1.Name = "label1";
@@ -256,12 +241,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(41, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "Can track and edit finances";
+            // 
+            // btn_fdPaid
+            // 
+            this.btn_fdPaid.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdPaid.FlatAppearance.BorderSize = 0;
+            this.btn_fdPaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_fdPaid.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_fdPaid.Image = ((System.Drawing.Image)(resources.GetObject("btn_fdPaid.Image")));
+            this.btn_fdPaid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_fdPaid.Location = new System.Drawing.Point(866, 75);
+            this.btn_fdPaid.Name = "btn_fdPaid";
+            this.btn_fdPaid.Size = new System.Drawing.Size(105, 46);
+            this.btn_fdPaid.TabIndex = 17;
+            this.btn_fdPaid.Text = "    Paid";
+            this.btn_fdPaid.UseVisualStyleBackColor = false;
             // 
             // frm_financialData
             // 
@@ -271,13 +272,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_fdPaid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_fdroomNumberOutput);
             this.Controls.Add(this.btn_fdBack);
             this.Controls.Add(this.btn_fdDelete);
             this.Controls.Add(this.btn_fdUpdate);
-            this.Controls.Add(this.btn_fdEdit);
             this.Controls.Add(this.btn_fdAdd);
             this.Controls.Add(this.txt_fdmaintenanceCost);
             this.Controls.Add(this.txt_fdrentCost);
@@ -313,12 +314,12 @@
         private System.Windows.Forms.TextBox txt_fdrentCost;
         private System.Windows.Forms.TextBox txt_fdmaintenanceCost;
         private System.Windows.Forms.Button btn_fdAdd;
-        private System.Windows.Forms.Button btn_fdEdit;
         private System.Windows.Forms.Button btn_fdUpdate;
         private System.Windows.Forms.Button btn_fdDelete;
         private System.Windows.Forms.Button btn_fdBack;
         private System.Windows.Forms.Label lbl_fdroomNumberOutput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_fdPaid;
     }
 }

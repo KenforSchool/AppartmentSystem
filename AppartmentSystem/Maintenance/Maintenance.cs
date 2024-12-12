@@ -43,7 +43,7 @@ namespace AppartmentSystem
             this.Size = new Size(w, h);
 
             btn_addMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addMaintenance.Width, btn_addMaintenance.Height, 30, 30));
-            btn_deleteMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_deleteMaintenance.Width, btn_deleteMaintenance.Height, 30, 30));
+           
             btn_editMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editMaintenance.Width, btn_editMaintenance.Height, 30, 30));
             LoadData();
         }

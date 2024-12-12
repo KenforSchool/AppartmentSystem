@@ -40,7 +40,6 @@
             this.btn_addMaintenance = new System.Windows.Forms.Button();
             this.btn_editMaintenance = new System.Windows.Forms.Button();
             this.btn_updateMaintenance = new System.Windows.Forms.Button();
-            this.btn_deleteMaintenance = new System.Windows.Forms.Button();
             this.lbl_maintenanceRoomOutput = new System.Windows.Forms.Label();
             this.btn_maintenanceBack = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -146,7 +145,7 @@
             this.btn_addMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenance.Image")));
             this.btn_addMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_addMaintenance.Location = new System.Drawing.Point(625, 60);
+            this.btn_addMaintenance.Location = new System.Drawing.Point(736, 60);
             this.btn_addMaintenance.Name = "btn_addMaintenance";
             this.btn_addMaintenance.Size = new System.Drawing.Size(105, 46);
             this.btn_addMaintenance.TabIndex = 9;
@@ -182,22 +181,6 @@
             this.btn_updateMaintenance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_updateMaintenance.UseVisualStyleBackColor = true;
             this.btn_updateMaintenance.Visible = false;
-            // 
-            // btn_deleteMaintenance
-            // 
-            this.btn_deleteMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_deleteMaintenance.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_deleteMaintenance.FlatAppearance.BorderSize = 0;
-            this.btn_deleteMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_deleteMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_deleteMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_deleteMaintenance.Image")));
-            this.btn_deleteMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_deleteMaintenance.Location = new System.Drawing.Point(736, 60);
-            this.btn_deleteMaintenance.Name = "btn_deleteMaintenance";
-            this.btn_deleteMaintenance.Size = new System.Drawing.Size(105, 46);
-            this.btn_deleteMaintenance.TabIndex = 12;
-            this.btn_deleteMaintenance.Text = "      Delete";
-            this.btn_deleteMaintenance.UseVisualStyleBackColor = false;
             // 
             // lbl_maintenanceRoomOutput
             // 
@@ -254,7 +237,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_maintenanceBack);
             this.Controls.Add(this.lbl_maintenanceRoomOutput);
-            this.Controls.Add(this.btn_deleteMaintenance);
             this.Controls.Add(this.btn_updateMaintenance);
             this.Controls.Add(this.btn_editMaintenance);
             this.Controls.Add(this.btn_addMaintenance);
@@ -289,7 +271,6 @@
         private System.Windows.Forms.Button btn_addMaintenance;
         private System.Windows.Forms.Button btn_editMaintenance;
         private System.Windows.Forms.Button btn_updateMaintenance;
-        private System.Windows.Forms.Button btn_deleteMaintenance;
         private System.Windows.Forms.Label lbl_maintenanceRoomOutput;
         private System.Windows.Forms.Button btn_maintenanceBack;
         private System.Windows.Forms.Label label2;
