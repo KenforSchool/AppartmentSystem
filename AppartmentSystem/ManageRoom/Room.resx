@@ -189,6 +189,19 @@
         BaRpYq9pwjtei6MqZRWHP3/+3RQK30IlV0ZF74jAAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btn_editRoomLog.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        6gAAAOoB+Ss1JgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGBSURBVFhH7ZVP
+        KwVRGIevCOUD2MrOvywtZaGUjZSNb8CCuhYW1sqChVI2fAELiZSN78DWiiULWQgh/B5z3mnuzL3dmuOc
+        3LpPPXXO752875kxcytt/gur8iiyKzLlU35Hlp4pFi5E0vqlFILAtM4AXc5GlK03HaBPHsoXJ2syw7fe
+        dIA9yf7DyZrM8K2zx5R8cC/ZD8sRtyYzfOu8ggyWwgVo3En2c3LerckM3/qyXEqWCVyAxoa0zCQzfOsF
+        7CKjU67JK2fVZYZvvUB+gBDwFnQkyyKhB+B/4VWeyR6CPCEHmJVv0npcyF5ZgxW3Srgpx2U9OPm75G8f
+        yAe3Ppc1dyI7YRlPZJ5scwaFUWlDHBMYM3LdwyGZpV5z4NSXkvyWIATZZ75N4OiWp5KcuzAm/5wp2ejk
+        PHdyPsk8iiDwXGmy+7tLiNacL92jpNEAgYhy240JSaMbSeNJyTsf/OSG/QA9yWe3jtYc+Mxa0y95LXfk
+        oIzCtNyXi7KfoE0LUKn8AA0ZCzjOyLQTAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB

@@ -68,6 +68,9 @@ namespace AppartmentSystem
             btn_editRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoom.Width,
             btn_editRoom.Height, 30, 30));
 
+            btn_editRoomLog.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomLog.Width,
+                btn_editRoomLog.Height, 30, 30));
+
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
