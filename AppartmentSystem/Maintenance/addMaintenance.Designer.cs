@@ -116,6 +116,7 @@
             this.btn_addmaintenanceback.Size = new System.Drawing.Size(49, 46);
             this.btn_addmaintenanceback.TabIndex = 5;
             this.btn_addmaintenanceback.UseVisualStyleBackColor = true;
+            this.btn_addmaintenanceback.Click += new System.EventHandler(this.btn_addmaintenanceback_Click);
             // 
             // label_header
             // 

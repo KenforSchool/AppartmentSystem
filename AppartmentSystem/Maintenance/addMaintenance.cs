@@ -29,6 +29,7 @@ namespace AppartmentSystem.Maintenance
         public frm_addMaintenance()
         {
             InitializeComponent();
+            dp_addMaintenance.MinDate = DateTime.Now;
             LoadRoomComboBox();
         }
 
@@ -62,17 +63,23 @@ namespace AppartmentSystem.Maintenance
                 string description = txt_addDescription.Text;
                 string roomNumber = cb_roomaddMaintenance.Text;
 
-                bool success = maintenance.addMaintenanceBill(roomNumber, amount, expenseType, description, dateCreated);
+                DialogResult result = MessageBox.Show("Are you sure you want to save this maintenance?",
+               "Confirm Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (success)
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Room and tenant have been added successfully");
-                    txt_addAmount.Clear();
-                    txt_addDescription.Clear();
+                    bool success = maintenance.addMaintenanceBill(roomNumber, amount, expenseType, description, dateCreated);
+
+                    if (success)
+                    {
+
+                        MessageBox.Show("Maintenance order added successfully!");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Error has occured. Data has not been saved");
+                    return;
                 }
             }
             catch (Exception ex)
@@ -95,6 +102,13 @@ namespace AppartmentSystem.Maintenance
             cb_addExpenseType.Items.Add("Maintenance");
             cb_addExpenseType.Items.Add("Utilities");
             cb_addExpenseType.Items.Add("Admin");
+        }
+
+        private void btn_addmaintenanceback_Click(object sender, EventArgs e)
+        {
+            Frm_Maintenance maintnenance = new Frm_Maintenance();
+            maintnenance.Show();
+            this.Close();
         }
     }
 }

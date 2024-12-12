@@ -36,12 +36,9 @@ namespace AppartmentSystem
         public frm_room()
         {
             InitializeComponent();
+            btn_editRoom.Enabled = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         //pwede pang mabago
         private void frm_room_Load(object sender, EventArgs e)
         {
@@ -176,9 +173,8 @@ namespace AppartmentSystem
             DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
 
             if (dg_ManageRoom.SelectedRows.Count == 0)
-            {
+            {          
                 btn_editRoom.Enabled = false;
-                return;
             }
 
             try
@@ -204,7 +200,7 @@ namespace AppartmentSystem
             catch (FormatException ex)
             {
 
-                MessageBox.Show($"Double check the input you enter: {ex.Message}", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Double check the input you enter:", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -266,13 +262,13 @@ namespace AppartmentSystem
         private void txt_RoomNo_Click(object sender, EventArgs e)
         {
             btn_addRoom.Enabled = true;
-            btn_editRoom.Enabled = true;
+            btn_editRoom.Enabled = false;
         }
 
         private void dg_ManageRoom_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_addRoom.Enabled = false;
-            btn_editRoom.Enabled = false;
+            btn_editRoom.Enabled = true;
         }
 
         private void txt_tenant_MouseClick(object sender, MouseEventArgs e)
