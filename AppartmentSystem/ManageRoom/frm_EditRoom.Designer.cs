@@ -40,7 +40,7 @@
             this.txt_editRoomprice = new System.Windows.Forms.TextBox();
             this.btn_editRoomSave = new System.Windows.Forms.Button();
             this.btn_editRoomCancel = new System.Windows.Forms.Button();
-            this.btn_editRoomLog = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_editroomheader
@@ -79,51 +79,57 @@
             // 
             this.lbl_editRoomroom.AutoSize = true;
             this.lbl_editRoomroom.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_editRoomroom.Location = new System.Drawing.Point(21, 170);
+            this.lbl_editRoomroom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_editRoomroom.Location = new System.Drawing.Point(55, 169);
             this.lbl_editRoomroom.Name = "lbl_editRoomroom";
-            this.lbl_editRoomroom.Size = new System.Drawing.Size(38, 13);
+            this.lbl_editRoomroom.Size = new System.Drawing.Size(52, 20);
             this.lbl_editRoomroom.TabIndex = 3;
             this.lbl_editRoomroom.Text = "Room:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(58, 167);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(113, 166);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 4;
             // 
             // lbl_editRoomtenant
             // 
             this.lbl_editRoomtenant.AutoSize = true;
             this.lbl_editRoomtenant.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_editRoomtenant.Location = new System.Drawing.Point(238, 170);
+            this.lbl_editRoomtenant.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_editRoomtenant.Location = new System.Drawing.Point(51, 216);
             this.lbl_editRoomtenant.Name = "lbl_editRoomtenant";
-            this.lbl_editRoomtenant.Size = new System.Drawing.Size(44, 13);
+            this.lbl_editRoomtenant.Size = new System.Drawing.Size(56, 20);
             this.lbl_editRoomtenant.TabIndex = 5;
             this.lbl_editRoomtenant.Text = "Tenant:";
             // 
             // txt_editRoomtenant
             // 
-            this.txt_editRoomtenant.Location = new System.Drawing.Point(285, 167);
+            this.txt_editRoomtenant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_editRoomtenant.Location = new System.Drawing.Point(113, 213);
             this.txt_editRoomtenant.Name = "txt_editRoomtenant";
-            this.txt_editRoomtenant.Size = new System.Drawing.Size(100, 20);
+            this.txt_editRoomtenant.Size = new System.Drawing.Size(100, 26);
             this.txt_editRoomtenant.TabIndex = 6;
             // 
             // lbl_editRoomprice
             // 
             this.lbl_editRoomprice.AutoSize = true;
             this.lbl_editRoomprice.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_editRoomprice.Location = new System.Drawing.Point(450, 170);
+            this.lbl_editRoomprice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_editRoomprice.Location = new System.Drawing.Point(60, 264);
             this.lbl_editRoomprice.Name = "lbl_editRoomprice";
-            this.lbl_editRoomprice.Size = new System.Drawing.Size(34, 13);
+            this.lbl_editRoomprice.Size = new System.Drawing.Size(44, 20);
             this.lbl_editRoomprice.TabIndex = 7;
             this.lbl_editRoomprice.Text = "Price:";
             // 
             // txt_editRoomprice
             // 
-            this.txt_editRoomprice.Location = new System.Drawing.Point(491, 167);
+            this.txt_editRoomprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_editRoomprice.Location = new System.Drawing.Point(113, 261);
             this.txt_editRoomprice.Name = "txt_editRoomprice";
-            this.txt_editRoomprice.Size = new System.Drawing.Size(100, 20);
+            this.txt_editRoomprice.Size = new System.Drawing.Size(100, 26);
             this.txt_editRoomprice.TabIndex = 8;
             // 
             // btn_editRoomSave
@@ -134,7 +140,7 @@
             this.btn_editRoomSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editRoomSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_editRoomSave.Image")));
             this.btn_editRoomSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_editRoomSave.Location = new System.Drawing.Point(544, 88);
+            this.btn_editRoomSave.Location = new System.Drawing.Point(555, 380);
             this.btn_editRoomSave.Name = "btn_editRoomSave";
             this.btn_editRoomSave.Size = new System.Drawing.Size(105, 46);
             this.btn_editRoomSave.TabIndex = 9;
@@ -149,28 +155,21 @@
             this.btn_editRoomCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editRoomCancel.Image = ((System.Drawing.Image)(resources.GetObject("btn_editRoomCancel.Image")));
             this.btn_editRoomCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_editRoomCancel.Location = new System.Drawing.Point(655, 88);
+            this.btn_editRoomCancel.Location = new System.Drawing.Point(666, 380);
             this.btn_editRoomCancel.Name = "btn_editRoomCancel";
             this.btn_editRoomCancel.Size = new System.Drawing.Size(105, 46);
             this.btn_editRoomCancel.TabIndex = 10;
             this.btn_editRoomCancel.Text = "     Cancel";
             this.btn_editRoomCancel.UseVisualStyleBackColor = false;
             // 
-            // btn_editRoomLog
+            // label1
             // 
-            this.btn_editRoomLog.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_editRoomLog.FlatAppearance.BorderSize = 0;
-            this.btn_editRoomLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_editRoomLog.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editRoomLog.Image = ((System.Drawing.Image)(resources.GetObject("btn_editRoomLog.Image")));
-            this.btn_editRoomLog.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btn_editRoomLog.Location = new System.Drawing.Point(433, 88);
-            this.btn_editRoomLog.Name = "btn_editRoomLog";
-            this.btn_editRoomLog.Size = new System.Drawing.Size(105, 46);
-            this.btn_editRoomLog.TabIndex = 11;
-            this.btn_editRoomLog.Text = "Edit Log";
-            this.btn_editRoomLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_editRoomLog.UseVisualStyleBackColor = false;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(276, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(450, 179);
+            this.label1.TabIndex = 12;
             // 
             // frm_EditRoom
             // 
@@ -179,7 +178,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_editRoomLog);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_editRoomCancel);
             this.Controls.Add(this.btn_editRoomSave);
             this.Controls.Add(this.txt_editRoomprice);
@@ -216,6 +215,6 @@
         private System.Windows.Forms.TextBox txt_editRoomprice;
         private System.Windows.Forms.Button btn_editRoomSave;
         private System.Windows.Forms.Button btn_editRoomCancel;
-        private System.Windows.Forms.Button btn_editRoomLog;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -45,6 +45,7 @@
             this.txt_RoomNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_editRoomLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -258,6 +259,23 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Can add, delete, and edit room information";
             // 
+            // btn_editRoomLog
+            // 
+            this.btn_editRoomLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_editRoomLog.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editRoomLog.FlatAppearance.BorderSize = 0;
+            this.btn_editRoomLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editRoomLog.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editRoomLog.Image = ((System.Drawing.Image)(resources.GetObject("btn_editRoomLog.Image")));
+            this.btn_editRoomLog.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btn_editRoomLog.Location = new System.Drawing.Point(514, 59);
+            this.btn_editRoomLog.Name = "btn_editRoomLog";
+            this.btn_editRoomLog.Size = new System.Drawing.Size(105, 46);
+            this.btn_editRoomLog.TabIndex = 20;
+            this.btn_editRoomLog.Text = "Edit Log";
+            this.btn_editRoomLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_editRoomLog.UseVisualStyleBackColor = false;
+            // 
             // frm_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +285,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btn_editRoomLog);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_RoomNo);
@@ -311,5 +330,6 @@
         private System.Windows.Forms.TextBox txt_RoomNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_editRoomLog;
     }
 }
