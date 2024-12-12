@@ -173,5 +173,92 @@ namespace AppartmentSystem.ManageRoom
 
             return dataTable;
         }
+
+        public bool SaveLog(string action, string roomId, DateTime saveTime)
+        {
+
+            string query = @"
+            DECLARE @timestamp;
+            SET @timestamp = @timeStampParameter;
+
+            INSERT INTO
+            logs
+            (action, room_id, timestamp)
+            VALUES
+            (@action, @roomId, @timeStamp)";
+
+            
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@action", action);
+                    command.Parameters.AddWithValue("@roomId", roomId);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool EditLog(string roomId, int roomPrice, string tenantName)
+        {
+
+            string tenantQuery = @"
+            UPDATE tenant
+            SET tenant_name = @tenantName
+            WHERE room_id = @roomId";
+
+            string roomQuery = @"
+            UPDATE room
+            SET room_price = @roomPrice
+            WHERE room_id = @roomId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using(SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+
+                        using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, conn))
+                        {
+                            tenantCommand.Parameters.AddWithValue("@roomId", roomId);
+                            tenantCommand.Parameters.AddWithValue("@tenantName", tenantName);
+                            tenantCommand.ExecuteNonQuery();
+                        }
+
+                        using (SqlCommand roomCommand = new SqlCommand(roomQuery, conn))
+                        {
+                            roomCommand.Parameters.AddWithValue("@roomPrice", roomPrice);
+                            roomCommand.ExecuteNonQuery();
+
+                            if (roomCommand.ExecuteNonQuery() > 0)
+                            {
+                                SaveLog(
+                                    action: "Edit",
+                                    roomId: "YourEntityTable",
+                                    saveTime: DateTime.Now
+                                );
+                            }
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+
+                        transaction.Rollback();
+                        return false;
+                    }
+                }               
+            }
+            return false;
+        }
     }
 }

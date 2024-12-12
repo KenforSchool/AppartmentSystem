@@ -45,6 +45,7 @@ namespace AppartmentSystem
             btn_addMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addMaintenance.Width, btn_addMaintenance.Height, 30, 30));
            
             btn_editMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editMaintenance.Width, btn_editMaintenance.Height, 30, 30));
+            LoadData();
         }
 
         private void btn_addMaintenance_Click(object sender, EventArgs e)
@@ -100,16 +101,31 @@ namespace AppartmentSystem
 
         private void dg_maintenance_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            MaintenanceDAL maintenance = new MaintenanceDAL(connectionString);
+            
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                MaintenanceDAL maintenance = new MaintenanceDAL(connectionString);
 
-            int description = dg_maintenance.Columns["Description"].Index;
+                int leaseId = Convert.ToInt32(dg_maintenance.Rows[e.RowIndex].Cells["ID"].Value);
+                int descriptionButtonColumnIndex = dg_maintenance.Columns["Description"].Index;
 
-            if (e.RowIndex == description)
-            {
-                MaintenanceDescription descrip = new MaintenanceDescription();
-                descrip.Show();
-            }
+                if (e.ColumnIndex == descriptionButtonColumnIndex)
+                {
+                    try
+                    {
+                        // Fetch the description for the selected lease ID
+                        string description = maintenance.getDescription(leaseId);
+
+                        if (!string.IsNullOrWhiteSpace(description))
+                        {
+                            MessageBox.Show($"Description: {description}", "Lease Description", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            
         }
     }
 }

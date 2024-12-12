@@ -60,7 +60,6 @@ namespace AppartmentSystem
             }
         }
 
-
         public DataTable getMaintenanceList()
         {
             DataTable table = new DataTable();
@@ -109,6 +108,43 @@ namespace AppartmentSystem
                 }
             }
             return room;
+        }
+
+        public string getDescription(int leaseId)
+        {
+            string description = string.Empty;
+
+            string query = @"
+            SELECT
+            Description 
+            FROM Expenses
+            WHERE ExpenseID = @ExpenseID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ExpenseID", leaseId);
+                        
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                description = reader["Description"]?.ToString() ?? string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"An error occurred while fetching the description: {ex.Message}");
+            }
+            return description;
         }
     }
 }

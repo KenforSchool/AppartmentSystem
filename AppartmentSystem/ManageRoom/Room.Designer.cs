@@ -145,7 +145,6 @@
             this.lbl_price.Size = new System.Drawing.Size(40, 17);
             this.lbl_price.TabIndex = 7;
             this.lbl_price.Text = "Price:";
-            this.lbl_price.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn_UpdateRoom
             // 
