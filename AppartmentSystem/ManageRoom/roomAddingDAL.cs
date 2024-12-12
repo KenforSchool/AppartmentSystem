@@ -260,5 +260,28 @@ namespace AppartmentSystem.ManageRoom
             }
             return false;
         }
+
+        public DataTable GetEditLogs()
+        {
+            DataTable editLogs = new DataTable();
+
+            string query = @"
+            SELECT *
+            FROM logs";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(editLogs);
+                    }
+                }
+            }
+
+            return editLogs;
+        }
     }
 }
