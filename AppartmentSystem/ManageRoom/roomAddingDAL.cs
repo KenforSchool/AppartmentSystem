@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -178,9 +179,6 @@ namespace AppartmentSystem.ManageRoom
         {
 
             string query = @"
-            DECLARE @timestamp;
-            SET @timestamp = @timeStampParameter;
-
             INSERT INTO
             logs
             (action, room_id, timestamp)
@@ -197,6 +195,7 @@ namespace AppartmentSystem.ManageRoom
                 {
                     command.Parameters.AddWithValue("@action", action);
                     command.Parameters.AddWithValue("@roomId", roomId);
+                    command.Parameters.AddWithValue("@timeStamp", saveTime);
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -205,7 +204,6 @@ namespace AppartmentSystem.ManageRoom
 
         public bool EditLog(string roomId, int roomPrice, string tenantName)
         {
-
             string tenantQuery = @"
             UPDATE tenant
             SET tenant_name = @tenantName
@@ -220,45 +218,35 @@ namespace AppartmentSystem.ManageRoom
             {
                 conn.Open();
 
-                using(SqlTransaction transaction = conn.BeginTransaction())
+                using (SqlTransaction transaction = conn.BeginTransaction())
                 {
                     try
                     {
-
-                        using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, conn))
+                        using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, conn, transaction))
                         {
                             tenantCommand.Parameters.AddWithValue("@roomId", roomId);
                             tenantCommand.Parameters.AddWithValue("@tenantName", tenantName);
                             tenantCommand.ExecuteNonQuery();
                         }
 
-                        using (SqlCommand roomCommand = new SqlCommand(roomQuery, conn))
+                        using (SqlCommand roomCommand = new SqlCommand(roomQuery, conn, transaction))
                         {
+                            roomCommand.Parameters.AddWithValue("@roomId", roomId);
                             roomCommand.Parameters.AddWithValue("@roomPrice", roomPrice);
                             roomCommand.ExecuteNonQuery();
-
-                            if (roomCommand.ExecuteNonQuery() > 0)
-                            {
-                                SaveLog(
-                                    action: "Edit",
-                                    roomId: "YourEntityTable",
-                                    saveTime: DateTime.Now
-                                );
-                            }
                         }
 
                         transaction.Commit();
                         return true;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
                         transaction.Rollback();
+                        Console.WriteLine($"Transaction failed: {ex.Message}");
                         return false;
                     }
-                }               
+                }
             }
-            return false;
         }
 
         public DataTable GetEditLogs()

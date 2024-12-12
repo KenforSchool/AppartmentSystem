@@ -140,6 +140,7 @@
             this.btn_editRoomSave.TabIndex = 9;
             this.btn_editRoomSave.Text = "        Save";
             this.btn_editRoomSave.UseVisualStyleBackColor = false;
+            this.btn_editRoomSave.Click += new System.EventHandler(this.btn_editRoomSave_Click);
             // 
             // btn_editRoomCancel
             // 

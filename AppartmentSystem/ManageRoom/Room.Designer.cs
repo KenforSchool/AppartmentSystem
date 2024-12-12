@@ -67,6 +67,7 @@
             this.dg_ManageRoom.Size = new System.Drawing.Size(897, 446);
             this.dg_ManageRoom.TabIndex = 0;
             this.dg_ManageRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_ManageRoom_CellClick);
+            this.dg_ManageRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_ManageRoom_CellContentClick);
             // 
             // btn_addRoom
             // 
@@ -175,7 +176,7 @@
             this.btn_editRoom.TabIndex = 11;
             this.btn_editRoom.Text = "       Edit";
             this.btn_editRoom.UseVisualStyleBackColor = false;
-            this.btn_editRoom.Click += new System.EventHandler(this.btn_editRoom_Click);
+            this.btn_editRoom.Click += new System.EventHandler(this.btn_editRoom_Click_1);
             // 
             // btn_deleteRoom
             // 
