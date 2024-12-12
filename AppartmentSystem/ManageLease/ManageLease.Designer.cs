@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLease));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_renewalLease = new System.Windows.Forms.Button();
             this.btn_updateLease = new System.Windows.Forms.Button();
             this.btn_historyLease = new System.Windows.Forms.Button();
             this.btn_mlBack = new System.Windows.Forms.Button();
@@ -64,24 +63,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(951, 497);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btn_renewalLease
-            // 
-            this.btn_renewalLease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_renewalLease.BackColor = System.Drawing.Color.LightCyan;
-            this.btn_renewalLease.FlatAppearance.BorderSize = 0;
-            this.btn_renewalLease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_renewalLease.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_renewalLease.Image = ((System.Drawing.Image)(resources.GetObject("btn_renewalLease.Image")));
-            this.btn_renewalLease.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_renewalLease.Location = new System.Drawing.Point(761, 98);
-            this.btn_renewalLease.Name = "btn_renewalLease";
-            this.btn_renewalLease.Size = new System.Drawing.Size(105, 46);
-            this.btn_renewalLease.TabIndex = 13;
-            this.btn_renewalLease.Text = "   Renew ";
-            this.btn_renewalLease.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_renewalLease.UseVisualStyleBackColor = false;
-            this.btn_renewalLease.Click += new System.EventHandler(this.btn_addLease_Click);
             // 
             // btn_updateLease
             // 
@@ -260,7 +241,6 @@
             this.Controls.Add(this.btn_mlBack);
             this.Controls.Add(this.btn_historyLease);
             this.Controls.Add(this.btn_updateLease);
-            this.Controls.Add(this.btn_renewalLease);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_sample);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -278,7 +258,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btn_renewalLease;
         private System.Windows.Forms.Button btn_updateLease;
         private System.Windows.Forms.Button btn_historyLease;
         private System.Windows.Forms.Button btn_mlBack;

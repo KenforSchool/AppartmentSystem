@@ -69,8 +69,7 @@ namespace AppartmentSystem
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
 
-            btn_renewalLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_renewalLease.Width,
-           btn_renewalLease.Height, 30, 30));
+            
 
             btn_historyLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_historyLease.Width,
            btn_historyLease.Height, 30, 30));

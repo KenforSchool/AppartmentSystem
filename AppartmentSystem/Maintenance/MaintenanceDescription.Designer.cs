@@ -37,7 +37,8 @@
             // 
             // lbl_infoOutput
             // 
-            this.lbl_infoOutput.BackColor = System.Drawing.Color.Silver;
+            this.lbl_infoOutput.BackColor = System.Drawing.Color.White;
+            this.lbl_infoOutput.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_infoOutput.Location = new System.Drawing.Point(39, 87);
             this.lbl_infoOutput.Name = "lbl_infoOutput";
             this.lbl_infoOutput.Size = new System.Drawing.Size(719, 310);

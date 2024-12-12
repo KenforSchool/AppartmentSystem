@@ -44,8 +44,8 @@ namespace AppartmentSystem
             this.Size = new Size(w, h);
 
             btn_fdAdd.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_fdAdd.Width, btn_fdAdd.Height, 30, 30));
-            btn_fdEdit.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_fdEdit.Width, btn_fdEdit.Height, 30, 30));
             btn_fdDelete.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_fdDelete.Width, btn_fdDelete.Height, 30, 30));
+            btn_fdPaid.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_fdPaid.Width, btn_fdPaid.Height, 30, 30));
 
         }
 
@@ -55,6 +55,11 @@ namespace AppartmentSystem
         }
 
         private void btn_fdAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_fdEdit_Click(object sender, EventArgs e)
         {
 
         }
