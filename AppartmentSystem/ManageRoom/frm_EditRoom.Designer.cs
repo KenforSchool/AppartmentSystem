@@ -74,6 +74,7 @@
             this.btn_editRoomBack.Size = new System.Drawing.Size(45, 40);
             this.btn_editRoomBack.TabIndex = 2;
             this.btn_editRoomBack.UseVisualStyleBackColor = true;
+            this.btn_editRoomBack.Click += new System.EventHandler(this.btn_editRoomBack_Click);
             // 
             // lbl_editRoomroom
             // 
@@ -93,6 +94,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 4;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // lbl_editRoomtenant
             // 
@@ -112,6 +114,7 @@
             this.txt_editRoomtenant.Name = "txt_editRoomtenant";
             this.txt_editRoomtenant.Size = new System.Drawing.Size(100, 26);
             this.txt_editRoomtenant.TabIndex = 6;
+            this.txt_editRoomtenant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_editRoomtenant_KeyPress);
             // 
             // lbl_editRoomprice
             // 
@@ -131,6 +134,7 @@
             this.txt_editRoomprice.Name = "txt_editRoomprice";
             this.txt_editRoomprice.Size = new System.Drawing.Size(100, 26);
             this.txt_editRoomprice.TabIndex = 8;
+            this.txt_editRoomprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_editRoomprice_KeyPress);
             // 
             // btn_editRoomSave
             // 
@@ -146,6 +150,7 @@
             this.btn_editRoomSave.TabIndex = 9;
             this.btn_editRoomSave.Text = "        Save";
             this.btn_editRoomSave.UseVisualStyleBackColor = false;
+            this.btn_editRoomSave.Click += new System.EventHandler(this.btn_editRoomSave_Click);
             // 
             // btn_editRoomCancel
             // 

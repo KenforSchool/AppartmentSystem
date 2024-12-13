@@ -14,6 +14,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -42,6 +43,7 @@ namespace AppartmentSystem
         //pwede pang mabago
         private void frm_room_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.MinDate = DateTime.Now;
             LoadData();
             if (txt_RoomNo.Text == "")
             {
@@ -69,7 +71,6 @@ namespace AppartmentSystem
 
             btn_editRoomLog.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomLog.Width,
                 btn_editRoomLog.Height, 30, 30));
-
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -128,7 +129,7 @@ namespace AppartmentSystem
             }
             catch (FormatException ex)
             {
-                DialogResult result = MessageBox.Show(ex.Message,
+                DialogResult result = MessageBox.Show("Check your input details",
                 "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
                        
@@ -166,46 +167,6 @@ namespace AppartmentSystem
                     MessageBox.Show("Error: Record could not be deleted");
                 }
             }
-            
-        }
-
-        private void btn_editRoom_Click(object sender, EventArgs e)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-            DataGridViewRow selectedRow = dg_ManageRoom.SelectedRows[0];
-
-            if (dg_ManageRoom.SelectedRows.Count == 0)
-            {          
-                btn_editRoom.Enabled = false;
-            }
-
-            try
-            {
-                string roomId = txt_RoomNo.Text;
-                double roomPrice = int.Parse(txt_price.Text);
-                string tenantName = txt_tenant.Text;
-                DateTime moved_in = dateTimePicker1.Value;
-
-                roomAddingDAL roomADL = new roomAddingDAL(connectionString);
-                bool isUpdated = roomADL.EditRoom(roomId, tenantName, roomPrice, moved_in);
-
-                if (isUpdated)
-                {
-                    MessageBox.Show("Record updated successfully!");
-                    btn_Update_Click(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Error updating record");
-                }
-            }
-            catch (FormatException ex)
-            {
-
-                MessageBox.Show($"Double check the input you enter:", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
         }
 
         private void dg_ManageRoom_SelectionChanged(object sender, EventArgs e)
@@ -235,9 +196,8 @@ namespace AppartmentSystem
                     dg_ManageRoom.DataSource = null;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception)
+            { 
             }
 
         }
@@ -257,6 +217,11 @@ namespace AppartmentSystem
         private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -293,6 +258,11 @@ namespace AppartmentSystem
                 e.Handled = true;
             }
 
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
 
         private void txt_tenant_KeyPress(object sender, KeyPressEventArgs e)
@@ -306,6 +276,62 @@ namespace AppartmentSystem
             {
                 e.Handled = true;
             }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled= true;
+            }
+        }
+
+        private void dg_ManageRoom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dg_ManageRoom.CurrentCell != null)
+            {
+
+                string roomNumber = dg_ManageRoom.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
+                string tenantName = dg_ManageRoom.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[e.RowIndex].Cells["Rent"].Value);
+
+                frm_EditRoom edit = new frm_EditRoom();
+                edit.setRoomDetails(roomNumber, tenantName, roomPrice);
+            }
+        }
+
+        private void OpenEditRoomForm(int rowIndex)
+        {
+            if (dg_ManageRoom.CurrentCell != null && rowIndex >= 0)
+            {
+
+                string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["Room Number"].Value.ToString();
+                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["Name"].Value.ToString();
+                double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[rowIndex].Cells["Rent"].Value);
+
+                frm_EditRoom editForm = new frm_EditRoom();
+
+                editForm.setRoomDetails(roomNumber, tenantName, roomPrice);
+                editForm.Show();
+                this.Close();
+            }
+        }
+
+        private void btn_editRoom_Click_1(object sender, EventArgs e)
+        {
+            if (dg_ManageRoom.SelectedRows.Count > 0)
+            {
+                int rowIndex = dg_ManageRoom.SelectedRows[0].Index;
+
+                OpenEditRoomForm(rowIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please select a room to edit.");
+            }
+        }
+
+        private void btn_editRoomLog_Click(object sender, EventArgs e)
+        {
+            frm_EditRoomLog editForm = new frm_EditRoomLog();
+            editForm.Show();
         }
     }
 }

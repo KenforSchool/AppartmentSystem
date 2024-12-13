@@ -54,6 +54,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="FinanceDAL.cs" />
     <Compile Include="FinancialData\FinancialData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,7 +67,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaintenanceDAL.cs" />
+    <Compile Include="Maintenance\MaintenanceDAL.cs" />
     <Compile Include="Maintenance\addMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>

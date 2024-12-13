@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,16 +62,14 @@ namespace AppartmentSystem.ManageRoom
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException sqlEx)
+                catch (SqlException)
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
@@ -94,19 +93,18 @@ namespace AppartmentSystem.ManageRoom
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("SQL Error: " + ex.Message);
                 return false;
             }
         }
 
-        public bool EditRoom(string roomId, string tenantName, double room_price, DateTime movedIN)
+        public bool EditRoom(string roomId, string tenantName, double room_price)
         {
             string roomQuery = "UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
             string tenantQuery = @"
             UPDATE tenant
-            SET tenant_name = @tenantName, move_in = @moveIN
+            SET tenant_name = @tenantName
             WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -128,17 +126,15 @@ namespace AppartmentSystem.ManageRoom
                     {
                         tenantCommand.Parameters.AddWithValue("@room_id",roomId);
                         tenantCommand.Parameters.AddWithValue("@tenantName",tenantName);
-                        tenantCommand.Parameters.AddWithValue("@moveIN", movedIN);
                         tenantCommand.ExecuteNonQuery();
                     }
 
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException sql)
+                catch (SqlException)
                 {
                     transaction.Rollback();
-                    MessageBox.Show("SQL encountered error: " + sql.Message);
                     return false;
                 }
             }
@@ -178,9 +174,6 @@ namespace AppartmentSystem.ManageRoom
         {
 
             string query = @"
-            DECLARE @timestamp;
-            SET @timestamp = @timeStampParameter;
-
             INSERT INTO
             logs
             (action, room_id, timestamp)
@@ -197,6 +190,7 @@ namespace AppartmentSystem.ManageRoom
                 {
                     command.Parameters.AddWithValue("@action", action);
                     command.Parameters.AddWithValue("@roomId", roomId);
+                    command.Parameters.AddWithValue("@timeStamp", saveTime);
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -205,7 +199,6 @@ namespace AppartmentSystem.ManageRoom
 
         public bool EditLog(string roomId, int roomPrice, string tenantName)
         {
-
             string tenantQuery = @"
             UPDATE tenant
             SET tenant_name = @tenantName
@@ -220,31 +213,22 @@ namespace AppartmentSystem.ManageRoom
             {
                 conn.Open();
 
-                using(SqlTransaction transaction = conn.BeginTransaction())
+                using (SqlTransaction transaction = conn.BeginTransaction())
                 {
                     try
                     {
-
-                        using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, conn))
+                        using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, conn, transaction))
                         {
                             tenantCommand.Parameters.AddWithValue("@roomId", roomId);
                             tenantCommand.Parameters.AddWithValue("@tenantName", tenantName);
                             tenantCommand.ExecuteNonQuery();
                         }
 
-                        using (SqlCommand roomCommand = new SqlCommand(roomQuery, conn))
+                        using (SqlCommand roomCommand = new SqlCommand(roomQuery, conn, transaction))
                         {
+                            roomCommand.Parameters.AddWithValue("@roomId", roomId);
                             roomCommand.Parameters.AddWithValue("@roomPrice", roomPrice);
                             roomCommand.ExecuteNonQuery();
-
-                            if (roomCommand.ExecuteNonQuery() > 0)
-                            {
-                                SaveLog(
-                                    action: "Edit",
-                                    roomId: "YourEntityTable",
-                                    saveTime: DateTime.Now
-                                );
-                            }
                         }
 
                         transaction.Commit();
@@ -252,13 +236,11 @@ namespace AppartmentSystem.ManageRoom
                     }
                     catch (Exception)
                     {
-
                         transaction.Rollback();
                         return false;
                     }
-                }               
+                }
             }
-            return false;
         }
 
         public DataTable GetEditLogs()

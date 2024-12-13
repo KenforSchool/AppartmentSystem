@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -25,10 +26,14 @@ namespace AppartmentSystem.ManageRoom
              int nHeightEllipse
               );
 
+        public string RoomNumber { get; set; }
+        public string TenantName { get; set; }
+        public double RoomPrice { get; set; }
 
         public frm_EditRoom()
         {
             InitializeComponent();
+            textBox1.ReadOnly = true;
         }
 
         private void frm_EditRoom_Load(object sender, EventArgs e)
@@ -36,6 +41,93 @@ namespace AppartmentSystem.ManageRoom
             btn_editRoomSave.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomSave.Width, btn_editRoomSave.Height, 30, 30));
             
             btn_editRoomCancel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomCancel.Width, btn_editRoomCancel.Height, 30, 30));
+        }
+
+        public void setRoomDetails(string roomName, string tenantName, double rent)
+        {
+            RoomNumber = roomName;
+            textBox1.Text = roomName;
+
+            TenantName = tenantName;
+            txt_editRoomtenant.Text = tenantName;
+
+            RoomPrice = rent;
+            txt_editRoomprice.Text = rent.ToString();
+           
+        }
+
+        private void btn_editRoomSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                roomAddingDAL add = new roomAddingDAL(connectionString);
+
+                string action = "Edit";
+                DateTime dateTime = DateTime.Now;
+
+                string roomNumber = textBox1.Text;
+                string tenantName = txt_editRoomtenant.Text;
+                int rent = Convert.ToInt32(txt_editRoomprice.Text);
+
+                bool successEdit = add.EditRoom(roomNumber, tenantName, rent);
+                bool logs = add.SaveLog(action, roomNumber, dateTime);
+
+                if (successEdit)
+                {
+                    MessageBox.Show("Succesfully edit", "Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(logs)
+                    {
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Unexpected Encountered Error");
+                }
+            }
+            catch (FormatException)
+            {
+
+                throw;
+            }
+        }
+
+        private void btn_editRoomBack_Click(object sender, EventArgs e)
+        {
+            
+            frm_room room = new frm_room();
+            room.Show();
+            this.Close();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_editRoomtenant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_editRoomprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -123,10 +123,9 @@ namespace AppartmentSystem
                         return true;
                     }
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
 
-                    MessageBox.Show("Error :" + ex.Message);
                     return false;
                 }
                 
@@ -180,21 +179,17 @@ namespace AppartmentSystem
                         }
                         else
                         {
-                            MessageBox.Show("No record found with the given room_id.");
+                            MessageBox.Show("No record found with the given Room Number.");
                             return false;
                         }
                     }
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-
-                    MessageBox.Show("SQL Error: " + ex.Message);
                     return false;
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Error: " + ex.Message);
                     return false;
                 }
             }

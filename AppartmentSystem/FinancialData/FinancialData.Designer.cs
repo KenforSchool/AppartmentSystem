@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_financialData));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dg_fdroomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_fdtenantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_fdrentCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_fdmaintenanceCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_fdtotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_fdroomNumber = new System.Windows.Forms.Label();
             this.lbl_fdtenantName = new System.Windows.Forms.Label();
             this.txt_fdtenantName = new System.Windows.Forms.TextBox();
@@ -55,46 +50,19 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dg_fdroomNumber,
-            this.dg_fdtenantName,
-            this.dg_fdrentCost,
-            this.dg_fdmaintenanceCost,
-            this.dg_fdtotalCost});
             this.dataGridView1.Location = new System.Drawing.Point(41, 187);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(926, 425);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dg_fdroomNumber
-            // 
-            this.dg_fdroomNumber.HeaderText = "Room Number";
-            this.dg_fdroomNumber.Name = "dg_fdroomNumber";
-            // 
-            // dg_fdtenantName
-            // 
-            this.dg_fdtenantName.HeaderText = "Tenant Name";
-            this.dg_fdtenantName.Name = "dg_fdtenantName";
-            // 
-            // dg_fdrentCost
-            // 
-            this.dg_fdrentCost.HeaderText = "Rent Cost";
-            this.dg_fdrentCost.Name = "dg_fdrentCost";
-            // 
-            // dg_fdmaintenanceCost
-            // 
-            this.dg_fdmaintenanceCost.HeaderText = "Maintenance Cost";
-            this.dg_fdmaintenanceCost.Name = "dg_fdmaintenanceCost";
-            // 
-            // dg_fdtotalCost
-            // 
-            this.dg_fdtotalCost.HeaderText = "Total Cost ";
-            this.dg_fdtotalCost.Name = "dg_fdtotalCost";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lbl_fdroomNumber
             // 
@@ -219,6 +187,7 @@
             this.btn_fdBack.Size = new System.Drawing.Size(40, 35);
             this.btn_fdBack.TabIndex = 13;
             this.btn_fdBack.UseVisualStyleBackColor = true;
+            this.btn_fdBack.Click += new System.EventHandler(this.btn_fdBack_Click);
             // 
             // lbl_fdroomNumberOutput
             // 
@@ -263,6 +232,7 @@
             this.btn_fdPaid.TabIndex = 17;
             this.btn_fdPaid.Text = "    Paid";
             this.btn_fdPaid.UseVisualStyleBackColor = false;
+            this.btn_fdPaid.Click += new System.EventHandler(this.btn_fdPaid_Click);
             // 
             // frm_financialData
             // 
@@ -301,11 +271,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_fdroomNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_fdtenantName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_fdrentCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_fdmaintenanceCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dg_fdtotalCost;
         private System.Windows.Forms.Label lbl_fdroomNumber;
         private System.Windows.Forms.Label lbl_fdtenantName;
         private System.Windows.Forms.TextBox txt_fdtenantName;

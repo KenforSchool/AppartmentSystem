@@ -58,15 +58,9 @@ namespace AppartmentSystem.ManageRoom
                         {
                             dataGridView1.DataSource = dataTable;
                         }
-                        else
-                        {
-                            MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridView1.DataSource = null;
-                        }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -75,16 +69,10 @@ namespace AppartmentSystem.ManageRoom
 
         private void btn_archiveBack_Click(object sender, EventArgs e)
         {
+
             ManageLease lease = new ManageLease();
             lease.Show();
-            this.Close();
-
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            this.Close();            
         }
     }
 }
