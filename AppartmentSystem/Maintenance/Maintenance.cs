@@ -74,10 +74,9 @@ namespace AppartmentSystem
                 }
                                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -91,7 +90,7 @@ namespace AppartmentSystem
 
             dg_maintenance.Columns.Add(full_descpription);
         }
-
+ 
         private void btn_maintenanceBack_Click(object sender, EventArgs e)
         {
             Frm_Dashboard dashboard = new Frm_Dashboard();

@@ -54,6 +54,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="FinanceDAL.cs" />
     <Compile Include="FinancialData\FinancialData.cs">
       <SubType>Form</SubType>
     </Compile>

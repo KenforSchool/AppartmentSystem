@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace AppartmentSystem
         public frm_financialData()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void btn_fdUpdate_Click(object sender, EventArgs e)
@@ -60,6 +62,35 @@ namespace AppartmentSystem
         }
 
         private void btn_fdEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_fdPaid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LoadData()
+        {
+                var data_access = new FinanceDAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+                DataTable table = data_access.getMaintenanceList();
+
+                if (table.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = table;
+                }
+                else
+                {
+                    dataGridView1.DataSource = null;
+                MessageBox.Show("Error");
+                }
+
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
