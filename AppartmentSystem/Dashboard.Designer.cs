@@ -48,8 +48,8 @@
             this.lbl_admin = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.btn_tenantProfile = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
@@ -295,17 +295,6 @@
             this.panel1.Size = new System.Drawing.Size(201, 685);
             this.panel1.TabIndex = 12;
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(519, 361);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(477, 278);
-            this.label2.TabIndex = 13;
-            // 
             // btn_tenantProfile
             // 
             this.btn_tenantProfile.BackColor = System.Drawing.Color.LightCyan;
@@ -316,6 +305,18 @@
             this.btn_tenantProfile.TabIndex = 5;
             this.btn_tenantProfile.Text = "Tenant Profiling";
             this.btn_tenantProfile.UseVisualStyleBackColor = false;
+            this.btn_tenantProfile.Click += new System.EventHandler(this.btn_tenantProfile_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.Location = new System.Drawing.Point(519, 361);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(477, 278);
+            this.label2.TabIndex = 13;
             // 
             // Frm_Dashboard
             // 

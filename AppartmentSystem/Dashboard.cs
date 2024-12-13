@@ -156,5 +156,12 @@ namespace AppartmentSystem
             maintenance.Show();
             this.Close();
         }
+
+        private void btn_tenantProfile_Click(object sender, EventArgs e)
+        {
+            frm_tenantProfile profile = new frm_tenantProfile();
+            profile.Show();
+            this.Close();
+        }
     }
 }

@@ -54,7 +54,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext.cs" />
-    <Compile Include="FinanceDAL.cs" />
+    <Compile Include="FinancialData\FinanceDAL.cs" />
     <Compile Include="FinancialData\FinancialData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,10 +67,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_tenantProfile.cs">
+    <Compile Include="ManageTenant\frm_tenantProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_tenantProfile.Designer.cs">
+    <Compile Include="ManageTenant\frm_tenantProfile.Designer.cs">
       <DependentUpon>frm_tenantProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Maintenance\MaintenanceDAL.cs" />
@@ -132,6 +132,7 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="tenantDAL.cs" />
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,7 +142,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_tenantProfile.resx">
+    <EmbeddedResource Include="ManageTenant\frm_tenantProfile.resx">
       <DependentUpon>frm_tenantProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\addMaintenance.resx">
@@ -182,6 +183,7 @@
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

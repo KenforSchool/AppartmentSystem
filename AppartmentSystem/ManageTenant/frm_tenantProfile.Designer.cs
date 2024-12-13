@@ -244,6 +244,7 @@
             this.btn_addManageTenant.TabIndex = 15;
             this.btn_addManageTenant.Text = "       Add";
             this.btn_addManageTenant.UseVisualStyleBackColor = false;
+            this.btn_addManageTenant.Click += new System.EventHandler(this.btn_addManageTenant_Click);
             // 
             // btn_cancelManageTenant
             // 
@@ -286,7 +287,6 @@
             this.Controls.Add(this.lbl_subHeader);
             this.Controls.Add(this.lbl_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_tenantProfile";
