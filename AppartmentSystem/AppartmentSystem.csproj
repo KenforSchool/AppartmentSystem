@@ -67,6 +67,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_tenantProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_tenantProfile.Designer.cs">
+      <DependentUpon>frm_tenantProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\MaintenanceDAL.cs" />
     <Compile Include="Maintenance\addMaintenance.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_tenantProfile.resx">
+      <DependentUpon>frm_tenantProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\addMaintenance.resx">
       <DependentUpon>addMaintenance.cs</DependentUpon>
