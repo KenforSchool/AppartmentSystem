@@ -60,12 +60,15 @@
             // 
             // dg_editroomLog
             // 
+            this.dg_editroomLog.AllowUserToAddRows = false;
+            this.dg_editroomLog.AllowUserToDeleteRows = false;
             this.dg_editroomLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_editroomLog.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dg_editroomLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_editroomLog.Location = new System.Drawing.Point(36, 115);
             this.dg_editroomLog.Name = "dg_editroomLog";
+            this.dg_editroomLog.ReadOnly = true;
             this.dg_editroomLog.Size = new System.Drawing.Size(729, 291);
             this.dg_editroomLog.TabIndex = 2;
             // 

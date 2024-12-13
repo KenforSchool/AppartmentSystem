@@ -312,5 +312,11 @@ namespace AppartmentSystem
                 MessageBox.Show("Please select a room to edit.");
             }
         }
+
+        private void btn_editRoomLog_Click(object sender, EventArgs e)
+        {
+            frm_EditRoomLog editForm = new frm_EditRoomLog();
+            editForm.Show();
+        }
     }
 }

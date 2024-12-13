@@ -58,11 +58,6 @@ namespace AppartmentSystem.ManageRoom
                         {
                             dataGridView1.DataSource = dataTable;
                         }
-                        else
-                        {
-                            MessageBox.Show("No data found.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridView1.DataSource = null;
-                        }
                     }
                     catch (Exception ex)
                     {

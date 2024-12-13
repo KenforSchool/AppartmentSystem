@@ -276,6 +276,7 @@
             this.btn_editRoomLog.Text = "Edit Log";
             this.btn_editRoomLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_editRoomLog.UseVisualStyleBackColor = false;
+            this.btn_editRoomLog.Click += new System.EventHandler(this.btn_editRoomLog_Click);
             // 
             // frm_room
             // 
