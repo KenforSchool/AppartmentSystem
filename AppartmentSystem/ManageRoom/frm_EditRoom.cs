@@ -33,6 +33,7 @@ namespace AppartmentSystem.ManageRoom
         public frm_EditRoom()
         {
             InitializeComponent();
+            textBox1.ReadOnly = true;
         }
 
         private void frm_EditRoom_Load(object sender, EventArgs e)
@@ -82,10 +83,10 @@ namespace AppartmentSystem.ManageRoom
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show("Unexpected Encountered Error");
                 }
             }
-            catch (Exception)
+            catch (FormatException)
             {
 
                 throw;
@@ -94,8 +95,10 @@ namespace AppartmentSystem.ManageRoom
 
         private void btn_editRoomBack_Click(object sender, EventArgs e)
         {
+            
+            frm_room room = new frm_room();
+            room.Show();
             this.Close();
-
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

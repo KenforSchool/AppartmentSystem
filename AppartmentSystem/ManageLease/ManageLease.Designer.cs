@@ -146,7 +146,6 @@
             this.txtTenantName.Name = "txtTenantName";
             this.txtTenantName.Size = new System.Drawing.Size(100, 20);
             this.txtTenantName.TabIndex = 3;
-            this.txtTenantName.TextChanged += new System.EventHandler(this.txtTenantName_TextChanged);
             // 
             // lbl_roomNo
             // 

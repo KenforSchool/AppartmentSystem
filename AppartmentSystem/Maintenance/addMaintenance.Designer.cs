@@ -69,7 +69,6 @@
             this.cb_roomaddMaintenance.Name = "cb_roomaddMaintenance";
             this.cb_roomaddMaintenance.Size = new System.Drawing.Size(160, 25);
             this.cb_roomaddMaintenance.TabIndex = 1;
-            this.cb_roomaddMaintenance.SelectedIndexChanged += new System.EventHandler(this.cb_roomaddMaintenance_SelectedIndexChanged);
             // 
             // btn_addMaintenanceInfo
             // 
@@ -86,7 +85,6 @@
             this.btn_addMaintenanceInfo.TabIndex = 3;
             this.btn_addMaintenanceInfo.Text = "   Info";
             this.btn_addMaintenanceInfo.UseVisualStyleBackColor = false;
-            this.btn_addMaintenanceInfo.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_addmaintenanceSave
             // 

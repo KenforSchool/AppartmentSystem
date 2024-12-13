@@ -62,16 +62,14 @@ namespace AppartmentSystem.ManageRoom
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException sqlEx)
+                catch (SqlException)
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
@@ -95,9 +93,8 @@ namespace AppartmentSystem.ManageRoom
                     }
                 }
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
-                MessageBox.Show("SQL Error: " + ex.Message);
                 return false;
             }
         }
@@ -135,10 +132,9 @@ namespace AppartmentSystem.ManageRoom
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException sql)
+                catch (SqlException)
                 {
                     transaction.Rollback();
-                    MessageBox.Show("SQL encountered error: " + sql.Message);
                     return false;
                 }
             }
@@ -238,10 +234,9 @@ namespace AppartmentSystem.ManageRoom
                         transaction.Commit();
                         return true;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         transaction.Rollback();
-                        Console.WriteLine($"Transaction failed: {ex.Message}");
                         return false;
                     }
                 }

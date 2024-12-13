@@ -51,11 +51,9 @@ namespace AppartmentSystem
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
-
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    return false; 
                 }
             }
         }
@@ -140,10 +138,10 @@ namespace AppartmentSystem
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception($"An error occurred while fetching the description: {ex.Message}");
             }
+
             return description;
         }
     }

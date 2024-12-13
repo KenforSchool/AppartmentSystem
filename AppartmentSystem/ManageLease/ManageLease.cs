@@ -93,9 +93,8 @@ namespace AppartmentSystem
                     dataGridView1.DataSource = null;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception)
+            { 
             }
 
         }
@@ -168,8 +167,6 @@ namespace AppartmentSystem
 
             if (e.RowIndex >= 0)
             {
-
-                // Validate: Only one action per day
                 if (!lease.CanPerformActionToday(leaseId))
                 {
                     return;
@@ -188,7 +185,7 @@ namespace AppartmentSystem
                     }
                     else
                     {
-                        MessageBox.Show("Failed to renew lease. Please try again.");
+                        MessageBox.Show("Error has encountered, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else if (e.ColumnIndex == leaveButtonColumnIndex)
@@ -203,7 +200,6 @@ namespace AppartmentSystem
                     }
                     else
                     {
-                        MessageBox.Show("Failed to process tenant leaving. Please try again.");
                     }
                 }
             }
@@ -229,11 +225,6 @@ namespace AppartmentSystem
             int lastIndex = dataGridView1.Columns.Count - 1;
             dataGridView1.Columns["RenewButton"].DisplayIndex = lastIndex - 1;
             dataGridView1.Columns["LeaveButton"].DisplayIndex = lastIndex;
-        }
-
-        private void txtTenantName_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_mlBack_Click(object sender, EventArgs e)

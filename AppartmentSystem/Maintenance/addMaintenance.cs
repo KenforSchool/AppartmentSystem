@@ -39,16 +39,6 @@ namespace AppartmentSystem.Maintenance
             btn_addMaintenanceInfo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addMaintenanceInfo.Width, btn_addMaintenanceInfo.Height, 30, 30));
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_roomaddMaintenance_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_addmaintenanceSave_Click(object sender, EventArgs e)
         {
             try
@@ -82,10 +72,9 @@ namespace AppartmentSystem.Maintenance
                     return;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

@@ -53,9 +53,8 @@ namespace AppartmentSystem.ManageRoom
                             dg_editroomLog.DataSource = dataTable;
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

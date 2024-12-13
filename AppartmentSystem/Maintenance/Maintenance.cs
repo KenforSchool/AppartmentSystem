@@ -112,17 +112,14 @@ namespace AppartmentSystem
                 {
                     try
                     {
-                        // Fetch the description for the selected lease ID
                         string description = maintenance.getDescription(leaseId);
 
                         if (!string.IsNullOrWhiteSpace(description))
                         {
-                            MessageBox.Show($"Description: {description}", "Lease Description", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             

@@ -43,6 +43,7 @@ namespace AppartmentSystem
         //pwede pang mabago
         private void frm_room_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.MinDate = DateTime.Now;
             LoadData();
             if (txt_RoomNo.Text == "")
             {
@@ -128,7 +129,7 @@ namespace AppartmentSystem
             }
             catch (FormatException ex)
             {
-                DialogResult result = MessageBox.Show(ex.Message,
+                DialogResult result = MessageBox.Show("Check your input details",
                 "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
                        
@@ -195,9 +196,8 @@ namespace AppartmentSystem
                     dg_ManageRoom.DataSource = null;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception)
+            { 
             }
 
         }
@@ -217,6 +217,11 @@ namespace AppartmentSystem
         private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -253,6 +258,11 @@ namespace AppartmentSystem
                 e.Handled = true;
             }
 
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
 
         private void txt_tenant_KeyPress(object sender, KeyPressEventArgs e)
@@ -265,6 +275,11 @@ namespace AppartmentSystem
             if (char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled= true;
             }
         }
 
@@ -295,6 +310,7 @@ namespace AppartmentSystem
 
                 editForm.setRoomDetails(roomNumber, tenantName, roomPrice);
                 editForm.Show();
+                this.Close();
             }
         }
 
@@ -310,8 +326,6 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("Please select a room to edit.");
             }
-
-            LoadData();
         }
 
         private void btn_editRoomLog_Click(object sender, EventArgs e)
