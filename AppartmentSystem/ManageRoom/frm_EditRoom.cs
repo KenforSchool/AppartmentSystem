@@ -62,14 +62,14 @@ namespace AppartmentSystem.ManageRoom
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                 roomAddingDAL add = new roomAddingDAL(connectionString);
 
+                string action = "Edit";
+                DateTime dateTime = DateTime.Now;
+
                 string roomNumber = textBox1.Text;
                 string tenantName = txt_editRoomtenant.Text;
                 int rent = Convert.ToInt32(txt_editRoomprice.Text);
 
-                string action = "Edit";
-                DateTime dateTime = DateTime.Now;
-
-                bool successEdit = add.EditLog(roomNumber, rent, tenantName);
+                bool successEdit = add.EditRoom(roomNumber, tenantName, rent);
                 bool logs = add.SaveLog(action, roomNumber, dateTime);
 
                 if (successEdit)
@@ -89,6 +89,41 @@ namespace AppartmentSystem.ManageRoom
             {
 
                 throw;
+            }
+        }
+
+        private void btn_editRoomBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_editRoomtenant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_editRoomprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -82,6 +82,7 @@
             this.btn_editLogback.Size = new System.Drawing.Size(45, 40);
             this.btn_editLogback.TabIndex = 3;
             this.btn_editLogback.UseVisualStyleBackColor = true;
+            this.btn_editLogback.Click += new System.EventHandler(this.btn_editLogback_Click);
             // 
             // frm_EditRoomLog
             // 

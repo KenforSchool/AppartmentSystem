@@ -30,7 +30,7 @@ namespace AppartmentSystem.ManageRoom
             SELECT
             log_id AS 'ID',
             action AS 'Action',
-            action AS 'Room Number',
+            room_id AS 'Room Number',
             timestamp AS 'Date'
             FROM
             logs";
@@ -59,6 +59,11 @@ namespace AppartmentSystem.ManageRoom
                     }
                 }
             }
+        }
+
+        private void btn_editLogback_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

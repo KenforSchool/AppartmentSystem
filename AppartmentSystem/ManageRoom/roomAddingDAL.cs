@@ -102,12 +102,12 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public bool EditRoom(string roomId, string tenantName, double room_price, DateTime movedIN)
+        public bool EditRoom(string roomId, string tenantName, double room_price)
         {
             string roomQuery = "UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
             string tenantQuery = @"
             UPDATE tenant
-            SET tenant_name = @tenantName, move_in = @moveIN
+            SET tenant_name = @tenantName
             WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -129,7 +129,6 @@ namespace AppartmentSystem.ManageRoom
                     {
                         tenantCommand.Parameters.AddWithValue("@room_id",roomId);
                         tenantCommand.Parameters.AddWithValue("@tenantName",tenantName);
-                        tenantCommand.Parameters.AddWithValue("@moveIN", movedIN);
                         tenantCommand.ExecuteNonQuery();
                     }
 

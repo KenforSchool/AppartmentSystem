@@ -70,7 +70,6 @@ namespace AppartmentSystem
 
             btn_editRoomLog.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomLog.Width,
                 btn_editRoomLog.Height, 30, 30));
-
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
@@ -311,6 +310,8 @@ namespace AppartmentSystem
             {
                 MessageBox.Show("Please select a room to edit.");
             }
+
+            LoadData();
         }
 
         private void btn_editRoomLog_Click(object sender, EventArgs e)
