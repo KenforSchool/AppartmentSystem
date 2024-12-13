@@ -201,7 +201,7 @@
             this.panel_sample.Controls.Add(this.txtRoomBill);
             this.panel_sample.Location = new System.Drawing.Point(519, 10);
             this.panel_sample.Name = "panel_sample";
-            this.panel_sample.Size = new System.Drawing.Size(161, 40);
+            this.panel_sample.Size = new System.Drawing.Size(198, 50);
             this.panel_sample.TabIndex = 23;
             this.panel_sample.Visible = false;
             // 

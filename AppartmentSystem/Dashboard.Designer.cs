@@ -49,6 +49,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_tenantProfile = new System.Windows.Forms.Button();
             this.panel_actRoom.SuspendLayout();
             this.panel_inactRoom.SuspendLayout();
             this.panel_maintenanceRequest.SuspendLayout();
@@ -78,7 +79,7 @@
             this.btn_manageRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_manageRoom.Location = new System.Drawing.Point(21, 120);
+            this.btn_manageRoom.Location = new System.Drawing.Point(21, 110);
             this.btn_manageRoom.Name = "btn_manageRoom";
             this.btn_manageRoom.Size = new System.Drawing.Size(160, 80);
             this.btn_manageRoom.TabIndex = 1;
@@ -94,7 +95,7 @@
             this.btn_manageLeases.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageLeases.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageLeases.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_manageLeases.Location = new System.Drawing.Point(21, 284);
+            this.btn_manageLeases.Location = new System.Drawing.Point(21, 209);
             this.btn_manageLeases.Name = "btn_manageLeases";
             this.btn_manageLeases.Size = new System.Drawing.Size(160, 80);
             this.btn_manageLeases.TabIndex = 2;
@@ -111,7 +112,7 @@
             this.btn_financialData.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_financialData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_financialData.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_financialData.Location = new System.Drawing.Point(21, 439);
+            this.btn_financialData.Location = new System.Drawing.Point(21, 309);
             this.btn_financialData.Name = "btn_financialData";
             this.btn_financialData.Size = new System.Drawing.Size(160, 80);
             this.btn_financialData.TabIndex = 3;
@@ -128,7 +129,7 @@
             this.btn_AssignMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AssignMaintenance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_AssignMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_AssignMaintenance.Location = new System.Drawing.Point(21, 583);
+            this.btn_AssignMaintenance.Location = new System.Drawing.Point(21, 411);
             this.btn_AssignMaintenance.Name = "btn_AssignMaintenance";
             this.btn_AssignMaintenance.Size = new System.Drawing.Size(160, 80);
             this.btn_AssignMaintenance.TabIndex = 4;
@@ -283,6 +284,7 @@
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btn_tenantProfile);
             this.panel1.Controls.Add(this.btn_manageRoom);
             this.panel1.Controls.Add(this.btn_AssignMaintenance);
             this.panel1.Controls.Add(this.btn_manageLeases);
@@ -303,6 +305,17 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(477, 278);
             this.label2.TabIndex = 13;
+            // 
+            // btn_tenantProfile
+            // 
+            this.btn_tenantProfile.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_tenantProfile.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tenantProfile.Location = new System.Drawing.Point(21, 525);
+            this.btn_tenantProfile.Name = "btn_tenantProfile";
+            this.btn_tenantProfile.Size = new System.Drawing.Size(160, 80);
+            this.btn_tenantProfile.TabIndex = 5;
+            this.btn_tenantProfile.Text = "Tenant Profiling";
+            this.btn_tenantProfile.UseVisualStyleBackColor = false;
             // 
             // Frm_Dashboard
             // 
@@ -361,5 +374,6 @@
         private System.Windows.Forms.Label lbl_admin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_tenantProfile;
     }
 }

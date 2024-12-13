@@ -64,6 +64,7 @@
             this.dg_editroomLog.AllowUserToDeleteRows = false;
             this.dg_editroomLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_editroomLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_editroomLog.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dg_editroomLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_editroomLog.Location = new System.Drawing.Point(36, 115);

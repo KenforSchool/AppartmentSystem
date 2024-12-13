@@ -220,6 +220,7 @@
             // 
             // btn_fdPaid
             // 
+            this.btn_fdPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_fdPaid.BackColor = System.Drawing.Color.LightCyan;
             this.btn_fdPaid.FlatAppearance.BorderSize = 0;
             this.btn_fdPaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
