@@ -94,5 +94,12 @@ namespace AppartmentSystem
         {
 
         }
+
+        private void btn_fdBack_Click(object sender, EventArgs e)
+        {
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
     }
 }

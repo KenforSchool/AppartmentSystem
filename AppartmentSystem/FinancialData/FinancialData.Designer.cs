@@ -187,6 +187,7 @@
             this.btn_fdBack.Size = new System.Drawing.Size(40, 35);
             this.btn_fdBack.TabIndex = 13;
             this.btn_fdBack.UseVisualStyleBackColor = true;
+            this.btn_fdBack.Click += new System.EventHandler(this.btn_fdBack_Click);
             // 
             // lbl_fdroomNumberOutput
             // 
