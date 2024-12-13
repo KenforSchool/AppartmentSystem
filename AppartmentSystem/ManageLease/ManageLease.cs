@@ -181,6 +181,7 @@ namespace AppartmentSystem
                         {
                             MessageBox.Show("Lease renewed successfully!");
                             LoadData();
+                            
                         }
                     }
                     else
@@ -196,6 +197,7 @@ namespace AppartmentSystem
                         {
                             MessageBox.Show("Tenant left the apartment!");
                             LoadData();
+                            
                         }
                     }
                     else

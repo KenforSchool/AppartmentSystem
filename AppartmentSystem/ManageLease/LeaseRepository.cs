@@ -49,35 +49,45 @@ namespace AppartmentSystem
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-
                 connection.Open();
 
-                string removeTenant = @"
-                DELETE LeaseDetails
-                WHERE lease_id  = @leaseNumber";
-
-                using (var _command = new SqlCommand(removeTenant, connection))
-                {
-                    _command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
-                }
-
-                string query = @"
+                // Begin by updating the LeaseDetails table to mark the tenant as 'Left'
+                string updateLeaseQuery = @"
                 UPDATE LeaseDetails
-                SET 
-                Status = 'Left'
-                WHERE lease_id = (SELECT lease_id FROM LeaseDetails WHERE lease_id = @leaseNumber)";
+                SET Status = 'Left'
+                WHERE lease_id = @leaseNumber";
 
-                using (var command = new SqlCommand(query,connection))
+                using (var command = new SqlCommand(updateLeaseQuery, connection))
                 {
                     command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        // If no rows were affected, return false (tenant not found or update failed)
+                        return false;
+                    }
                 }
 
-                return true;
+                // Now, remove the tenant's name from the corresponding room
+                string updateRoomQuery = @"
+                UPDATE room
+                SET tenant_name = NULL
+        W       HERE room_id = (SELECT room_id FROM LeaseDetails WHERE lease_id = @leaseNumber)";
+
+                using (var command = new SqlCommand(updateRoomQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@leaseNumber", leaseNumber);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // If rows were affected, the tenant's name has been successfully removed from the room
+                    return rowsAffected > 0;
+                }
             }
         }
-        
+
         //Function kapag umalis tenant
-        public bool MoveOutTenant(int leaseNumber)
+        public bool MoveOutTenant(int leaseNumber, string roomNumber)
         {
             using(var connection = new SqlConnection(_connectionString))
             {
@@ -86,11 +96,15 @@ namespace AppartmentSystem
                 string leftQuery = @"
                 DELETE LeaseDetails
                 WHERE
-                lease_id = @lease_id";
+                lease_id = @lease_id;
+                DELETE tenant
+                WHERE
+                room_id = @roomId";
 
                 using(var command = new SqlCommand(leftQuery, connection))
                 {
                     command.Parameters.AddWithValue("@lease_id", leaseNumber);
+                    command.Parameters.AddWithValue("@roomId", roomNumber);
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
                 }

@@ -185,7 +185,7 @@
             this.lbl_roomNumberleaseOutput.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl_roomNumberleaseOutput.Location = new System.Drawing.Point(69, 14);
             this.lbl_roomNumberleaseOutput.Name = "lbl_roomNumberleaseOutput";
-            this.lbl_roomNumberleaseOutput.Size = new System.Drawing.Size(100, 23);
+            this.lbl_roomNumberleaseOutput.Size = new System.Drawing.Size(144, 55);
             this.lbl_roomNumberleaseOutput.TabIndex = 18;
             // 
             // panel_sample
