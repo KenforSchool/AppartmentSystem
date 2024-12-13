@@ -49,7 +49,7 @@
             this.btn_Login.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.btn_Login.FlatAppearance.BorderSize = 0;
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Login.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.Image = ((System.Drawing.Image)(resources.GetObject("btn_Login.Image")));
             this.btn_Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Login.Location = new System.Drawing.Point(122, 405);
