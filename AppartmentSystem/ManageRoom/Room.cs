@@ -109,13 +109,13 @@ namespace AppartmentSystem
                 //baliktad
                 string roomNum = txt_tenant.Text;
                 double roomPrice = double.Parse(txt_price.Text);
-
                 string tenantName = txt_RoomNo.Text;
                 DateTime movedIn = dateTimePicker1.Value;
                 DateTime moved_out = movedIn.AddMonths(1);
 
                 //eto yung kinuha yung process
-                bool success = add.AddRoomAndTenant(roomNum, tenantName, roomPrice, movedIn, moved_out);
+                bool success = add.AddRoom(roomNum,roomPrice);
+                bool tenant = add.addTenant(tenantName, roomNum, movedIn);
 
                 if (success)
                 {
@@ -123,6 +123,7 @@ namespace AppartmentSystem
                     txt_price.Clear();
                     txt_tenant.Clear();
                     btn_Update_Click(sender, e);
+                    
                 }
                 else
                 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,46 @@ namespace AppartmentSystem.ManageRoom
               connectionString = connString;
         }
 
-        public bool AddRoomAndTenant( string roomNum, string tenantName, double roomPrice, DateTime moved_IN, DateTime moved_OUT)
+        public bool addTenant(string fullName, string roomNum, DateTime moved_IN)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string tenantUpdateQuery = @"
+                UPDATE tenant
+                SET room_id = @room_id,
+                move_in = @move_in
+                WHERE CONCAT(last_name, ' ', first_name, ' ', middle_name) = @full_name;";
+
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(tenantUpdateQuery, connection))
+                    {
+
+                        command.Parameters.AddWithValue("@room_id", roomNum);
+                        command.Parameters.AddWithValue("@move_in", moved_IN);
+                        command.Parameters.AddWithValue("@full_name", fullName);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool AddRoom( string roomNum, double roomPrice)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -29,28 +69,16 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
-                    // Insert a new room into the room table
-                    string roomQuery = "INSERT INTO room (room_id, room_price) VALUES (@room_id, @room_price)";
+                    string roomQuery = @"
+                    INSERT INTO room (room_id, room_price)
+                    VALUES (@room_id, @room_price)";
+
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@room_price", roomPrice);
                         command.ExecuteNonQuery();
-                    }
-
-                    string tenantQuery = @"
-                    UPDATE tenant
-                    SET room_id = @room_id,
-                    move_in = @move_in";
-
-                    using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        command.Parameters.AddWithValue("@move_in", moved_IN);
-                        command.ExecuteNonQuery();
-                    }
-
+                    }                                  
                     transaction.Commit();
                     return true;
                 }
@@ -69,7 +97,7 @@ namespace AppartmentSystem.ManageRoom
 
         public bool DeleteRoom(string roomId)
         {
-            string query = "DELETE FROM room WHERE room_id = @room_id";
+            string query = "DELETE FROM tenant WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))

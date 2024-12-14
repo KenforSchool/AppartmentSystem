@@ -77,5 +77,12 @@ namespace AppartmentSystem
                 MessageBox.Show("Tenant has added", "Successfully" , MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btn_backManageTenant_Click(object sender, EventArgs e)
+        {
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
     }
 }

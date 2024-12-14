@@ -272,6 +272,7 @@
             this.btn_backManageTenant.Size = new System.Drawing.Size(40, 35);
             this.btn_backManageTenant.TabIndex = 17;
             this.btn_backManageTenant.UseVisualStyleBackColor = true;
+            this.btn_backManageTenant.Click += new System.EventHandler(this.btn_backManageTenant_Click);
             // 
             // frm_tenantProfile
             // 
