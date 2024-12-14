@@ -29,6 +29,7 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
+                    // Insert a new room into the room table
                     string roomQuery = "INSERT INTO room (room_id, room_price) VALUES (@room_id, @room_price)";
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
@@ -38,36 +39,27 @@ namespace AppartmentSystem.ManageRoom
                     }
 
                     string tenantQuery = @"
-                    DECLARE @move_in DATE;
-                    SET @move_in = @move_in_param;
-
-                    DECLARE @moved_out DATE;
-                    SET @moved_out = @moved_out_param;
-
-                    INSERT INTO tenant (room_id, tenant_name, move_in, moved_out)
-                    VALUES (@room_id, @tenant_name, @move_in, @moved_out)
-
-                    INSERT INTO LeaseDetails (room_id, tenant_name, LeaseStartDate, LeaseEndDate)
-                    VALUES (@room_id, @tenant_name, @move_in, @moved_out)";
+                    UPDATE tenant
+                    SET room_id = @room_id,
+                    move_in = @move_in";
 
                     using (SqlCommand command = new SqlCommand(tenantQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@tenant_name", tenantName);
-                        command.Parameters.AddWithValue("@move_in_param", moved_IN);
-                        command.Parameters.AddWithValue("@moved_out_param", moved_OUT);
+                        command.Parameters.AddWithValue("@move_in", moved_IN);
                         command.ExecuteNonQuery();
                     }
 
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
                     transaction.Rollback();
                     return false;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     transaction.Rollback();
                     return false;
@@ -146,14 +138,14 @@ namespace AppartmentSystem.ManageRoom
             DataTable dataTable = new DataTable();
 
             string query = @"
-                SELECT
-                     r.room_id as 'Room Number',
-                     r.room_price as 'Rent',
-                     t.tenant_name as 'Name',
-                     t.move_in as 'Moved in date'
-                FROM room r
-                LEFT JOIN tenant t
-                ON r.room_id = t.room_id";
+            SELECT
+            t.tenant_id,
+            CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
+            r.room_id,
+            r.room_price,
+            t.move_in
+            FROM tenant t
+            LEFT JOIN room r ON t.room_id = r.room_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

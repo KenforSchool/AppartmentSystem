@@ -37,6 +37,7 @@ namespace AppartmentSystem
         public frm_room()
         {
             InitializeComponent();
+            LoadRoomComboBox();
             btn_editRoom.Enabled = false;
         }
 
@@ -77,11 +78,11 @@ namespace AppartmentSystem
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             string query = @"
-                SELECT
-                     r.room_id AS 'Room Number',
-                     r.room_price AS 'Rent',
-                     t.tenant_name AS 'Name',
-                     t.move_in AS 'Move In'
+               SELECT
+                r.room_id AS 'Room Number',
+                r.room_price AS 'Rent',
+                CONCAT(t.first_name, ' ', t.middle_name, ' ', t.last_name) AS 'Name',
+                t.move_in AS 'Move In'
                 FROM room r
                 LEFT JOIN tenant t
                 ON r.room_id = t.room_id";
@@ -104,10 +105,11 @@ namespace AppartmentSystem
                 //Connection ng database
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                 roomAddingDAL add = new roomAddingDAL(connectionString);
-                string roomNum = txt_RoomNo.Text;
+                //baliktad
+                string roomNum = txt_tenant.Text;
                 double roomPrice = double.Parse(txt_price.Text);
 
-                string tenantName = txt_tenant.Text;
+                string tenantName = txt_RoomNo.Text;
                 DateTime movedIn = dateTimePicker1.Value;
                 DateTime moved_out = movedIn.AddMonths(1);
 
@@ -119,7 +121,6 @@ namespace AppartmentSystem
                     MessageBox.Show("Room and tenant have been added successfully");
                     txt_price.Clear();
                     txt_tenant.Clear();
-                    txt_RoomNo.Clear();
                     btn_Update_Click(sender, e);
                 }
                 else
@@ -133,6 +134,18 @@ namespace AppartmentSystem
                 "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
                        
+        }
+
+        private void LoadRoomComboBox()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            tenantDAL tenat = new tenantDAL(connectionString);
+
+            var tenantList = tenat.getTenant();
+            txt_RoomNo.DisplayMember = "full_name";
+            txt_RoomNo.ValueMember = "tenant_id";
+            txt_RoomNo.DataSource = tenantList;
+
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)

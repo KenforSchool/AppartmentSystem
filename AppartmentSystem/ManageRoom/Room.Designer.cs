@@ -42,10 +42,10 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txt_price = new System.Windows.Forms.TextBox();
             this.btn_roomBack = new System.Windows.Forms.Button();
-            this.txt_RoomNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_editRoomLog = new System.Windows.Forms.Button();
+            this.txt_RoomNo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +129,7 @@
             this.lbl_movedIn.BackColor = System.Drawing.Color.Transparent;
             this.lbl_movedIn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_movedIn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_movedIn.Location = new System.Drawing.Point(242, 129);
+            this.lbl_movedIn.Location = new System.Drawing.Point(273, 130);
             this.lbl_movedIn.Name = "lbl_movedIn";
             this.lbl_movedIn.Size = new System.Drawing.Size(69, 17);
             this.lbl_movedIn.TabIndex = 6;
@@ -198,7 +198,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(315, 127);
+            this.dateTimePicker1.Location = new System.Drawing.Point(338, 129);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
@@ -228,15 +228,6 @@
             this.btn_roomBack.TabIndex = 16;
             this.btn_roomBack.UseVisualStyleBackColor = false;
             this.btn_roomBack.Click += new System.EventHandler(this.btn_roomBack_Click);
-            // 
-            // txt_RoomNo
-            // 
-            this.txt_RoomNo.Location = new System.Drawing.Point(98, 127);
-            this.txt_RoomNo.Name = "txt_RoomNo";
-            this.txt_RoomNo.Size = new System.Drawing.Size(100, 20);
-            this.txt_RoomNo.TabIndex = 17;
-            this.txt_RoomNo.Click += new System.EventHandler(this.txt_RoomNo_Click);
-            this.txt_RoomNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_RoomNo_KeyPress);
             // 
             // label1
             // 
@@ -278,6 +269,17 @@
             this.btn_editRoomLog.UseVisualStyleBackColor = false;
             this.btn_editRoomLog.Click += new System.EventHandler(this.btn_editRoomLog_Click);
             // 
+            // txt_RoomNo
+            // 
+            this.txt_RoomNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_RoomNo.FormattingEnabled = true;
+            this.txt_RoomNo.Location = new System.Drawing.Point(56, 105);
+            this.txt_RoomNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_RoomNo.Name = "txt_RoomNo";
+            this.txt_RoomNo.Size = new System.Drawing.Size(72, 21);
+            this.txt_RoomNo.TabIndex = 21;
+            // 
             // frm_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,10 +289,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.txt_RoomNo);
             this.Controls.Add(this.btn_editRoomLog);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_RoomNo);
             this.Controls.Add(this.btn_roomBack);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.dateTimePicker1);
@@ -329,9 +331,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.Button btn_roomBack;
-        private System.Windows.Forms.TextBox txt_RoomNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_editRoomLog;
+        private System.Windows.Forms.ComboBox txt_RoomNo;
     }
 }

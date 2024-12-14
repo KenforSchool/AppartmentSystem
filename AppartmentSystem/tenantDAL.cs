@@ -59,5 +59,33 @@ namespace AppartmentSystem
                 }
             }
         }
+
+        public DataTable getTenant()
+        {
+            DataTable room = new DataTable();
+
+            string query = @"
+            SELECT 
+            tenant_id, 
+            CONCAT(last_name, ' ', first_name, ' ', middle_name) AS full_name
+            FROM 
+            tenant
+            ORDER BY 
+            full_name";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(room);
+                    }
+                }
+            }
+            return room;
+        }
     }
 }
