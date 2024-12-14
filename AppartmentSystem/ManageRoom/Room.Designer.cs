@@ -115,7 +115,6 @@
             // 
             // txt_tenant
             // 
-            this.txt_tenant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_tenant.Location = new System.Drawing.Point(107, 130);
             this.txt_tenant.Name = "txt_tenant";
             this.txt_tenant.Size = new System.Drawing.Size(100, 20);
