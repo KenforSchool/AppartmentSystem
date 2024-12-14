@@ -42,13 +42,13 @@ namespace AppartmentSystem
         private void frm_tenantProfile_Load(object sender, EventArgs e)
         {
             panel_tenantInfo.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, panel_tenantInfo.Width, panel_tenantInfo.Height, 30, 30));
+                (0, 0, panel_tenantInfo.Width, panel_tenantInfo.Height, 20, 20));
 
             btn_addManageTenant.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, btn_addManageTenant.Width, btn_addManageTenant.Height, 30, 30));
+                (0, 0, btn_addManageTenant.Width, btn_addManageTenant.Height, 20, 20));
 
             btn_cancelManageTenant.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, btn_cancelManageTenant.Width, btn_cancelManageTenant.Height, 30, 30));
+                (0, 0, btn_cancelManageTenant.Width, btn_cancelManageTenant.Height, 15, 15));
         }
 
         private void btn_addManageTenant_Click(object sender, EventArgs e)

@@ -232,10 +232,11 @@
             // 
             // btn_addManageTenant
             // 
-            this.btn_addManageTenant.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addManageTenant.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_addManageTenant.FlatAppearance.BorderSize = 0;
             this.btn_addManageTenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addManageTenant.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_addManageTenant.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_addManageTenant.Image = ((System.Drawing.Image)(resources.GetObject("btn_addManageTenant.Image")));
             this.btn_addManageTenant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_addManageTenant.Location = new System.Drawing.Point(645, 129);
@@ -248,7 +249,7 @@
             // 
             // btn_cancelManageTenant
             // 
-            this.btn_cancelManageTenant.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_cancelManageTenant.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_cancelManageTenant.FlatAppearance.BorderSize = 0;
             this.btn_cancelManageTenant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelManageTenant.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -145,6 +145,7 @@
             this.lbl_maintenanceRequestOutput.Size = new System.Drawing.Size(73, 13);
             this.lbl_maintenanceRequestOutput.TabIndex = 5;
             this.lbl_maintenanceRequestOutput.Text = "maint_request";
+            this.lbl_maintenanceRequestOutput.Visible = false;
             // 
             // lbl_InactiveRoomOutput
             // 
@@ -154,6 +155,7 @@
             this.lbl_InactiveRoomOutput.Size = new System.Drawing.Size(62, 13);
             this.lbl_InactiveRoomOutput.TabIndex = 4;
             this.lbl_InactiveRoomOutput.Text = "Inact Room";
+            this.lbl_InactiveRoomOutput.Visible = false;
             // 
             // lbl_ActiveRoomOutput
             // 
@@ -163,6 +165,7 @@
             this.lbl_ActiveRoomOutput.Size = new System.Drawing.Size(50, 13);
             this.lbl_ActiveRoomOutput.TabIndex = 3;
             this.lbl_ActiveRoomOutput.Text = "actRoom";
+            this.lbl_ActiveRoomOutput.Visible = false;
             this.lbl_ActiveRoomOutput.Click += new System.EventHandler(this.lbl_ActiveRoomOutput_Click);
             // 
             // lbl_MaintenanceRequest

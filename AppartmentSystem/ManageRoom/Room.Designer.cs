@@ -271,8 +271,7 @@
             // 
             // txt_RoomNo
             // 
-            this.txt_RoomNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_RoomNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_RoomNo.FormattingEnabled = true;
             this.txt_RoomNo.Location = new System.Drawing.Point(608, 128);
             this.txt_RoomNo.Margin = new System.Windows.Forms.Padding(4);

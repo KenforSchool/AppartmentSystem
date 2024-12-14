@@ -82,18 +82,17 @@
             // btn_historyLease
             // 
             this.btn_historyLease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_historyLease.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_historyLease.BackColor = System.Drawing.Color.MidnightBlue;
             this.btn_historyLease.FlatAppearance.BorderSize = 0;
             this.btn_historyLease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_historyLease.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_historyLease.Image = ((System.Drawing.Image)(resources.GetObject("btn_historyLease.Image")));
+            this.btn_historyLease.ForeColor = System.Drawing.Color.White;
             this.btn_historyLease.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_historyLease.Location = new System.Drawing.Point(873, 98);
             this.btn_historyLease.Name = "btn_historyLease";
             this.btn_historyLease.Size = new System.Drawing.Size(105, 46);
             this.btn_historyLease.TabIndex = 19;
             this.btn_historyLease.Text = " History";
-            this.btn_historyLease.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_historyLease.UseVisualStyleBackColor = false;
             this.btn_historyLease.Click += new System.EventHandler(this.btn_archiveLease_Click);
             // 
