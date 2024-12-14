@@ -138,7 +138,7 @@
             // 
             // btn_editRoomSave
             // 
-            this.btn_editRoomSave.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editRoomSave.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_editRoomSave.FlatAppearance.BorderSize = 0;
             this.btn_editRoomSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editRoomSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,7 +154,7 @@
             // 
             // btn_editRoomCancel
             // 
-            this.btn_editRoomCancel.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editRoomCancel.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_editRoomCancel.FlatAppearance.BorderSize = 0;
             this.btn_editRoomCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editRoomCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

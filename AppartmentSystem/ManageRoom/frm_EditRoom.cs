@@ -38,9 +38,9 @@ namespace AppartmentSystem.ManageRoom
 
         private void frm_EditRoom_Load(object sender, EventArgs e)
         {
-            btn_editRoomSave.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomSave.Width, btn_editRoomSave.Height, 30, 30));
+            btn_editRoomSave.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomSave.Width, btn_editRoomSave.Height, 15, 15));
             
-            btn_editRoomCancel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomCancel.Width, btn_editRoomCancel.Height, 30, 30));
+            btn_editRoomCancel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomCancel.Width, btn_editRoomCancel.Height, 15, 15));
         }
 
         public void setRoomDetails(string roomName, string tenantName, double rent)

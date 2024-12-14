@@ -33,7 +33,7 @@ namespace AppartmentSystem
         {
             InitializeComponent();
             panel_login.BackColor = Color.FromArgb(125, Color.Black);
-            lbl_Login.BackColor = Color.FromArgb(125, Color.Black);
+           
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
@@ -52,10 +52,10 @@ namespace AppartmentSystem
             this.Size = new Size(w, h);
 
             panel_login.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel_login.Width,
-            panel_login.Height, 30, 30));
+            panel_login.Height, 20, 20));
 
             btn_Login.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Login.Width,
-            btn_Login.Height, 30, 30));
+            btn_Login.Height, 15, 15));
 
 
         }

@@ -57,10 +57,13 @@ namespace AppartmentSystem
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
 
-            btn_AssignMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_AssignMaintenance.Width, btn_AssignMaintenance.Height, 30, 30));
-            btn_financialData.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_financialData.Width, btn_financialData.Height, 30, 30));
-            btn_manageLeases.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageLeases.Width, btn_manageLeases.Height, 30, 30));
-            btn_manageRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageRoom.Width, btn_manageRoom.Height, 30, 30));
+            btn_AssignMaintenance.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_AssignMaintenance.Width, btn_AssignMaintenance.Height, 15, 15));
+            btn_financialData.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_financialData.Width, btn_financialData.Height, 15, 15));
+            btn_manageLeases.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageLeases.Width, btn_manageLeases.Height, 15, 15));
+            btn_manageRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageRoom.Width, btn_manageRoom.Height, 15, 15));
+            btn_tenantProfile.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_tenantProfile.Width, btn_tenantProfile.Height, 15, 15));
+
+           
         }
 
         private void btn_manageRoom_Click(object sender, EventArgs e)

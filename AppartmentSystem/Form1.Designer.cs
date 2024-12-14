@@ -35,11 +35,11 @@
             this.lbl_password = new System.Windows.Forms.Label();
             this.txt_Username = new System.Windows.Forms.TextBox();
             this.txt_Password = new System.Windows.Forms.TextBox();
-            this.lbl_Login = new System.Windows.Forms.Label();
             this.panel_login = new System.Windows.Forms.Panel();
             this.cb_showPassword = new System.Windows.Forms.CheckBox();
             this.lbl_logo_admin_Signup = new System.Windows.Forms.Label();
             this.lbl_motto = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_login.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,20 +127,6 @@
             this.txt_Password.TabIndex = 5;
             this.txt_Password.UseSystemPasswordChar = true;
             // 
-            // lbl_Login
-            // 
-            this.lbl_Login.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_Login.BackColor = System.Drawing.Color.Gainsboro;
-            this.lbl_Login.Font = new System.Drawing.Font("Calisto MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Login.ForeColor = System.Drawing.Color.White;
-            this.lbl_Login.Location = new System.Drawing.Point(0, -2);
-            this.lbl_Login.Name = "lbl_Login";
-            this.lbl_Login.Size = new System.Drawing.Size(1011, 74);
-            this.lbl_Login.TabIndex = 6;
-            this.lbl_Login.Text = "Apartment Management System";
-            this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel_login
             // 
             this.panel_login.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -155,7 +141,7 @@
             this.panel_login.Controls.Add(this.btn_Login);
             this.panel_login.Controls.Add(this.txt_Username);
             this.panel_login.Controls.Add(this.btn_SignUp);
-            this.panel_login.Location = new System.Drawing.Point(536, 187);
+            this.panel_login.Location = new System.Drawing.Point(598, 139);
             this.panel_login.Name = "panel_login";
             this.panel_login.Size = new System.Drawing.Size(387, 515);
             this.panel_login.TabIndex = 7;
@@ -186,13 +172,23 @@
             // 
             this.lbl_motto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_motto.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_motto.ForeColor = System.Drawing.Color.White;
-            this.lbl_motto.Location = new System.Drawing.Point(64, 366);
+            this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_motto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.lbl_motto.Location = new System.Drawing.Point(135, 442);
             this.lbl_motto.Name = "lbl_motto";
-            this.lbl_motto.Size = new System.Drawing.Size(386, 169);
+            this.lbl_motto.Size = new System.Drawing.Size(271, 138);
             this.lbl_motto.TabIndex = 8;
             this.lbl_motto.Text = "You Live, We Provide";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(51, 301);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(425, 179);
+            this.label1.TabIndex = 9;
             // 
             // FrmLogin
             // 
@@ -203,7 +199,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.lbl_motto);
-            this.Controls.Add(this.lbl_Login);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel_login);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -226,11 +222,11 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.TextBox txt_Username;
         private System.Windows.Forms.TextBox txt_Password;
-        private System.Windows.Forms.Label lbl_Login;
         private System.Windows.Forms.Panel panel_login;
         private System.Windows.Forms.Label lbl_logo_admin_Signup;
         private System.Windows.Forms.CheckBox cb_showPassword;
         private System.Windows.Forms.Label lbl_motto;
+        private System.Windows.Forms.Label label1;
     }
 }
 

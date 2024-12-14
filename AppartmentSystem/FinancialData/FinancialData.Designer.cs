@@ -136,7 +136,7 @@
             // btn_fdAdd
             // 
             this.btn_fdAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fdAdd.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdAdd.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_fdAdd.FlatAppearance.BorderSize = 0;
             this.btn_fdAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,7 +164,7 @@
             // btn_fdDelete
             // 
             this.btn_fdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fdDelete.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdDelete.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_fdDelete.FlatAppearance.BorderSize = 0;
             this.btn_fdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdDelete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,7 +221,7 @@
             // btn_fdPaid
             // 
             this.btn_fdPaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_fdPaid.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_fdPaid.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_fdPaid.FlatAppearance.BorderSize = 0;
             this.btn_fdPaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fdPaid.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -139,13 +139,13 @@
             // btn_addMaintenance
             // 
             this.btn_addMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addMaintenance.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_addMaintenance.FlatAppearance.BorderSize = 0;
             this.btn_addMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenance.Image")));
             this.btn_addMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_addMaintenance.Location = new System.Drawing.Point(736, 60);
+            this.btn_addMaintenance.Location = new System.Drawing.Point(736, 79);
             this.btn_addMaintenance.Name = "btn_addMaintenance";
             this.btn_addMaintenance.Size = new System.Drawing.Size(105, 46);
             this.btn_addMaintenance.TabIndex = 9;
@@ -156,13 +156,13 @@
             // btn_editMaintenance
             // 
             this.btn_editMaintenance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_editMaintenance.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editMaintenance.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_editMaintenance.FlatAppearance.BorderSize = 0;
             this.btn_editMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editMaintenance.Image = ((System.Drawing.Image)(resources.GetObject("btn_editMaintenance.Image")));
             this.btn_editMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_editMaintenance.Location = new System.Drawing.Point(847, 60);
+            this.btn_editMaintenance.Location = new System.Drawing.Point(847, 79);
             this.btn_editMaintenance.Name = "btn_editMaintenance";
             this.btn_editMaintenance.Size = new System.Drawing.Size(105, 46);
             this.btn_editMaintenance.TabIndex = 10;
