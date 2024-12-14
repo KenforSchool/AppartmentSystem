@@ -45,7 +45,7 @@ namespace AppartmentSystem
                 (0, 0, panel_tenantInfo.Width, panel_tenantInfo.Height, 20, 20));
 
             btn_addManageTenant.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, btn_addManageTenant.Width, btn_addManageTenant.Height, 20, 20));
+                (0, 0, btn_addManageTenant.Width, btn_addManageTenant.Height, 15, 15));
 
             btn_cancelManageTenant.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btn_cancelManageTenant.Width, btn_cancelManageTenant.Height, 15, 15));

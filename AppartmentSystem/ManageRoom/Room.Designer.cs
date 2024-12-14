@@ -73,7 +73,7 @@
             // btn_addRoom
             // 
             this.btn_addRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addRoom.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addRoom.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_addRoom.FlatAppearance.BorderSize = 0;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,7 +164,7 @@
             // btn_editRoom
             // 
             this.btn_editRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_editRoom.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editRoom.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_editRoom.FlatAppearance.BorderSize = 0;
             this.btn_editRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,7 +181,7 @@
             // btn_deleteRoom
             // 
             this.btn_deleteRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_deleteRoom.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_deleteRoom.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_deleteRoom.FlatAppearance.BorderSize = 0;
             this.btn_deleteRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_deleteRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -253,7 +253,7 @@
             // btn_editRoomLog
             // 
             this.btn_editRoomLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_editRoomLog.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_editRoomLog.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btn_editRoomLog.FlatAppearance.BorderSize = 0;
             this.btn_editRoomLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editRoomLog.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

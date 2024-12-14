@@ -35,8 +35,10 @@ namespace AppartmentSystem.Maintenance
 
         private void frm_addMaintenance_Load(object sender, EventArgs e)
         {
-            btn_addmaintenanceSave.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addmaintenanceSave.Width, btn_addmaintenanceSave.Height, 30, 30));
-            btn_addMaintenanceInfo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addMaintenanceInfo.Width, btn_addMaintenanceInfo.Height, 30, 30));
+            btn_addmaintenanceSave.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, btn_addmaintenanceSave.Width, btn_addmaintenanceSave.Height, 15, 15));
+            btn_addMaintenanceInfo.Region = Region.FromHrgn(CreateRoundRectRgn
+                (0, 0, btn_addMaintenanceInfo.Width, btn_addMaintenanceInfo.Height, 15, 15));
         }
 
         private void btn_addmaintenanceSave_Click(object sender, EventArgs e)

@@ -73,7 +73,8 @@
             // btn_addMaintenanceInfo
             // 
             this.btn_addMaintenanceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addMaintenanceInfo.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addMaintenanceInfo.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_addMaintenanceInfo.FlatAppearance.BorderSize = 0;
             this.btn_addMaintenanceInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addMaintenanceInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addMaintenanceInfo.Image = ((System.Drawing.Image)(resources.GetObject("btn_addMaintenanceInfo.Image")));
@@ -89,7 +90,8 @@
             // btn_addmaintenanceSave
             // 
             this.btn_addmaintenanceSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addmaintenanceSave.BackColor = System.Drawing.Color.LightCyan;
+            this.btn_addmaintenanceSave.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btn_addmaintenanceSave.FlatAppearance.BorderSize = 0;
             this.btn_addmaintenanceSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addmaintenanceSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addmaintenanceSave.Image = ((System.Drawing.Image)(resources.GetObject("btn_addmaintenanceSave.Image")));
