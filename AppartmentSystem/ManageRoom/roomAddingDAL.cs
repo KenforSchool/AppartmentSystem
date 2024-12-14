@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -18,11 +19,11 @@ namespace AppartmentSystem.ManageRoom
         public roomAddingDAL(string connString)
         {
               connectionString = connString;
+             // WHERE CONCAT(last_name, ' ', first_name, ' ', middle_name) = @full_name;
         }
 
-        public bool addTenant(string fullName, string roomNum, DateTime moved_IN)
+        public bool AddTenant(string fullName, string roomNum, DateTime moved_IN, DateTime leaseEndDate)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -31,30 +32,46 @@ namespace AppartmentSystem.ManageRoom
                 UPDATE tenant
                 SET room_id = @room_id,
                 move_in = @move_in
-                WHERE CONCAT(last_name, ' ', first_name, ' ', middle_name) = @full_name;";
+                WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @full_name;";
 
-                try
+                string insertQuery = @"
+                INSERT INTO LeaseDetails (room_id, tenant_name, LeaseStartDate, LeaseEndDate)
+                VALUES (@room_id, @full_name, @LeaseStartDate, @LeaseEndDate);";
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    using (SqlCommand command = new SqlCommand(tenantUpdateQuery, connection))
+                    try
                     {
+                        using (SqlCommand command = new SqlCommand(tenantUpdateQuery, connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@room_id", roomNum);
+                            command.Parameters.AddWithValue("@move_in", moved_IN);
+                            command.Parameters.AddWithValue("@full_name", fullName);
+                            command.ExecuteNonQuery();
+                        }
 
-                        command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@move_in", moved_IN);
-                        command.Parameters.AddWithValue("@full_name", fullName);
+                        using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@room_id", roomNum);
+                            command.Parameters.AddWithValue("@full_name", fullName);
+                            command.Parameters.AddWithValue("@LeaseStartDate", moved_IN);
+                            command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
+                            command.ExecuteNonQuery();
+                        }
 
-                        int rowsAffected = command.ExecuteNonQuery();
-
-
-                        return rowsAffected > 0;
+                        transaction.Commit();
+                        return true;
                     }
-                }
-                catch (SqlException ex)
-                {
-                    return false;
-                }
-                catch (Exception ex)
-                {
-                    return false;
+                    catch (SqlException)
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
                 }
             }
         }
@@ -276,5 +293,54 @@ namespace AppartmentSystem.ManageRoom
 
             return editLogs;
         }
+
+        private void AddDataToLeaseDetails(DataGridView dataGridView)
+        {
+            // Define the connection string
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            // SQL query to insert data into LeaseDetails table
+            string insertQuery = @"
+            INSERT INTO LeaseDetails (room_id,tenant_name, LeaseStartDate, LeaseEndDate)
+            VALUES (@room_id, @tenant_name, @LeaseStartDate, @LeaseEndDate)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (DataGridViewRow row in dataGridView.Rows)
+                        {
+                            if (row.IsNewRow) continue;
+
+                            using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                            {
+                                // Replace these column names with the actual ones from your DataGridView
+                                command.Parameters.AddWithValue("@room_id", row.Cells["Room Number"].Value);
+                                command.Parameters.AddWithValue("@tenant_id", row.Cells["FullName"].Value);
+                                command.Parameters.AddWithValue("@LeaseStartDate", row.Cells["LeaseStartDate"].Value ?? DBNull.Value);
+                                command.Parameters.AddWithValue("@LeaseEndDate", row.Cells["LeaseEndDate"].Value ?? DBNull.Value);
+
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Commit the transaction after all rows are processed
+                        transaction.Commit();
+                        MessageBox.Show("Data added successfully to LeaseDetails table.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Rollback in case of any error
+                        transaction.Rollback();
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
     }
 }

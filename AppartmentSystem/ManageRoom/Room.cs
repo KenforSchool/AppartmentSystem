@@ -39,6 +39,7 @@ namespace AppartmentSystem
             InitializeComponent();
             LoadRoomComboBox();
             btn_editRoom.Enabled = false;
+
         }
 
         //pwede pang mabago
@@ -114,7 +115,7 @@ namespace AppartmentSystem
 
                 //eto yung kinuha yung process
                 bool success = add.AddRoom(roomNum,roomPrice);
-                bool tenant = add.addTenant(tenantName, roomNum, movedIn);
+                bool tenant = add.AddTenant(tenantName, roomNum, movedIn, moved_out);
 
                 if (success)
                 {
@@ -342,5 +343,6 @@ namespace AppartmentSystem
             frm_EditRoomLog editForm = new frm_EditRoomLog();
             editForm.Show();
         }
+
     }
 }

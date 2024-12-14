@@ -44,6 +44,7 @@
             this.panel_sample = new System.Windows.Forms.Panel();
             this.lbl_Header = new System.Windows.Forms.Label();
             this.lbl_infoml = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel_sample.SuspendLayout();
             this.SuspendLayout();
@@ -201,7 +202,7 @@
             this.panel_sample.Controls.Add(this.txtRoomBill);
             this.panel_sample.Location = new System.Drawing.Point(519, 10);
             this.panel_sample.Name = "panel_sample";
-            this.panel_sample.Size = new System.Drawing.Size(198, 50);
+            this.panel_sample.Size = new System.Drawing.Size(167, 65);
             this.panel_sample.TabIndex = 23;
             this.panel_sample.Visible = false;
             // 
@@ -226,6 +227,13 @@
             this.lbl_infoml.TabIndex = 25;
             this.lbl_infoml.Text = "It checks, renews, and view previous tenants";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(29, 100);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 26;
+            // 
             // ManageLease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +243,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_infoml);
             this.Controls.Add(this.lbl_Header);
             this.Controls.Add(this.btn_mlBack);
@@ -271,5 +280,6 @@
         private System.Windows.Forms.Panel panel_sample;
         private System.Windows.Forms.Label lbl_Header;
         private System.Windows.Forms.Label lbl_infoml;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

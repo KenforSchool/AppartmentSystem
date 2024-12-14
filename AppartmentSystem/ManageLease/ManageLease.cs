@@ -79,10 +79,9 @@ namespace AppartmentSystem
         private void LoadData()
         {
             var dataAccess = new LeaseRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            string room_id = lbl_roomNumberleaseOutput.Text;
             try
             {
-                DataTable data = dataAccess.GetTenantRoomId(room_id);
+                DataTable data = dataAccess.GetTenantRoomId();
 
                 if (data.Rows.Count > 0)
                 {
@@ -92,6 +91,7 @@ namespace AppartmentSystem
                 {
                     dataGridView1.DataSource = null;
                 }
+                
             }
             catch (Exception)
             { 
@@ -151,15 +151,18 @@ namespace AppartmentSystem
             this.Hide();
         }
 
+        private bool isButtonEnabled = true;
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+ 
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LeaseRepository lease = new LeaseRepository(connectionString);
 
             int renewButtonColumnIndex = dataGridView1.Columns["RenewButton"].Index;
             int leaveButtonColumnIndex = dataGridView1.Columns["LeaveButton"].Index;
 
-            int leaseId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
+            long leaseId = Convert.ToInt64(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
             string roomNumber = dataGridView1.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
             string tenantName = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
             string status = e.ColumnIndex == renewButtonColumnIndex ? "Renewed" : "Left";
@@ -167,42 +170,47 @@ namespace AppartmentSystem
 
             if (e.RowIndex >= 0)
             {
-                if (!lease.CanPerformActionToday(leaseId))
+                if (e.ColumnIndex == renewButtonColumnIndex && isButtonEnabled)
                 {
-                    return;
-                }
+                    isButtonEnabled = false;                                   
 
-                if (e.ColumnIndex == renewButtonColumnIndex)
-                {
-
-                    if (lease.RenewLease(leaseId, dateNow))
+                    if (lease.RenewLease(leaseId, roomNumber, dateNow))
                     {
+
                         if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
                         {
-                            MessageBox.Show("Lease renewed successfully!");
-                            LoadData();
-                            
+                            var timer = new System.Windows.Forms.Timer();
+                            timer.Interval = 10000;
+                            timer.Tick += (s, args) =>
+                            {
+                                isButtonEnabled = true;
+                                timer.Stop();
+                                timer.Dispose();
+                            };
+                            timer.Start();
                         }
+                        MessageBox.Show("Lease renewed successfully!");
+                        LoadData();
                     }
                     else
                     {
                         MessageBox.Show("Error has encountered, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                else if (e.ColumnIndex == leaveButtonColumnIndex)
+
+                if (e.ColumnIndex == leaveButtonColumnIndex)
                 {
-                    if (lease.TenantLeft(leaseId))
-                    {
-                        if (lease.AddToHistory(leaseId, tenantName, status, dateNow))
+
+                   if (lease.MoveOutTenant(leaseId, roomNumber))
+                      {
+
+                        if (lease.LeftInHistory(tenantName))
                         {
+
+                        }
                             MessageBox.Show("Tenant left the apartment!");
                             LoadData();
-                            
-                        }
-                    }
-                    else
-                    {
-                    }
+                      }                                               
                 }
             }
         }

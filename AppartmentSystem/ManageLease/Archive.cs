@@ -34,7 +34,8 @@ namespace AppartmentSystem.ManageRoom
 
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            string query = @"SELECT 
+            string query = @"
+            SELECT 
             history_id AS 'History ID',
             tenant_name AS 'Name',
             action_date AS 'Date',
