@@ -116,7 +116,7 @@
             // txt_tenant
             // 
             this.txt_tenant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_tenant.Location = new System.Drawing.Point(594, 127);
+            this.txt_tenant.Location = new System.Drawing.Point(107, 130);
             this.txt_tenant.Name = "txt_tenant";
             this.txt_tenant.Size = new System.Drawing.Size(100, 20);
             this.txt_tenant.TabIndex = 5;
@@ -274,7 +274,7 @@
             this.txt_RoomNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_RoomNo.FormattingEnabled = true;
-            this.txt_RoomNo.Location = new System.Drawing.Point(56, 105);
+            this.txt_RoomNo.Location = new System.Drawing.Point(608, 128);
             this.txt_RoomNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_RoomNo.Name = "txt_RoomNo";
             this.txt_RoomNo.Size = new System.Drawing.Size(72, 21);

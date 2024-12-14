@@ -77,15 +77,16 @@ namespace AppartmentSystem
         private void btn_Update_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
             string query = @"
-               SELECT
-                r.room_id AS 'Room Number',
-                r.room_price AS 'Rent',
-                CONCAT(t.first_name, ' ', t.middle_name, ' ', t.last_name) AS 'Name',
-                t.move_in AS 'Move In'
-                FROM room r
-                LEFT JOIN tenant t
-                ON r.room_id = t.room_id";
+            SELECT
+            t.tenant_id,
+            CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
+            r.room_id,
+            r.room_price,
+            t.move_in
+            FROM room r
+            LEFT JOIN tenant t ON r.room_id = t.room_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

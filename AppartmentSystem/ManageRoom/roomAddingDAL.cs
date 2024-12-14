@@ -144,8 +144,8 @@ namespace AppartmentSystem.ManageRoom
             r.room_id,
             r.room_price,
             t.move_in
-            FROM tenant t
-            LEFT JOIN room r ON t.room_id = r.room_id";
+            FROM room r
+            LEFT JOIN tenant t ON r.room_id = t.room_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
