@@ -61,10 +61,15 @@ namespace AppartmentSystem.Maintenance
                     lbl_infoOutput.Text = "No data available.";
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception)
+            {              
+
             }
+        }
+
+        private void btn_backDesc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,8 +24,8 @@ namespace AppartmentSystem
             string query = @"
             SELECT
             t.tenant_id AS 'ID',
-            t.tenant_name AS 'Name',
-            t.room_id 'Room Number',
+            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS full_name,
+            t.room_id AS 'Room Number',
             SUM(ISNULL(m.Amount, 0)) AS 'Maintenance Cost',
             r.room_price AS 'Room Price'
             FROM
@@ -36,11 +36,13 @@ namespace AppartmentSystem
             room r ON t.room_id = r.room_id
             GROUP BY
             t.tenant_id, 
-            t.tenant_name, 
+            t.last_name, 
+            t.first_name, 
+            t.middle_name, 
             t.room_id, 
             r.room_price
             ORDER BY   
-            t.tenant_name";
+            t.tenant_id;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -108,7 +108,7 @@ namespace AppartmentSystem
             return room;
         }
 
-        public string getDescription(int leaseId)
+        public string GetDescription(int leaseId)
         {
             string description = string.Empty;
 
@@ -127,7 +127,7 @@ namespace AppartmentSystem
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ExpenseID", leaseId);
-                        
+
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
@@ -138,8 +138,9 @@ namespace AppartmentSystem
                     }
                 }
             }
-            catch (Exception)
-            {
+            catch (Exception )
+            {   
+
             }
 
             return description;

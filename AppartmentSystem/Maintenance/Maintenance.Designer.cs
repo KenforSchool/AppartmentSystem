@@ -168,6 +168,7 @@
             this.btn_editMaintenance.TabIndex = 10;
             this.btn_editMaintenance.Text = "     Edit";
             this.btn_editMaintenance.UseVisualStyleBackColor = false;
+            this.btn_editMaintenance.Click += new System.EventHandler(this.btn_editMaintenance_Click);
             // 
             // btn_updateMaintenance
             // 

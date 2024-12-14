@@ -113,17 +113,26 @@ namespace AppartmentSystem
                 {
                     try
                     {
-                        string description = maintenance.getDescription(leaseId);
+                        string description = maintenance.GetDescription(leaseId);
 
                         if (!string.IsNullOrWhiteSpace(description))
                         {
+                        MessageBox.Show($"Description: {description}", "Lease Description", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                    }
+
+
+                }
                     catch (Exception)
                     {
+
                     }
                 }
             
+        }
+
+        private void btn_editMaintenance_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

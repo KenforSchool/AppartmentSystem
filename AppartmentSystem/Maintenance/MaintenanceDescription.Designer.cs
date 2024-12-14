@@ -64,6 +64,7 @@
             this.btn_backDesc.Size = new System.Drawing.Size(40, 35);
             this.btn_backDesc.TabIndex = 2;
             this.btn_backDesc.UseVisualStyleBackColor = true;
+            this.btn_backDesc.Click += new System.EventHandler(this.btn_backDesc_Click);
             // 
             // lbl_subheader
             // 
