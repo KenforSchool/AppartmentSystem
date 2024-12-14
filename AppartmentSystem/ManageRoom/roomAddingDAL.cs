@@ -97,7 +97,7 @@ namespace AppartmentSystem.ManageRoom
 
         public bool DeleteRoom(string roomId)
         {
-            string query = "DELETE FROM tenant WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
+            string query = "DELETE FROM room WHERE room_id = @room_id";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -122,10 +122,7 @@ namespace AppartmentSystem.ManageRoom
         public bool EditRoom(string roomId, string tenantName, double room_price)
         {
             string roomQuery = "UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
-            string tenantQuery = @"
-            UPDATE tenant
-            SET tenant_name = @tenantName
-            WHERE room_id IN (SELECT room_id FROM room WHERE room_id = @room_id)";
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -142,12 +139,7 @@ namespace AppartmentSystem.ManageRoom
                         roomCommand.ExecuteNonQuery();
                     }
 
-                    using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, connection, transaction))
-                    {
-                        tenantCommand.Parameters.AddWithValue("@room_id",roomId);
-                        tenantCommand.Parameters.AddWithValue("@tenantName",tenantName);
-                        tenantCommand.ExecuteNonQuery();
-                    }
+                    
 
                     transaction.Commit();
                     return true;
@@ -167,11 +159,10 @@ namespace AppartmentSystem.ManageRoom
 
             string query = @"
             SELECT
-            t.tenant_id,
+            r.room_id as 'Room Number',
             CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
-            r.room_id,
-            r.room_price,
-            t.move_in
+            r.room_price as 'Rent',
+            t.move_in as 'Move in'
             FROM room r
             LEFT JOIN tenant t ON r.room_id = t.room_id";
 

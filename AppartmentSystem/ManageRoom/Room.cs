@@ -80,11 +80,10 @@ namespace AppartmentSystem
 
             string query = @"
             SELECT
-            t.tenant_id,
+            r.room_id as 'Room Number',
             CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
-            r.room_id,
-            r.room_price,
-            t.move_in
+            r.room_price as 'Rent',
+            t.move_in as 'Move in'
             FROM room r
             LEFT JOIN tenant t ON r.room_id = t.room_id";
 
@@ -160,7 +159,7 @@ namespace AppartmentSystem
                 return;
             }
 
-            string roomId = dg_ManageRoom.SelectedRows[0].Cells[0].Value.ToString();
+            string roomId = dg_ManageRoom.SelectedRows[0].Cells["Room Number"].Value.ToString();
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -287,11 +286,6 @@ namespace AppartmentSystem
                 e.Handled = true;
             }
 
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
             if (char.IsPunctuation(e.KeyChar))
             {
                 e.Handled= true;
@@ -318,7 +312,7 @@ namespace AppartmentSystem
             {
 
                 string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["Room Number"].Value.ToString();
-                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["Name"].Value.ToString();
+                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["FullName"].Value.ToString();
                 double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[rowIndex].Cells["Rent"].Value);
 
                 frm_EditRoom editForm = new frm_EditRoom();
